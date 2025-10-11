@@ -1,12 +1,12 @@
 using System.Reflection;
 public struct CharacterStats
 {
-    int health;
-    int defence;
     int strength;
-    int intelligence;
-    int agility;
+    int dexterity;
+    int constitution;
     int charisma;
+    int magic;
+    int karma;
     // Return true if every number in this is more than every number in other.
     public static bool operator>(CharacterStats _this, CharacterStats other)
     {
@@ -27,5 +27,25 @@ public struct CharacterStats
                 return false;
         }
         return true;
+    }
+    public static CharacterStats operator -(CharacterStats _this, CharacterStats other)
+    {
+        CharacterStats curr = new CharacterStats();
+		FieldInfo[] fields = _this.GetType().GetFields();
+        foreach(FieldInfo field in fields)
+        {
+            field.SetValue(curr, (int)field.GetValue(_this) - (int)field.GetValue(other));
+		}
+        return curr;
+    }
+    public static CharacterStats operator +(CharacterStats _this, CharacterStats other)
+    {
+        CharacterStats curr = new CharacterStats();
+		FieldInfo[] fields = _this.GetType().GetFields();
+        foreach(FieldInfo field in fields)
+        {
+            field.SetValue(curr, (int)field.GetValue(_this) + (int)field.GetValue(other));
+		}
+        return curr;
     }
 }
