@@ -1,0 +1,268 @@
+{
+    "events": [
+{
+    "id": "Root",
+    "requirements":
+    {
+        "strength": 0,
+        "dexterity": 0,
+        "constitution": 0,
+        "charisma": 0,
+        "magic": 0,
+        "karma": 0
+    },
+    "successAttributes":
+    {
+        "strength": 0,
+        "dexterity": 0,
+        "constitution": 0,
+        "charisma": 0,
+        "magic": 0,
+        "karma": 0
+    },
+    "onSuccess":
+    {
+        "displayText": "This story is set in a fantasy world, where Angels live amongst men. The angels are described as magical beings of great power, as humanoids with dark horns and pure white wings. Since the beginning, they ruled over humanity with an iron fist, subjugating them to their will. The humans, in turn, worshipped them, and that was the way of things for a very long time.\n\nBut once, an Angel was born without horns or wings. Externally, it was indistinguishable from a human child. This flaw was deemed unacceptable for the Angels; it was cast out of its birthplace, and left to fend for itself in the wilds.\n\nHe was named Lupus, and this is where his story begins.",
+        "modifyAttributes":
+        {
+            "strength": 0,
+            "dexterity": 0,
+            "constitution": 0,
+            "charisma": 0,
+            "magic": 0,
+            "karma": 0
+        },
+        "choices": [
+            "Lupus was raised by villagers",
+            "Lupus was raised by royalty",
+            "Lupus was raised by wolves"
+            ]
+    },
+    "onFailure":
+    {
+        "displayText": "none",
+        "modifyAttributes":
+        {
+            "strength": 0,
+            "dexterity": 0,
+            "constitution": 0,
+            "charisma": 0,
+            "magic": 0,
+            "karma": 0
+        },
+        "choices": [
+            ]
+    }
+},
+{
+    "id": "Lupus was raised by wolves",
+    "requirements":
+    {
+        "strength": 0,
+        "dexterity": 0,
+        "constitution": 0,
+        "charisma": 0,
+        "magic": 0,
+        "karma": 0
+    },
+    "successAttributes":
+    {
+        "strength": 0,
+        "dexterity": 0,
+        "constitution": 0,
+        "charisma": 0,
+        "magic": 0,
+        "karma": 0
+    },
+    "onSuccess":
+    {
+        "displayText": "With no one to look after him but himself, Lupus grew up alone in the forests of Lyndale, amongst wild animals. In such a harsh environment, he could only survive by using his latent angelic powers to their fullest extent, using magic to strengthen his body and heal his wounds. However, without someone to mentor him in the ways of the arcane, his control of magic was crude at best.\n\nOne day, Lupus was found by hunters from the nearby kingdom of Aphelia. Like many other kingdoms, Aphelia worshipped the Angels as deities, and would submit to their will without question. Lupus, however, was not an Angel to them. After all, Angels were supposed to have horns and wings! All the hunters saw was a feral boy with unusual magic powers.\n\nIn an attempt to bring Lupus back to the kingdom for scientific study, the hunters chased him through the forest for days on end. This chase eventually led them into the territory of a fearsome predator: the three-headed, fire-breathing Chimera. As the hunters were being attacked, they let out a cry for help.",
+        "modifyAttributes":
+        {
+            "strength": 0,
+            "dexterity": 0,
+            "constitution": 0,
+            "charisma": 0,
+            "magic": 0,
+            "karma": 0
+        },
+        "choices": [
+            "Lupus helps the hunters",
+            "Lupus leaves the hunters to fend for themselves"
+            ]
+    },
+    "onFailure":
+    {
+        "displayText": "",
+        "modifyAttributes":
+        {
+            "strength": 0,
+            "dexterity": 0,
+            "constitution": 0,
+            "charisma": 0,
+            "magic": 0,
+            "karma": 0
+        },
+        "choices": [
+            ]
+    }
+},
+{
+    "id": "Lupus helps the hunters",
+    "requirements":
+    {
+        "strength": 0,
+        "dexterity": 0,
+        "constitution": 0,
+        "charisma": 0,
+        "magic": 0,
+        "karma": 0
+    },
+    "successAttributes":
+    {
+        "strength": 0,
+        "dexterity": 0,
+        "constitution": 0,
+        "charisma": 0,
+        "magic": 0,
+        "karma": 0
+    },
+    "onSuccess":
+    {
+        "displayText": "Lupus springs forth from behind cover, surprising the Chimera. Using his magical powers to enhance his strength, he rips off the Chimera’s tail, causing it to back away and retreat. The hunters, having seen such a terrifying display of force, agreed that they would not pursue Lupus any further. Shortly afterwards, an Aphelion knight who was patrolling the forest nearby caught wind of the battle and approached the group, introducing herself by the name of Ixia. Although communication was difficult, Ixia expressed that she wanted to bring Lupus to Granich, the royal capital of the kingdom of Aphelia.",
+        "modifyAttributes":
+        {
+            "strength": 0,
+            "dexterity": 0,
+            "constitution": 0,
+            "charisma": 0,
+            "magic": 0,
+            "karma": 1
+        },
+        "choices": [
+            "Lupus follows Ixia",
+            "Lupus refuses to follow Ixia"
+            ]
+    },
+    "onFailure":
+    {
+        "displayText": "",
+        "modifyAttributes":
+        {
+            "strength": 0,
+            "dexterity": 0,
+            "constitution": 0,
+            "charisma": 0,
+            "magic": 0,
+            "karma": 0
+        },
+        "choices": [
+            ]
+    }
+},
+{
+    "id": "Lupus leaves the hunters to fend for themselves",
+    "requirements":
+    {
+        "strength": 0,
+        "dexterity": 0,
+        "constitution": 0,
+        "charisma": 0,
+        "magic": 0,
+        "karma": 0
+    },
+    "successAttributes":
+    {
+        "strength": 0,
+        "dexterity": 0,
+        "constitution": 0,
+        "charisma": 0,
+        "magic": 0,
+        "karma": 0
+    },
+    "onSuccess":
+    {
+        "displayText": "Lupus vanished into the depths of the forest, leaving the hunters to deal with the Chimera by themselves. As he ran deeper into the wilds, the sounds of fire and battle faded away behind him. Soon enough, only silence remained.\n\nUnbeknownst to him, however, the hunters would be saved by an Aphelion knight who was patrolling the forest that day. Days later, this knight would track Lupus down, introducing herself by the name of Ixia. Lupus would try to evade her grasp, but his underdeveloped magical powers were no match for a knight's professional training. After capturing Lupus, Ixia was determined to bring him to Granich, the royal capital of the kingdom of Aphelia. This long journey would take at least two whole months, during which, Lupus learns some rudimentary language skills from his captors.\n\nHowever, just before the escort could reach Granich, they were attacked by a Gryphon, an aggressive magical beast with the body of a lion, and the head and wings of an eagle. During this attack, the Gryphon killed all of the escorting men, gravely wounded Ixia, and tore a large hole in the cage where Lupus was held.",
+        "modifyAttributes":
+        {
+            "strength": 0,
+            "dexterity": 0,
+            "constitution": 0,
+            "charisma": 0,
+            "magic": 0,
+            "karma": 0
+        },
+        "choices": [
+            "Lupus fights the Gryphon",
+            "Lupus uses the opportunity to escape"
+            ]
+    },
+    "onFailure":
+    {
+        "displayText": "",
+        "modifyAttributes":
+        {
+            "strength": 0,
+            "dexterity": 0,
+            "constitution": 0,
+            "charisma": 0,
+            "magic": 0,
+            "karma": 0
+        },
+        "choices": [
+            ]
+    }
+},
+{
+    "id": "Lupus uses the opportunity to escape",
+    "requirements":
+    {
+        "strength": 0,
+        "dexterity": 0,
+        "constitution": 0,
+        "charisma": 0,
+        "magic": 0,
+        "karma": 0
+    },
+    "successAttributes":
+    {
+        "strength": 0,
+        "dexterity": 0,
+        "constitution": 0,
+        "charisma": 0,
+        "magic": 0,
+        "karma": 0
+    },
+    "onSuccess":
+    {
+        "displayText": "Lupus sneaks away from the Gryphon, leaving the gruesome scene behind and escaping into the wilderness. He was never seen again. Some say that a feral man could be spotted roaming the forests around Granich at night, a carefree spirit who never wanted to be involved in mortal affairs.",
+        "modifyAttributes":
+        {
+            "strength": 0,
+            "dexterity": 0,
+            "constitution": 0,
+            "charisma": 0,
+            "magic": 0,
+            "karma": 0
+        },
+        "choices": [
+            ]
+    },
+    "onFailure":
+    {
+        "displayText": "",
+        "modifyAttributes":
+        {
+            "strength": 0,
+            "dexterity": 0,
+            "constitution": 0,
+            "charisma": 0,
+            "magic": 0,
+            "karma": 0
+        },
+        "choices": [
+            ]
+    }
+}
+]
+}

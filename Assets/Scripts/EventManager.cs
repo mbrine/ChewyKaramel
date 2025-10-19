@@ -4,17 +4,20 @@ using System.Collections.Generic;
 using System.IO;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.UI;
 
+[System.Serializable]
 public struct Outcome
 {
     // The texts to display. Keeps showing one line at a time until the last is reached, then shows the choices.
-    public List<string> displayText;
+    public string displayText;
     public CharacterStats modifyAttributes;
 
     // IDs of available choices
     public List<string> choices;
 }
 
+[System.Serializable]
 public class Event
 {
     // The ID of the event
@@ -32,30 +35,13 @@ public class Event
     // If below the requirements
     public Outcome onFailure;
 }
-
-public class Choice
-{
-    // The ID of the choice
-    public string id;
-
-    // WHat event the story moves to from this choice.
-    public string targetEventID;
-
-    // What the button says. (ie. "Kick down the door")
-    public string displayText;
-
-    // What gets written to the storyline. (ie. "You kicked the door down.")
-    public string outputText;
-}
-
+[System.Serializable]
 public struct EventContainer
 {
     public List<Event> events;
-    public List<Choice> choices;
     public EventContainer(int i = 0)
     {
         events = new List<Event>();
-		choices = new List<Choice>();
     }
 }
 
@@ -64,13 +50,13 @@ public class EventManager : MonoBehaviour
     // Unity side references, etc
     public GameObject textObjectReference;
     public GameObject choiceButtonReference;
+	public Scrollbar sliderReference;
+    public ContentSizeFitter contentSizeFitter;
 
-    public Transform textWindow;
+	public Transform textWindow;
     public Transform choicesWindow;
 
-
     public Dictionary<string, Event> eventsDictionary;
-    public Dictionary<string, Choice> choicesDictionary;
 
     public CharacterStats characterStats;
 
@@ -82,16 +68,36 @@ public class EventManager : MonoBehaviour
     // THe FileStream for outputting the story.
     private FileStream storyFileStream;
 
-	// This is set to 0 whenever a new event is selected an incremented when UpdateStoryDisplay() is called
-    // When it hits the amount of entries in the Outcome, the choices will be displayed.
-	private int outcomeLineIndex;
-
     private int wordCount;
+
+    public TextDisplayer textDisplayer;
+    private bool wasStoryUpdated;
 
 	private void Start()
 	{
         LoadEvents();
         StartNewStory();
+    }
+
+    private void Update()
+    {
+        if (textDisplayer.textDisplaying)
+        {
+            contentSizeFitter.enabled = false;
+        }
+    }
+
+    private void LateUpdate()
+    {
+        if (textDisplayer.textDisplaying)
+        {
+            contentSizeFitter.enabled = true;
+            sliderReference.value = 0;
+        }
+        //if (wasStoryUpdated && !textDisplayer.textDisplaying)
+        //{
+        //    wasStoryUpdated = false;
+        //}
     }
 
 	public void SaveEvents()
@@ -104,16 +110,12 @@ public class EventManager : MonoBehaviour
         {
             container.events.Add(kvp.Value);
         }
-        foreach(var kvp in choicesDictionary)
-        {
-            container.choices.Add(kvp.Value);
-        }
 
         // Create the json string
         string json = JsonUtility.ToJson(container, true);
 
         // Open file
-        FileStream fileStream = new FileStream(Application.streamingAssetsPath+ "/events.json",FileMode.OpenOrCreate);
+        FileStream fileStream = new FileStream(Application.streamingAssetsPath+ "/Events.json",FileMode.OpenOrCreate);
 
         // Write the data!
         using (StreamWriter writer = new StreamWriter(fileStream))
@@ -130,7 +132,7 @@ public class EventManager : MonoBehaviour
         eventsDictionary = new Dictionary<string, Event>();
 
 		// Open file
-		FileStream fileStream = new FileStream(Application.streamingAssetsPath + "/events.json", FileMode.OpenOrCreate);
+		FileStream fileStream = new FileStream(Application.streamingAssetsPath + "/Events.json", FileMode.OpenOrCreate);
 
 		// Read the data!
 		using (StreamReader reader = new StreamReader(fileStream))
@@ -155,24 +157,25 @@ public class EventManager : MonoBehaviour
     public void StartNewStory()
     {
         // Close the fileStream if it's open
-        storyFileStream.Close();
+        storyFileStream?.Close();
 
-        // Open a new FileStream
-        storyFileStream = new FileStream(Application.persistentDataPath + "/Stories/" + DateTime.Now.ToString(), FileMode.OpenOrCreate);
+        // Directory sanity
+        if(!Directory.Exists(Application.persistentDataPath + "/Stories"))
+            Directory.CreateDirectory(Application.persistentDataPath + "/Stories");
+
+		// Open a new FileStream
+		storyFileStream = new FileStream($"{Application.persistentDataPath}/Stories/STORY.txt", FileMode.OpenOrCreate);
 
 		// Reset the text and choice windows
-		foreach (Transform child in textWindow)
-		{
-			Destroy(child.gameObject);
-		}
+        textDisplayer.ResetText();
 		foreach (Transform child in choicesWindow)
 		{
 			Destroy(child.gameObject);
 		}
 
-		// Change to the "initial" event
+		// Change to the "Root" event
 		// We can do random logic here as well if we want different start states, all up to the writers ofc
-		MoveToEvent("init");
+		MoveToEvent("Root");
     }
 
     // Writes lines to the file.
@@ -196,10 +199,9 @@ public class EventManager : MonoBehaviour
         }
     }
 
-    public void SelectChoice(Choice choice)
+    public void SelectChoice(string choiceID)
     {
-        WriteToFile(choice.outputText);
-        MoveToEvent(choice.targetEventID);
+        MoveToEvent(choiceID);
     }
 
     public void MoveToEvent(string eventID)
@@ -234,50 +236,55 @@ public class EventManager : MonoBehaviour
             currentOutcome = currentEvent.onFailure;
         }
 
-        // Reset the line index
-        outcomeLineIndex = 0;
-        
+        // Update character stats
+        characterStats += currentOutcome.modifyAttributes;
+
         // Update the story display
         UpdateStoryDisplay();
     }
 
     public void UpdateStoryDisplay()
     {
-        if (outcomeLineIndex == currentOutcome.displayText.Count)
+        // Create a new text object and set the text, then set parent
+        //GameObject newText = Instantiate(textObjectReference,textWindow);
+        //newText.GetComponent<TextDisplayer>().text = currentOutcome.displayText;
+        //newText.GetComponent<TextDisplayer>().eventManager = this;
+        //newText.transform.SetParent(textWindow);
+        //
+        //textDisplayer = newText.GetComponent<TextDisplayer>();
+        textDisplayer.text += currentOutcome.displayText+"\n\n";
+		wasStoryUpdated = true;
+    }
+    
+    public void ShowChoices()
+    {
+        // If no choices, show a "Restart game?" button instead
+        if(currentOutcome.choices.Count==0)
         {
-            // Hide the "click anywhere button"
+			// Instantiate the choice button
+			GameObject newChoiceObject = Instantiate(choiceButtonReference);
 
+			ChoiceContainer choiceContainer = newChoiceObject.GetComponent<ChoiceContainer>();
+			choiceContainer.eventManagerReference = this;
+			choiceContainer.storedChoice = "_RESTART";
 
-            // Show the available options
-            foreach(string choiceID in currentOutcome.choices)
-            {
-                if(!choicesDictionary.ContainsKey(choiceID))
-                {
-                    Debug.LogError($"No choice with ID {choiceID} found!");
-                    continue;
-                }
-                Choice choice = choicesDictionary[choiceID];
+			newChoiceObject.transform.SetParent(choicesWindow);
 
-                // Instantiate the choice button
-                GameObject newChoiceObject = Instantiate(choiceButtonReference);
-
-                ChoiceContainer choiceContainer = newChoiceObject.GetComponent<ChoiceContainer>();
-                choiceContainer.storedChoice = choice;
-                choiceContainer.eventManagerReference = this;
-
-                newChoiceObject.transform.SetParent(choicesWindow);
-			}
-
-            ++outcomeLineIndex;
+			return;
         }
-        else if (outcomeLineIndex < currentOutcome.displayText.Count)
+
+        // Create the choice buttons
+        foreach (string choiceID in currentOutcome.choices)
         {
-            // Create a new text object and set the text, then set parent
-            GameObject newText = Instantiate(textObjectReference);
-            newText.GetComponent<TMPro.TextMeshProUGUI>().text = currentOutcome.displayText[outcomeLineIndex];
-            newText.transform.SetParent(textWindow);
+            // Instantiate the choice button
+            GameObject newChoiceObject = Instantiate(choiceButtonReference);
 
-            ++outcomeLineIndex;
+            ChoiceContainer choiceContainer = newChoiceObject.GetComponent<ChoiceContainer>();
+            choiceContainer.eventManagerReference = this;
+            choiceContainer.storedChoice = choiceID;
+
+            newChoiceObject.transform.SetParent(choicesWindow);
         }
-    }    
+
+    }
 }
