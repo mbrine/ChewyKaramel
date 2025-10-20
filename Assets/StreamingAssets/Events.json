@@ -79,7 +79,7 @@
         "displayText": "With no one to look after him but himself, Lupus grew up alone in the forests of Lyndale, amongst wild animals. In such a harsh environment, he could only survive by using his latent angelic powers to their fullest extent, using magic to strengthen his body and heal his wounds. However, without someone to mentor him in the ways of the arcane, his control of magic was crude at best.\n\nOne day, Lupus was found by hunters from the nearby kingdom of Aphelia. Like many other kingdoms, Aphelia worshipped the Angels as deities, and would submit to their will without question. Lupus, however, was not an Angel to them. After all, Angels were supposed to have horns and wings! All the hunters saw was a feral boy with unusual magic powers.\n\nIn an attempt to bring Lupus back to the kingdom for scientific study, the hunters chased him through the forest for days on end. This chase eventually led them into the territory of a fearsome predator: the three-headed, fire-breathing Chimera. As the hunters were being attacked, they let out a cry for help.",
         "modifyAttributes":
         {
-            "strength": 0,
+            "strength": 1000,
             "dexterity": 0,
             "constitution": 0,
             "charisma": 0,

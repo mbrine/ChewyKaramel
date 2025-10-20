@@ -9,7 +9,18 @@ using UnityEngine.UI;
 
 public class StatsEditor : MonoBehaviour
 {
-	public CharacterStats stats { get; private set; }
+	public CharacterStats stats { 
+		get 
+		{
+			return _stats;
+		}
+		set
+		{
+			_stats=value;
+			UpdateValues();
+		}
+	}
+	private CharacterStats _stats;
 
 	private static GameObject sliderReference
 	{
@@ -21,19 +32,39 @@ public class StatsEditor : MonoBehaviour
 			return _sliderReference;
 		}
 	}
-	private static GameObject _sliderReference;
+	private static GameObject _sliderReference = null;
+
+	public bool editable
+	{
+		get
+		{
+			return _editable;
+		}
+		set
+		{
+			_editable = value;
+			foreach (TMPro.TMP_InputField statsInput in statsInputs)
+			{
+				statsInput.interactable = _editable;
+			}
+		}
+	}
+	public bool _editable;
 
 	public List<TMPro.TMP_InputField> statsInputs;
 
 	private void Awake()
 	{
-		FieldInfo[] fields = stats.GetType().GetFields();
+		FieldInfo[] fields = stats.GetType().GetFields(BindingFlags.Public | BindingFlags.NonPublic | BindingFlags.Instance);
 
 		// Init all the sliders
 		foreach (FieldInfo field in fields)
 		{
 			GameObject newInput = Instantiate(sliderReference);
-			var inputField = newInput.GetComponent<TMPro.TMP_InputField>();
+
+			newInput.GetComponent<TMPro.TextMeshProUGUI>().text = field.Name.ToUpper();
+
+			var inputField = newInput.GetComponentInChildren<TMPro.TMP_InputField>();
 
 			inputField.contentType = TMP_InputField.ContentType.IntegerNumber;
 
@@ -45,16 +76,32 @@ public class StatsEditor : MonoBehaviour
 
 			newInput.transform.parent = transform;
 		}
+		stats = new CharacterStats();
+
+		editable = _editable;
 	}
 
-	void UpdateStats()
+	public void UpdateStats()
 	{
-		FieldInfo[] fields = stats.GetType().GetFields();
+		FieldInfo[] fields = _stats.GetType().GetFields(BindingFlags.Public | BindingFlags.NonPublic | BindingFlags.Instance);
+
+		object boxed = _stats;
+		// Update the values in the stats object
+		for (int i = 0; i < fields.Length; i++)
+		{
+			fields[i].SetValue(boxed, int.Parse(statsInputs[i].text));
+		}
+		_stats = (CharacterStats)boxed;
+	}
+
+	public void UpdateValues()
+	{
+		FieldInfo[] fields = _stats.GetType().GetFields(BindingFlags.Public | BindingFlags.NonPublic | BindingFlags.Instance);
 
 		// Update the values in the stats object
 		for (int i = 0; i < fields.Length; i++)
 		{
-			fields[i].SetValue(stats, int.Parse(statsInputs[i].text));
+			statsInputs[i].text = fields[i].GetValue(_stats).ToString();
 		}
 	}
 }

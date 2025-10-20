@@ -65,6 +65,9 @@ public class EventManager : MonoBehaviour
     public Event currentEvent;
     public Outcome currentOutcome;
 
+    // Stats
+    public StatsEditor statsEditor;
+
     // THe FileStream for outputting the story.
     private FileStream storyFileStream;
 
@@ -160,26 +163,31 @@ public class EventManager : MonoBehaviour
         storyFileStream?.Close();
 
         // Directory sanity
-        if(!Directory.Exists(Application.persistentDataPath + "/Stories"))
+        if (!Directory.Exists(Application.persistentDataPath + "/Stories"))
             Directory.CreateDirectory(Application.persistentDataPath + "/Stories");
 
-		// Open a new FileStream
-		storyFileStream = new FileStream($"{Application.persistentDataPath}/Stories/STORY.txt", FileMode.OpenOrCreate);
+        // Open a new FileStream
+        storyFileStream = new FileStream($"{Application.persistentDataPath}/Stories/STORY.txt", FileMode.OpenOrCreate);
 
-		// Reset the text and choice windows
+        // Reset the text and choice windows
         textDisplayer.ResetText();
-		foreach (Transform child in choicesWindow)
-		{
-			Destroy(child.gameObject);
-		}
+        foreach (Transform child in choicesWindow)
+        {
+            Destroy(child.gameObject);
+        }
 
-		// Change to the "Root" event
-		// We can do random logic here as well if we want different start states, all up to the writers ofc
-		MoveToEvent("Root");
+        // Change to the "Root" event
+        // We can do random logic here as well if we want different start states, all up to the writers ofc
+        MoveToEvent("Root");
+
+        // Reset Character Stats
+        characterStats = new CharacterStats();
+        statsEditor.stats = characterStats;
+        statsEditor.editable = true;
     }
 
-    // Writes lines to the file.
-    public void WriteToFile(string line, bool updateWordCount = true)
+	// Writes lines to the file.
+	public void WriteToFile(string line, bool updateWordCount = true)
     {
         // Allow blank lines to be ignored. Prevents a ton of newline spam
         if (line.Length == 0)
@@ -236,8 +244,14 @@ public class EventManager : MonoBehaviour
             currentOutcome = currentEvent.onFailure;
         }
 
+        if (statsEditor.editable)
+            characterStats = statsEditor.stats;
         // Update character stats
         characterStats += currentOutcome.modifyAttributes;
+
+        statsEditor.stats = characterStats;
+        statsEditor.editable = false;
+        statsEditor.UpdateValues();
 
         // Update the story display
         UpdateStoryDisplay();
