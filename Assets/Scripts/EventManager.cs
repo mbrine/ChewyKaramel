@@ -76,7 +76,7 @@ public class EventManager : MonoBehaviour
     public TextDisplayer textDisplayer;
     private bool wasStoryUpdated;
 
-	private void Start()
+    private void Start()
 	{
         LoadEvents();
         StartNewStory();
@@ -103,7 +103,19 @@ public class EventManager : MonoBehaviour
         //}
     }
 
-	public void SaveEvents()
+    // Stop speech when destroyed
+    private void OnDestroy()
+    {
+        TextToSpeech.StopSpeech();
+    }
+
+    // Stop speech when application quits
+    private void OnApplicationQuit()
+    {
+        TextToSpeech.StopSpeech();
+    }
+
+    public void SaveEvents()
     {
         // Make a new container
         EventContainer container = new EventContainer(0);
@@ -267,7 +279,8 @@ public class EventManager : MonoBehaviour
         //
         //textDisplayer = newText.GetComponent<TextDisplayer>();
         textDisplayer.text += currentOutcome.displayText+"\n\n";
-		wasStoryUpdated = true;
+        TextToSpeech.SpeechText(currentOutcome.displayText);
+        wasStoryUpdated = true;
     }
     
     public void ShowChoices()

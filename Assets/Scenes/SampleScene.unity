@@ -1419,6 +1419,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1199856343}
   - component: {fileID: 1199856342}
+  - component: {fileID: 1199856344}
   m_Layer: 0
   m_Name: Managers
   m_TagString: Untagged
@@ -1500,6 +1501,7 @@ MonoBehaviour:
     choices: []
   statsEditor: {fileID: 132869728}
   textDisplayer: {fileID: 483560963}
+  speaker: {fileID: 1199856344}
 --- !u!4 &1199856343
 Transform:
   m_ObjectHideFlags: 0
@@ -1515,6 +1517,18 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1199856344
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1199856341}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 19cef0015e8394eefac5f408eb6d765a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1379540863
 GameObject:
   m_ObjectHideFlags: 0
