@@ -79,7 +79,7 @@
         "displayText": "With no one to look after him but himself, Lupus grew up alone in the forests of Lyndale, amongst wild animals. In such a harsh environment, he could only survive by using his latent angelic powers to their fullest extent, using magic to strengthen his body and heal his wounds. However, without someone to mentor him in the ways of the arcane, his control of magic was crude at best.\n\nOne day, Lupus was found by hunters from the nearby kingdom of Aphelia. Like many other kingdoms, Aphelia worshipped the Angels as deities, and would submit to their will without question. Lupus, however, was not an Angel to them. After all, Angels were supposed to have horns and wings! All the hunters saw was a feral boy with unusual magic powers.\n\nIn an attempt to bring Lupus back to the kingdom for scientific study, the hunters chased him through the forest for days on end. This chase eventually led them into the territory of a fearsome predator: the three-headed, fire-breathing Chimera. As the hunters were being attacked, they let out a cry for help.",
         "modifyAttributes":
         {
-            "strength": 1000,
+            "strength": 0,
             "dexterity": 0,
             "constitution": 0,
             "charisma": 0,
@@ -161,7 +161,7 @@
     }
 },
 {
-    "id": "Lupus leaves the hunters to fend for themselves",
+    "id": "Lupus refuses to follow Ixia",
     "requirements":
     {
         "strength": 0,
@@ -182,7 +182,58 @@
     },
     "onSuccess":
     {
-        "displayText": "Lupus vanished into the depths of the forest, leaving the hunters to deal with the Chimera by themselves. As he ran deeper into the wilds, the sounds of fire and battle faded away behind him. Soon enough, only silence remained.\n\nUnbeknownst to him, however, the hunters would be saved by an Aphelion knight who was patrolling the forest that day. Days later, this knight would track Lupus down, introducing herself by the name of Ixia. Lupus would try to evade her grasp, but his underdeveloped magical powers were no match for a knight's professional training. After capturing Lupus, Ixia was determined to bring him to Granich, the royal capital of the kingdom of Aphelia. This long journey would take at least two whole months, during which, Lupus learns some rudimentary language skills from his captors.\n\nHowever, just before the escort could reach Granich, they were attacked by a Gryphon, an aggressive magical beast with the body of a lion, and the head and wings of an eagle. During this attack, the Gryphon killed all of the escorting men, gravely wounded Ixia, and tore a large hole in the cage where Lupus was held.",
+        "displayText": "Lupus refused Ixia’s offer, escaping into the wilderness. He was never seen again. Some say that a feral man could be spotted roaming the forests of Lyndale at night, a carefree spirit who never wanted to be involved in mortal affairs.",
+        "modifyAttributes":
+        {
+            "strength": 0,
+            "dexterity": 0,
+            "constitution": 0,
+            "charisma": 0,
+            "magic": 0,
+            "karma": 0
+        },
+        "choices": [
+            ]
+    },
+    "onFailure":
+    {
+        "displayText": "",
+        "modifyAttributes":
+        {
+            "strength": 0,
+            "dexterity": 0,
+            "constitution": 0,
+            "charisma": 0,
+            "magic": 0,
+            "karma": 0
+        },
+        "choices": [
+            ]
+    }
+},
+{
+    "id": "Lupus follows Ixia",
+    "requirements":
+    {
+        "strength": 0,
+        "dexterity": 0,
+        "constitution": 0,
+        "charisma": 0,
+        "magic": 0,
+        "karma": 0
+    },
+    "successAttributes":
+    {
+        "strength": 0,
+        "dexterity": 0,
+        "constitution": 0,
+        "charisma": 0,
+        "magic": 0,
+        "karma": 0
+    },
+    "onSuccess":
+    {
+        "displayText": "Lupus willingly follows Ixia to Granich. This long journey would take at least two whole months, during which, Lupus learns some rudimentary language skills from his captors.\n\nHowever, just before the escort could reach their destination, they were attacked by a Gryphon, an aggressive magical beast with the body of a lion, and the head and wings of an eagle. During this attack, the Gryphon killed all of the escorting men, gravely wounded Ixia, and tore a large hole in the cage where Lupus was held.",
         "modifyAttributes":
         {
             "strength": 0,
@@ -236,6 +287,1207 @@
     "onSuccess":
     {
         "displayText": "Lupus sneaks away from the Gryphon, leaving the gruesome scene behind and escaping into the wilderness. He was never seen again. Some say that a feral man could be spotted roaming the forests around Granich at night, a carefree spirit who never wanted to be involved in mortal affairs.",
+        "modifyAttributes":
+        {
+            "strength": 0,
+            "dexterity": 0,
+            "constitution": 0,
+            "charisma": 0,
+            "magic": 0,
+            "karma": 0
+        },
+        "choices": [
+            ]
+    },
+    "onFailure":
+    {
+        "displayText": "",
+        "modifyAttributes":
+        {
+            "strength": 0,
+            "dexterity": 0,
+            "constitution": 0,
+            "charisma": 0,
+            "magic": 0,
+            "karma": 0
+        },
+        "choices": [
+            ]
+    }
+},
+{
+    "id": "Lupus leaves the hunters to fend for themselves",
+    "requirements":
+    {
+        "strength": 0,
+        "dexterity": 0,
+        "constitution": 0,
+        "charisma": 0,
+        "magic": 0,
+        "karma": 0
+    },
+    "successAttributes":
+    {
+        "strength": 0,
+        "dexterity": 0,
+        "constitution": 0,
+        "charisma": 0,
+        "magic": 0,
+        "karma": 0
+    },
+    "onSuccess":
+    {
+        "displayText": "Lupus vanished into the depths of the forest, leaving the hunters to deal with the Chimera by themselves. As he ran deeper into the wilds, the sounds of fire and battle faded away behind him. Soon enough, only silence remained.\n\nUnbeknownst to him, however, the hunters would be saved by an Aphelion knight who was patrolling the forest that day. Days later, this knight would track Lupus down, introducing herself by the name of Ixia. Lupus would try to evade her grasp, but his underdeveloped magical powers were no match for a knight's professional training. After capturing Lupus, Ixia was determined to bring him to Granich, the royal capital of the kingdom of Aphelia. This long journey would take at least two whole months, during which, Lupus learns some rudimentary language skills from his captors.\n\nHowever, just before the escort could reach Granich, they were attacked by a Gryphon, an aggressive magical beast with the body of a lion, and the head and wings of an eagle. During this attack, the Gryphon killed all of the escorting men, gravely wounded Ixia, and tore a large hole in the cage where Lupus was held.",
+        "modifyAttributes":
+        {
+            "strength": 0,
+            "dexterity": 0,
+            "constitution": 0,
+            "charisma": 0,
+            "magic": 0,
+            "karma": 0
+        },
+        "choices": [
+            "Lupus fights the Gryphon",
+            "Lupus uses the opportunity to escape"
+            ]
+    },
+    "onFailure":
+    {
+        "displayText": "",
+        "modifyAttributes":
+        {
+            "strength": 0,
+            "dexterity": 0,
+            "constitution": 0,
+            "charisma": 0,
+            "magic": 0,
+            "karma": 0
+        },
+        "choices": [
+            ]
+    }
+},
+{
+    "id": "Lupus fights the Gryphon",
+    "requirements":
+    {
+        "strength": 0,
+        "dexterity": 0,
+        "constitution": 0,
+        "charisma": 0,
+        "magic": 0,
+        "karma": 0
+    },
+    "successAttributes":
+    {
+        "strength": 0,
+        "dexterity": 0,
+        "constitution": 0,
+        "charisma": 0,
+        "magic": 0,
+        "karma": 0
+    },
+    "onSuccess":
+    {
+        "displayText": "Lupus engages in a battle with the Gryphon, using magic to strengthen his body. At first, he physically overpowers the beast, landing multiple attacks in quick succession. However, the Gryphon uses its wings and takes to the air, shooting magical projectiles from a distance. Lupus is hopelessly outranged and can only dance to the Gryphon’s tune, that is, until he notices a spear on the ground next to him, belonging to one of the fallen soldiers under Ixia’s command. Lupus picks up the spear, imbues it with magic and hurls it at the Gryphon, striking its heart and killing it instantly.",
+        "modifyAttributes":
+        {
+            "strength": 0,
+            "dexterity": 0,
+            "constitution": 0,
+            "charisma": 0,
+            "magic": 1,
+            "karma": 1
+        },
+        "choices": [
+            "Lupus heals the wounded Ixia",
+            "Lupus heads to Granich by himself"
+            ]
+    },
+    "onFailure":
+    {
+        "displayText": "",
+        "modifyAttributes":
+        {
+            "strength": 0,
+            "dexterity": 0,
+            "constitution": 0,
+            "charisma": 0,
+            "magic": 0,
+            "karma": 0
+        },
+        "choices": [
+            ]
+    }
+},
+{
+    "id": "Lupus heads to Granich by himself",
+    "requirements":
+    {
+        "strength": 0,
+        "dexterity": 0,
+        "constitution": 0,
+        "charisma": 0,
+        "magic": 0,
+        "karma": 0
+    },
+    "successAttributes":
+    {
+        "strength": 0,
+        "dexterity": 0,
+        "constitution": 0,
+        "charisma": 0,
+        "magic": 0,
+        "karma": 0
+    },
+    "onSuccess":
+    {
+        "displayText": "Far from home and with nowhere else to go, Lupus makes his way to Granich alone. He was discovered by border guards and subsequently captured, leading to his internment at Elrath, a holding site for refugees from neighbouring regions. There, Lupus piqued the interest of government personnel, who was curious about his lack of connection to any family members and strange magical powers. He was then transferred to Mordova, an underground research facility within Granich.\n\nThere, Lupus was relentlessly experimented upon by Aphelion scientists who wanted to find the source of his power and recreate it for themselves. However, many such attempts would fail. Driven by desperation, a scientist by the name of Kroger devised a brand new procedure in which Lupus would be subjected to a concoction of dangerous chemicals.",
+        "modifyAttributes":
+        {
+            "strength": 0,
+            "dexterity": 0,
+            "constitution": 0,
+            "charisma": 0,
+            "magic": 0,
+            "karma": 0
+        },
+        "choices": [
+            "Lupus attempts to escape Mordova",
+            "Lupus stays at Mordova"
+            ]
+    },
+    "onFailure":
+    {
+        "displayText": "",
+        "modifyAttributes":
+        {
+            "strength": 0,
+            "dexterity": 0,
+            "constitution": 0,
+            "charisma": 0,
+            "magic": 0,
+            "karma": 0
+        },
+        "choices": [
+            ]
+    }
+},
+{
+    "id": "Lupus attempts to escape Mordova",
+    "requirements":
+    {
+        "strength": 0,
+        "dexterity": 0,
+        "constitution": 0,
+        "charisma": 0,
+        "magic": 0,
+        "karma": 0
+    },
+    "successAttributes":
+    {
+        "strength": 0,
+        "dexterity": 0,
+        "constitution": 0,
+        "charisma": 0,
+        "magic": 2,
+        "karma": 0
+    },
+    "onSuccess":
+    {
+        "displayText": "Lupus’ extensive training and combat knowledge, combined with his magical powers, allowed him to break free of his restraints before further experimentation could be performed on him. He rampaged through the entire facility, burning Mordova to the ground and setting free most of the people who were imprisoned there. The scientists who were stationed at the facility that day all but perished in the chaos and the flames. People were forced to evacuate the entire district, and the facility was subsequently cordoned off with a one-mile buffer zone, to prevent harmful substances from leaking into the surrounding area. After this incident, Lupus was never seen again.\n\nLegend has it that he still stalks the ruins of Mordova during the night, a haunting reminder of the nightmares that originated from that wretched place.",
+        "modifyAttributes":
+        {
+            "strength": 0,
+            "dexterity": 0,
+            "constitution": 0,
+            "charisma": 0,
+            "magic": 0,
+            "karma": 0
+        },
+        "choices": [
+            ]
+    },
+    "onFailure":
+    {
+        "displayText": "Lupus attempted to escape, but he was not strong enough to break free of his restraints. Kroger’s procedure would go on as scheduled, causing Lupus a tremendous amount of pain and physical trauma. This mysterious blend of chemicals, combined with his angelic blood, turned Lupus into an uncontrollable monster. In an instant, everyone in the room was ripped apart and smeared across the walls. However, this transformation would not last long. Lupus collapsed shortly after, never to wake again. In the aftermath of this incident, his name was struck from the records, information about him was redacted, and soon, he was forgotten.\n\nLupus would go down in the annals of history as an anomaly, an unsolved mystery, an experiment which never bore fruit.",
+        "modifyAttributes":
+        {
+            "strength": 0,
+            "dexterity": 0,
+            "constitution": 0,
+            "charisma": 0,
+            "magic": 0,
+            "karma": 0
+        },
+        "choices": [
+            ]
+    }
+},
+{
+    "id": "Lupus stays at Mordova",
+    "requirements":
+    {
+        "strength": 0,
+        "dexterity": 0,
+        "constitution": 0,
+        "charisma": 0,
+        "magic": 0,
+        "karma": 0
+    },
+    "successAttributes":
+    {
+        "strength": 0,
+        "dexterity": 0,
+        "constitution": 0,
+        "charisma": 0,
+        "magic": 0,
+        "karma": 0
+    },
+    "onSuccess":
+    {
+        "displayText": "Despite his initial reservations, Lupus decides to go along with Kroger’s procedure as scheduled. As the concoction was injected into him, he felt a tremendous amount of pain and physical trauma. This mysterious blend of chemicals, combined with his angelic blood, turned Lupus into an uncontrollable monster. In an instant, everyone in the room was ripped apart and smeared across the walls. However, this transformation would not last long. Lupus collapsed shortly after, never to wake again. In the aftermath of this incident, his name was struck from the records, information about him was redacted, and soon, he was forgotten.\n\nLupus would go down in the annals of history as an anomaly, an unsolved mystery, an experiment which never bore fruit.",
+        "modifyAttributes":
+        {
+            "strength": 0,
+            "dexterity": 0,
+            "constitution": 0,
+            "charisma": 0,
+            "magic": 0,
+            "karma": 0
+        },
+        "choices": [
+            ]
+    },
+    "onFailure":
+    {
+        "displayText": "",
+        "modifyAttributes":
+        {
+            "strength": 0,
+            "dexterity": 0,
+            "constitution": 0,
+            "charisma": 0,
+            "magic": 0,
+            "karma": 0
+        },
+        "choices": [
+            ]
+    }
+},
+{
+    "id": "Lupus heals the wounded Ixia",
+    "requirements":
+    {
+        "strength": 0,
+        "dexterity": 0,
+        "constitution": 0,
+        "charisma": 0,
+        "magic": 0,
+        "karma": 0
+    },
+    "successAttributes":
+    {
+        "strength": 0,
+        "dexterity": 0,
+        "constitution": 0,
+        "charisma": 0,
+        "magic": 0,
+        "karma": 0
+    },
+    "onSuccess":
+    {
+        "displayText": "Lupus uses his magical powers to heal Ixia’s wounds. Unfortunately, the other members of the escort party were too far gone to be resuscitated. This act of kindness makes Ixia feel indebted to Lupus. When the two arrive at Granich, they are welcomed by the guards and stationed in holding site by the name of Elrath, to await further orders. Ixia later learns that Lupus was going to be taken away to a remote research facility within inner Granich, known for cruel methods of experimentation. She pleads with her superiors to reconsider their decision, stating that she would not be alive without him, making an appeal to morality.\n\nThe Aphelion high command, upon hearing about this, decides to give Lupus a chance to integrate into society. A few months later, Lupus was given the chance to be enrolled at the Granich Military Academy, where young Aphelion citizens learn to become fledgeling soldiers for their kingdom.",
+        "modifyAttributes":
+        {
+            "strength": 0,
+            "dexterity": 0,
+            "constitution": 0,
+            "charisma": 0,
+            "magic": 0,
+            "karma": 1
+        },
+        "choices": [
+            "Lupus accepts the offer to join the Granich Academy",
+            "Lupus rejects the offer to join the Granich Academy"
+            ]
+    },
+    "onFailure":
+    {
+        "displayText": "",
+        "modifyAttributes":
+        {
+            "strength": 0,
+            "dexterity": 0,
+            "constitution": 0,
+            "charisma": 0,
+            "magic": 0,
+            "karma": 0
+        },
+        "choices": [
+            ]
+    }
+},
+{
+    "id": "Lupus accepts the offer to join the Granich Academy",
+    "requirements":
+    {
+        "strength": 0,
+        "dexterity": 0,
+        "constitution": 0,
+        "charisma": 0,
+        "magic": 0,
+        "karma": 0
+    },
+    "successAttributes":
+    {
+        "strength": 0,
+        "dexterity": 0,
+        "constitution": 0,
+        "charisma": 0,
+        "magic": 0,
+        "karma": 0
+    },
+    "onSuccess":
+    {
+        "displayText": "For the next five years, Lupus trained in both arcane and martial arts. His days are spent working on physical exercises; running long distances, striking wooden dummies, learning magic techniques, so on and so forth. His performance rapidly exceeded that of his peers, so much so that by the second year of his training, he was going toe-to-toe with seniors in their final year. Lupus quickly rose to become the top ranking student in his cohort. His remarkable achievements caught the attention of the professors at the academy, but also the jealousy of the nobles, who were accustomed to being at the top of the pecking order. The nobles conspired to get Lupus expelled from the academy by accusing him of various misconducts, even resorting to bribing the school staff to side with them.",
+        "modifyAttributes":
+        {
+            "strength": 0,
+            "dexterity": 0,
+            "constitution": 0,
+            "charisma": 0,
+            "magic": 1,
+            "karma": 0
+        },
+        "choices": [
+            "Lupus appeals to the school principal",
+            "Lupus challenges the nobles to a duel"
+            ]
+    },
+    "onFailure":
+    {
+        "displayText": "",
+        "modifyAttributes":
+        {
+            "strength": 0,
+            "dexterity": 0,
+            "constitution": 0,
+            "charisma": 0,
+            "magic": 0,
+            "karma": 0
+        },
+        "choices": [
+            ]
+    }
+},
+{
+    "id": "Lupus rejects the offer to join the Granich Academy",
+    "requirements":
+    {
+        "strength": 0,
+        "dexterity": 0,
+        "constitution": 0,
+        "charisma": 0,
+        "magic": 0,
+        "karma": 0
+    },
+    "successAttributes":
+    {
+        "strength": 0,
+        "dexterity": 0,
+        "constitution": 0,
+        "charisma": 0,
+        "magic": 0,
+        "karma": 0
+    },
+    "onSuccess":
+    {
+        "displayText": "Lupus refuses the offer to join the academy, which comes at a surprise to Ixia. In order to prevent him from being turned into a lab experiment, she smuggles him out of Elrath and tells him to run away, and to never look back. Lupus, confused but not knowing who else to trust, follows her instructions and ends up in the hands of the Thieves’ Guild, an association of criminals operating within outer Granich. Seeing his potential, the guild’s leaders recruited him quickly and put him to use. Lupus would spend the next few years stealing from both commonfolk and nobility, sheltered and hidden away from the public eye by the guild.\n\nLupus and Ixia would meet once again during the early years of the Aphelion Crusades, a series of long and bloody wars fought by the kingdom of Aphelia against its opponents. He was tasked with retrieving artifacts left behind by the people who were fleeing the Aphelion army. Ixia catches him in the middle of the act, resulting in a chase. During this chase, she was ambushed by remnants of the enemy nation’s army, suffering a wound to her leg and falling to the ground.",
+        "modifyAttributes":
+        {
+            "strength": 0,
+            "dexterity": 0,
+            "constitution": 0,
+            "charisma": 0,
+            "magic": 0,
+            "karma": 0
+        },
+        "choices": [
+            "Lupus runs away",
+            "Lupus drops his loot and helps Ixia"
+            ]
+    },
+    "onFailure":
+    {
+        "displayText": "",
+        "modifyAttributes":
+        {
+            "strength": 0,
+            "dexterity": 0,
+            "constitution": 0,
+            "charisma": 0,
+            "magic": 0,
+            "karma": 0
+        },
+        "choices": [
+            ]
+    }
+},
+{
+    "id": "Lupus runs away",
+    "requirements":
+    {
+        "strength": 0,
+        "dexterity": 0,
+        "constitution": 0,
+        "charisma": 0,
+        "magic": 0,
+        "karma": 0
+    },
+    "successAttributes":
+    {
+        "strength": 0,
+        "dexterity": 0,
+        "constitution": 0,
+        "charisma": 0,
+        "magic": 0,
+        "karma": 0
+    },
+    "onSuccess":
+    {
+        "displayText": "Abandoning Ixia, Lupus runs away, never to be seen again.",
+        "modifyAttributes":
+        {
+            "strength": 0,
+            "dexterity": 0,
+            "constitution": 0,
+            "charisma": 0,
+            "magic": 0,
+            "karma": 0
+        },
+        "choices": [
+            ]
+    },
+    "onFailure":
+    {
+        "displayText": "",
+        "modifyAttributes":
+        {
+            "strength": 0,
+            "dexterity": 0,
+            "constitution": 0,
+            "charisma": 0,
+            "magic": 0,
+            "karma": 0
+        },
+        "choices": [
+            ]
+    }
+},
+{
+    "id": "Lupus drops his loot and helps Ixia",
+    "requirements":
+    {
+        "strength": 0,
+        "dexterity": 0,
+        "constitution": 0,
+        "charisma": 0,
+        "magic": 0,
+        "karma": 0
+    },
+    "successAttributes":
+    {
+        "strength": 0,
+        "dexterity": 0,
+        "constitution": 0,
+        "charisma": 0,
+        "magic": 0,
+        "karma": 0
+    },
+    "onSuccess":
+    {
+        "displayText": "Lupus dropped whatever he was carrying and fights off the ambush, once again saving Ixia’s life. However, he was cut by a poisoned knife during the scuffle. This poison was so potent, such that even with his angelic powers, Lupus could not cleanse it from his body. He collapsed soon after, his consciousness fading into nothingness. That last thing that he saw would be Ixia’s face, full of sorrow.",
+        "modifyAttributes":
+        {
+            "strength": 0,
+            "dexterity": 0,
+            "constitution": 0,
+            "charisma": 0,
+            "magic": 0,
+            "karma": 0
+        },
+        "choices": [
+            ]
+    },
+    "onFailure":
+    {
+        "displayText": "",
+        "modifyAttributes":
+        {
+            "strength": 0,
+            "dexterity": 0,
+            "constitution": 0,
+            "charisma": 0,
+            "magic": 0,
+            "karma": 0
+        },
+        "choices": [
+            ]
+    }
+},
+{
+    "id": "Lupus appeals to the school principal",
+    "requirements":
+    {
+        "strength": 0,
+        "dexterity": 0,
+        "constitution": 0,
+        "charisma": 0,
+        "magic": 0,
+        "karma": 0
+    },
+    "successAttributes":
+    {
+        "strength": 0,
+        "dexterity": 0,
+        "constitution": 0,
+        "charisma": 0,
+        "magic": 0,
+        "karma": 3
+    },
+    "onSuccess":
+    {
+        "displayText": "Lupus makes an appeal to the school principal to have the accusations waived. On account of Lupus’ good conduct and strength of character, the principal believes in Lupus and decides to give him another chance. Lupus would go on to graduate from Granich Academy with full honours and, after some years, become a fearsome commander of the Aphelion army.\n\nLupus would meet the knight Ixia again during the height of the Aphelion Crusades, a series of long and bloody wars fought by the kingdom of Aphelia against its opponents. At the aftermath of one such battle, Ixia looked upon the destruction that the Aphelion army had wrought. She approached Lupus and asked him if this was what he wanted when he joined the academy.",
+        "modifyAttributes":
+        {
+            "strength": 0,
+            "dexterity": 0,
+            "constitution": 0,
+            "charisma": 0,
+            "magic": 0,
+            "karma": 0
+        },
+        "choices": [
+            "Lupus retains his faith in Aphelia",
+            "Lupus doubts the validity of the war"
+            ]
+    },
+    "onFailure":
+    {
+        "displayText": "Lupus makes an appeal to the school principal to have the accusations waived. Unfortunately, Lupus was found to be lacking of character and the principal decides to expel him from the academy. After this, he is transferred to Mordova, an underground research facility within Granich.\n\nThere, Lupus was relentlessly experimented upon by Aphelion scientists who wanted to find the source of his power and recreate it for themselves. However, many such attempts would fail. Driven by desperation, a scientist by the name of Kroger devised a brand new procedure in which Lupus would be subjected to a concoction of dangerous chemicals.",
+        "modifyAttributes":
+        {
+            "strength": 0,
+            "dexterity": 0,
+            "constitution": 0,
+            "charisma": 0,
+            "magic": 0,
+            "karma": 0
+        },
+        "choices": [
+            "Lupus attempts to escape Mordova",
+            "Lupus stays at Mordova"
+            ]
+    }
+},
+{
+    "id": "Lupus retains his faith in Aphelia",
+    "requirements":
+    {
+        "strength": 0,
+        "dexterity": 0,
+        "constitution": 0,
+        "charisma": 0,
+        "magic": 0,
+        "karma": 0
+    },
+    "successAttributes":
+    {
+        "strength": 0,
+        "dexterity": 0,
+        "constitution": 0,
+        "charisma": 0,
+        "magic": 0,
+        "karma": 0
+    },
+    "onSuccess":
+    {
+        "displayText": "Lupus told Ixia that he was sure of his path, burning away any traces of doubt in her mind about Aphelia’s right to conquer. Together, Lupus and Ixia were unstoppable. They achieved thirteen confirmed consecutive victories, forging an unbreakable bond which persists to this very day. Statues were carved in their image and erected all over the newly conquered territories, now under the faithful watch of Aphelia. Lupus and Ixia would go down in the annals of history as the champions of the Aphelion regime and hailed as heroes to their people. However, this would come at a heavy cost, for all their gold and riches would eternally be stained by blood. This debt of souls and blood would tip the balance of power in the world, and the vengeful may one day return to seek repayment in full...",
+        "modifyAttributes":
+        {
+            "strength": 0,
+            "dexterity": 0,
+            "constitution": 0,
+            "charisma": 0,
+            "magic": 0,
+            "karma": 0
+        },
+        "choices": [
+            ]
+    },
+    "onFailure":
+    {
+        "displayText": "",
+        "modifyAttributes":
+        {
+            "strength": 0,
+            "dexterity": 0,
+            "constitution": 0,
+            "charisma": 0,
+            "magic": 0,
+            "karma": 0
+        },
+        "choices": [
+            ]
+    }
+},
+{
+    "id": "Lupus doubts the validity of the war",
+    "requirements":
+    {
+        "strength": 0,
+        "dexterity": 0,
+        "constitution": 0,
+        "charisma": 0,
+        "magic": 0,
+        "karma": 0
+    },
+    "successAttributes":
+    {
+        "strength": 0,
+        "dexterity": 0,
+        "constitution": 0,
+        "charisma": 0,
+        "magic": 0,
+        "karma": 0
+    },
+    "onSuccess":
+    {
+        "displayText": "Lupus shares with Ixia his uncertainty of the Aphelion regime. This statement plants a seed of doubt in her mind, which eventually leads her to shelter a group of starving refugees from an enemy nation. At first, it was not a big deal, but as the war continued, she began to shelter increasingly more people, and word of this treasonous act would reach inquisitors from the Aphelion army.\n\nBy a twisted stroke of fate, Lupus would be ordered to capture Ixia and bring her to heel.",
+        "modifyAttributes":
+        {
+            "strength": 0,
+            "dexterity": 0,
+            "constitution": 0,
+            "charisma": 0,
+            "magic": 0,
+            "karma": 0
+        },
+        "choices": [
+            "Lupus captures Ixia",
+            "Lupus does not capture Ixia"
+            ]
+    },
+    "onFailure":
+    {
+        "displayText": "",
+        "modifyAttributes":
+        {
+            "strength": 0,
+            "dexterity": 0,
+            "constitution": 0,
+            "charisma": 0,
+            "magic": 0,
+            "karma": 0
+        },
+        "choices": [
+            ]
+    }
+},
+{
+    "id": "Lupus captures Ixia",
+    "requirements":
+    {
+        "strength": 0,
+        "dexterity": 0,
+        "constitution": 0,
+        "charisma": 0,
+        "magic": 0,
+        "karma": 0
+    },
+    "successAttributes":
+    {
+        "strength": 0,
+        "dexterity": 0,
+        "constitution": 0,
+        "charisma": 0,
+        "magic": 0,
+        "karma": 0
+    },
+    "onSuccess":
+    {
+        "displayText": "Although he had his own reservations, Lupus obeys the order, finding Ixia alone in her quarters. She tries to talk Lupus out of it, but to no avail. The guards had already surrounded her tent. Lupus brings her to the inquisitors, and this would be the last time that the two meet.\n\nLupus goes on to fight in the Aphelion Crusades, turning over insurmountable odds and winning battles where the army was clearly outgunned and outnumbered. At the end of the war, the kingdom of Aphelia achieved a pyrrhic victory. The sheer death and destruction left the region in a state of devastation, which took several years to repair. Lupus was hailed as the hero of Aphelia, which laid the bloody foundations of their vast empire, which today stretches across the horizon, as far as the eye can see.",
+        "modifyAttributes":
+        {
+            "strength": 0,
+            "dexterity": 0,
+            "constitution": 0,
+            "charisma": 0,
+            "magic": 0,
+            "karma": 0
+        },
+        "choices": [
+            ]
+    },
+    "onFailure":
+    {
+        "displayText": "",
+        "modifyAttributes":
+        {
+            "strength": 0,
+            "dexterity": 0,
+            "constitution": 0,
+            "charisma": 0,
+            "magic": 0,
+            "karma": 0
+        },
+        "choices": [
+            ]
+    }
+},
+{
+    "id": "Lupus does not capture Ixia",
+    "requirements":
+    {
+        "strength": 0,
+        "dexterity": 0,
+        "constitution": 0,
+        "charisma": 0,
+        "magic": 0,
+        "karma": 0
+    },
+    "successAttributes":
+    {
+        "strength": 0,
+        "dexterity": 0,
+        "constitution": 0,
+        "charisma": 0,
+        "magic": 0,
+        "karma": 0
+    },
+    "onSuccess":
+    {
+        "displayText": "Lupus could never bring himself to follow such orders. He finds Ixia alone in her quarters, attempting to smuggle her out of the encampment that they were stationed in. Ixia insists that they bring the refugees along, as they would surely perish if they stayed. Lupus agrees, and together, the group makes a run for it. However, not all would go according to plan, as a couple of guards discover them just as they were about to leave. Lupus and Ixia end up having to fight their way out, staining their hands with Aphelion blood.\n\nA few months later, the two were seen again, leading a resistance army that opposed the kingdom of Aphelia. Together, they stopped the crusade in its tracks, word of their defiance emboldening the defeated peoples who were enslaved by Aphelion soldiers. The resistance would gain such traction that, even in Granich, riots erupted advocating to end the crusades.\n\nYears later, Lupus and Ixia would be hailed as liberators, saviours of the people who were oppressed under the Aphelion regime.",
+        "modifyAttributes":
+        {
+            "strength": 0,
+            "dexterity": 0,
+            "constitution": 0,
+            "charisma": 0,
+            "magic": 0,
+            "karma": 0
+        },
+        "choices": [
+            ]
+    },
+    "onFailure":
+    {
+        "displayText": "",
+        "modifyAttributes":
+        {
+            "strength": 0,
+            "dexterity": 0,
+            "constitution": 0,
+            "charisma": 0,
+            "magic": 0,
+            "karma": 0
+        },
+        "choices": [
+            ]
+    }
+},
+{
+    "id": "Lupus challenges the nobles to a duel",
+    "requirements":
+    {
+        "strength": 0,
+        "dexterity": 0,
+        "constitution": 0,
+        "charisma": 0,
+        "magic": 0,
+        "karma": 0
+    },
+    "successAttributes":
+    {
+        "strength": 0,
+        "dexterity": 0,
+        "constitution": 0,
+        "charisma": 0,
+        "magic": 0,
+        "karma": 0
+    },
+    "onSuccess":
+    {
+        "displayText": "In an attempt to restore his reputation and prove that his strength was not a fraud, Lupus challenges the nobles to a duel. The nobles, itching for a chance to fight Lupus and humiliate him publicly, wasted no time accepting his offer. However, not even the most expensive gear and exclusive mentorship in the world could hold a candle to Lupus’ angelic powers. The tournament was won overwhelmingly in his favour. Seeing this, the principal decided to give Lupus another chance. He would go on to graduate from Granich Academy with full honours and, after some years, become a fearsome commander of the Aphelion army.\n\nLupus would meet the knight Ixia again during the height of the Aphelion Crusades, a series of long and bloody wars fought by the kingdom of Aphelia against its opponents. At the aftermath of one such battle, Ixia approached Lupus and asked him if this was what he wanted.",
+        "modifyAttributes":
+        {
+            "strength": 0,
+            "dexterity": 0,
+            "constitution": 0,
+            "charisma": 0,
+            "magic": 0,
+            "karma": 0
+        },
+        "choices": [
+            "Lupus retains his faith in Aphelia",
+            "Lupus doubts the validity of the war"
+            ]
+    },
+    "onFailure":
+    {
+        "displayText": "",
+        "modifyAttributes":
+        {
+            "strength": 0,
+            "dexterity": 0,
+            "constitution": 0,
+            "charisma": 0,
+            "magic": 0,
+            "karma": 0
+        },
+        "choices": [
+            ]
+    }
+},
+{
+    "id": "Lupus was raised by villagers",
+    "requirements":
+    {
+        "strength": 0,
+        "dexterity": 0,
+        "constitution": 0,
+        "charisma": 0,
+        "magic": 0,
+        "karma": 0
+    },
+    "successAttributes":
+    {
+        "strength": 0,
+        "dexterity": 0,
+        "constitution": 0,
+        "charisma": 0,
+        "magic": 0,
+        "karma": 0
+    },
+    "onSuccess":
+    {
+        "displayText": "After being abandoned by the angels, the young Lupus was found in the wilderness by humans from a small, remote village called Eldenvail. The villagers raised him as one of their own, a quiet and kind child who grew into a strong young man. He learned to harvest crops, mend roofs, and tend to the wounded.\n\nAt times, strange things happened around him. The wind would shift at his voice, and the flames in the hearth would bow when he walked by. The villagers whispered that these were blessings, never realizing that what stirred within him was the same ancient power that flowed through the angels above.\n\nLupus himself did not understand it. The strength inside him felt like a heartbeat beneath the world, vast and waiting in silence. To him, Eldenvail was more than a home. It was proof that love could exist without wings or light from the heavens.\n\nMornings in Eldenvail were always quiet. Wind whispered through the fields, tools clattered in the hands of farmers, and children’s laughter echoed across the village. Lupus loved those mornings. He rose with the sun, helped mend fences, carried water from the well, and when the work was done, sat beneath the old oak by the river, watching the light dance on the surface.\n\nThe villagers greeted him with smiles. They trusted him with their children, their crops, and their hopes. In their eyes, he was one of them. For Lupus, this simple life was enough. It was peace.",
+        "modifyAttributes":
+        {
+            "strength": 0,
+            "dexterity": 0,
+            "constitution": 0,
+            "charisma": 0,
+            "magic": 0,
+            "karma": 0
+        },
+        "choices": [
+            "A peaceful life interrupted",
+            "Unfortunate event using magic"
+            ]
+    },
+    "onFailure":
+    {
+        "displayText": "",
+        "modifyAttributes":
+        {
+            "strength": 0,
+            "dexterity": 0,
+            "constitution": 0,
+            "charisma": 0,
+            "magic": 0,
+            "karma": 0
+        },
+        "choices": [
+            ]
+    }
+},
+{
+    "id": "A peaceful life interrupted",
+    "requirements":
+    {
+        "strength": 0,
+        "dexterity": 0,
+        "constitution": 0,
+        "charisma": 0,
+        "magic": 0,
+        "karma": 0
+    },
+    "successAttributes":
+    {
+        "strength": 0,
+        "dexterity": 0,
+        "constitution": 0,
+        "charisma": 0,
+        "magic": 0,
+        "karma": 0
+    },
+    "onSuccess":
+    {
+        "displayText": "That peace ended the night the angels came.\n\nThe sky blazed gold as figures with dark horns and white wings descended. Fire licked rooftops, screams filled the streets. Lupus ran toward the chaos, calling for the people he loved, but they were already falling.\n\nOne angel landed in the square, wings wide, eyes cold. “This village defies our rule,” it said. “Purge them and remind all that defiance will not be tolerated.”\n\nLupus froze, but instinctively something within him stirred. Flames bent away, wind shifted, debris parted at his feet. He stumbled to the nearby river and plunged in. The flames hissed but could not touch him. Soaked and shaking on the riverbank, he looked back at Eldenvail. \n\nHis home was gone. Everything he had ever known was ashes. Yet he had survived.\n\nLupus sank to the riverbank, shivering, water dripping from his hair. The crackle of dying flames filled his ears, mingling with the hollow echoes of screams. He could not stop staring at the charred remains of Eldenvail, the homes he had built with his own hands reduced to ash. \n\nAnger and grief churned inside him, sharp as knives, yet beneath it all, something unfamiliar stirred. A pulse of power, raw and unformed, awakened in response to the injustice.\n\nHe had survived, but at what cost? The villagers were gone, and the world he loved had been stolen. The thought of inaction was unbearable. ",
+        "modifyAttributes":
+        {
+            "strength": 0,
+            "dexterity": 0,
+            "constitution": 0,
+            "charisma": 0,
+            "magic": 0,
+            "karma": 0
+        },
+        "choices": [
+            "Train and hunt the Angels",
+            "Survive and rise to protect humanity"
+            ]
+    },
+    "onFailure":
+    {
+        "displayText": "",
+        "modifyAttributes":
+        {
+            "strength": 0,
+            "dexterity": 0,
+            "constitution": 0,
+            "charisma": 0,
+            "magic": 0,
+            "karma": 0
+        },
+        "choices": [
+            ]
+    }
+},
+{
+    "id": "Train and hunt the Angels",
+    "requirements":
+    {
+        "strength": 0,
+        "dexterity": 0,
+        "constitution": 0,
+        "charisma": 0,
+        "magic": 0,
+        "karma": 0
+    },
+    "successAttributes":
+    {
+        "strength": 0,
+        "dexterity": 0,
+        "constitution": 0,
+        "charisma": 0,
+        "magic": 0,
+        "karma": 0
+    },
+    "onSuccess":
+    {
+        "displayText": "Weeks passed as Lupus wandered the forests beyond Eldenvail. Grief turned to fury, and fury to purpose. The power inside him stirred like a living thing, wild and hungry.\n\nHe trained in isolation. The river bent to his command, wind shifted at his voice, and fire gathered in his hands. At first, it raged beyond his control, burning the trees and splitting the earth. But slowly, he learned to shape it, to make it obey. Every breath, every heartbeat brought him closer to mastering what the angels had cast away.\n\nWhen he was ready, he began to hunt.\n\nHe tracked small patrols through the valleys, moving unseen beneath moonlight. His first strike was clumsy, driven by rage. The angel fell screaming into the river, its wings torn apart by blades of wind. The next time, he was faster. Calmer. More deliberate.\n\nEach kill taught him something new. Their strength, their pride, their fear. With every battle, his control grew sharper, his strikes more precise. Whispers spread of a hornless angel cloaked in storm and fire, a ghost of vengeance.\n\nBy the time the snows came, Lupus no longer hesitated. He was no longer the boy who hid from the flames. He had become the shadow that hunted them.",
+        "modifyAttributes":
+        {
+            "strength": 0,
+            "dexterity": 0,
+            "constitution": 0,
+            "charisma": 0,
+            "magic": 0,
+            "karma": 0
+        },
+        "choices": [
+            "Pursue personal revenge against the angels",
+            "Continue training and become humanity’s protector"
+            ]
+    },
+    "onFailure":
+    {
+        "displayText": "",
+        "modifyAttributes":
+        {
+            "strength": 0,
+            "dexterity": 0,
+            "constitution": 0,
+            "charisma": 0,
+            "magic": 0,
+            "karma": 0
+        },
+        "choices": [
+            ]
+    }
+},
+{
+    "id": "Continue training and become humanity’s protector",
+    "requirements":
+    {
+        "strength": 0,
+        "dexterity": 0,
+        "constitution": 0,
+        "charisma": 0,
+        "magic": 0,
+        "karma": 0
+    },
+    "successAttributes":
+    {
+        "strength": 0,
+        "dexterity": 0,
+        "constitution": 0,
+        "charisma": 0,
+        "magic": 0,
+        "karma": 0
+    },
+    "onSuccess":
+    {
+        "displayText": "Days and months passed as he honed control over fire, water, and wind. Every breath, every movement sharpened his skill, teaching him to bend the elements without destroying life. He grew faster, stronger, and wiser, mastering the power the angels had cast away.\n\nHe began to move through the lands unseen, protecting villages from floods, fires, and other dangers. Travelers spoke of a hornless angel cloaked in storm and fire, a guardian whose presence was felt but rarely seen.\n\nLupus understood that true power was not in vengeance, but in mastery and restraint. He became a silent protector, a shield for humanity against the cruelty of the angels and the hazards of the world.\n\nThe boy who had lost everything had forged himself into something greater than hatred. He became the unseen guardian of humanity, a legend whispered across villages, a force that reminded all that hope could survive even in the shadow of destruction.",
+        "modifyAttributes":
+        {
+            "strength": 0,
+            "dexterity": 0,
+            "constitution": 0,
+            "charisma": 0,
+            "magic": 0,
+            "karma": 0
+        },
+        "choices": [
+            ]
+    },
+    "onFailure":
+    {
+        "displayText": "",
+        "modifyAttributes":
+        {
+            "strength": 0,
+            "dexterity": 0,
+            "constitution": 0,
+            "charisma": 0,
+            "magic": 0,
+            "karma": 0
+        },
+        "choices": [
+            ]
+    }
+},
+{
+    "id": "Continue training and become humanity’s protector",
+    "requirements":
+    {
+        "strength": 0,
+        "dexterity": 0,
+        "constitution": 0,
+        "charisma": 0,
+        "magic": 0,
+        "karma": 0
+    },
+    "successAttributes":
+    {
+        "strength": 0,
+        "dexterity": 0,
+        "constitution": 0,
+        "charisma": 0,
+        "magic": 0,
+        "karma": 0
+    },
+    "onSuccess":
+    {
+        "displayText": "Weeks passed as Lupus searched for the angel who had destroyed Eldenvail. At last, he stood before it. Its wings stretched wide, feathers streaked with soot. The same cold voice that had once ordered the village’s death rang through the air.\n\n“So the lost one returns,” it said. “You should have died.”\n\n“I did,” Lupus replied. “What stands before you is what you made.”\n\nPower surged. Wind howled, fire flared, and the river rose. The angel’s blade flashed, but Lupus moved faster. Flame met light, water clashed with fire, and magic against steel. Their battle tore through the valley. At last, Lupus stood over the fallen angel, its sword broken, wings burned. The same eyes that once watched Eldenvail burn stared at him in fear.\n\nThe fire within demanded an end, but his hands trembled. Around them lay ruin, the echo of the destruction he had sworn to avenge.\n\nThe angel coughed, voice faint. “You are one of us now.”\n\nLupus felt the hate that had driven him threaten to consume what remained of him.",
+        "modifyAttributes":
+        {
+            "strength": 0,
+            "dexterity": 0,
+            "constitution": 0,
+            "charisma": 0,
+            "magic": 0,
+            "karma": 0
+        },
+        "choices": [
+            "Take revenge",
+            "Walk away"
+            ]
+    },
+    "onFailure":
+    {
+        "displayText": "",
+        "modifyAttributes":
+        {
+            "strength": 0,
+            "dexterity": 0,
+            "constitution": 0,
+            "charisma": 0,
+            "magic": 0,
+            "karma": 0
+        },
+        "choices": [
+            ]
+    }
+},
+{
+    "id": "Take revenge",
+    "requirements":
+    {
+        "strength": 0,
+        "dexterity": 0,
+        "constitution": 0,
+        "charisma": 0,
+        "magic": 0,
+        "karma": 0
+    },
+    "successAttributes":
+    {
+        "strength": 0,
+        "dexterity": 0,
+        "constitution": 0,
+        "charisma": 0,
+        "magic": 0,
+        "karma": 0
+    },
+    "onSuccess":
+    {
+        "displayText": "Lupus placed his hands on the angel’s wings. Power surged from within, transforming into a devouring fire that licked and consumed the angel, its cries swallowed by the blaze. When the flames faded, only silence remained. Yet the battle had drained him. His wounds throbbed, each heartbeat weaker than the last. Knees buckling, breath ragged, Lupus sank beside the fallen angel. The one who had destroyed Eldenvail was no more, but the price had been his own life. Vengeance was complete, and in that final act, Lupus finally succumbed to the wounds he had borne.",
+        "modifyAttributes":
+        {
+            "strength": 0,
+            "dexterity": 0,
+            "constitution": 0,
+            "charisma": 0,
+            "magic": 0,
+            "karma": 0
+        },
+        "choices": [
+            ]
+    },
+    "onFailure":
+    {
+        "displayText": "",
+        "modifyAttributes":
+        {
+            "strength": 0,
+            "dexterity": 0,
+            "constitution": 0,
+            "charisma": 0,
+            "magic": 0,
+            "karma": 0
+        },
+        "choices": [
+            ]
+    }
+},
+{
+    "id": "Walk away",
+    "requirements":
+    {
+        "strength": 0,
+        "dexterity": 0,
+        "constitution": 0,
+        "charisma": 0,
+        "magic": 0,
+        "karma": 0
+    },
+    "successAttributes":
+    {
+        "strength": 0,
+        "dexterity": 0,
+        "constitution": 0,
+        "charisma": 0,
+        "magic": 0,
+        "karma": 0
+    },
+    "onSuccess":
+    {
+        "displayText": "Lupus lowered his hands, the fire dying at his fingertips. The angel lay before him, battered, broken, but alive. Rage still burned in his chest, yet he saw the futility of endless vengeance. This being, once a god in its own eyes, was now mortal, vulnerable, and human in its own suffering. He stepped back, letting the angel rise if it could. The world remained, imperfect but alive, and so did he. In that moment, Lupus chose restraint over destruction. He would not become what he hated. The cycle of bloodshed could end here, and perhaps, one day, there could be hope.",
         "modifyAttributes":
         {
             "strength": 0,

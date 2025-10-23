@@ -134,28 +134,31 @@ public class EventManager : MonoBehaviour
     {
         eventsDictionary = new Dictionary<string, Event>();
 
-		// Open file
-		FileStream fileStream = new FileStream(Application.streamingAssetsPath + "/Events.json", FileMode.OpenOrCreate);
+        // Open file
+        FileStream fileStream = new FileStream(Application.streamingAssetsPath + "/Events.json", FileMode.OpenOrCreate);
 
-		// Read the data!
-		using (StreamReader reader = new StreamReader(fileStream))
-		{
-			string json = reader.ReadToEnd();
+        // Read the data!
+        using (StreamReader reader = new StreamReader(fileStream))
+        {
+            string json = reader.ReadToEnd();
 
             // Get the EventContainer object
             EventContainer container = JsonUtility.FromJson<EventContainer>(json);
 
             // Add the events to the dictionary
-            foreach(Event e in container.events)
+            foreach (Event e in container.events)
             {
-                eventsDictionary.Add(e.id, e);
+                if (eventsDictionary.ContainsKey(e.id))
+                    eventsDictionary[e.id] = e;
+                else
+                    eventsDictionary.Add(e.id, e);
             }
-		}
+        }
 
-		// Close the file when we're done
-		fileStream.Close();
+        // Close the file when we're done
+        fileStream.Close();
 
-	}
+    }
 
     public void StartNewStory()
     {
