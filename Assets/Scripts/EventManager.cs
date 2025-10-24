@@ -1,7 +1,9 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Globalization;
 using System.IO;
+using System.Linq;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
@@ -35,15 +37,6 @@ public class Event
     // If below the requirements
     public Outcome onFailure;
 }
-[System.Serializable]
-public struct EventContainer
-{
-    public List<Event> events;
-    public EventContainer(int i = 0)
-    {
-        events = new List<Event>();
-    }
-}
 
 public class EventManager : MonoBehaviour
 {
@@ -70,6 +63,7 @@ public class EventManager : MonoBehaviour
 
     // THe FileStream for outputting the story.
     private FileStream storyFileStream;
+    private StreamWriter writer;
 
     private int wordCount;
 
@@ -103,61 +97,69 @@ public class EventManager : MonoBehaviour
         //}
     }
 
-	public void SaveEvents()
-    {
-        // Make a new container
-        EventContainer container = new EventContainer(0);
-
-        // Add all the events from the dictionaries
-        foreach(var kvp in eventsDictionary)
-        {
-            container.events.Add(kvp.Value);
-        }
-
-        // Create the json string
-        string json = JsonUtility.ToJson(container, true);
-
-        // Open file
-        FileStream fileStream = new FileStream(Application.streamingAssetsPath+ "/Events.json",FileMode.OpenOrCreate);
-
-        // Write the data!
-        using (StreamWriter writer = new StreamWriter(fileStream))
-        {
-			writer.Write(json);
-        }
-
-        // Close the file when we're done
-        fileStream.Close();
-    }
+	//public void SaveEvents()
+    //{
+    //    // Add all the events from the dictionaries
+    //    foreach(var kvp in eventsDictionary)
+    //    {
+    //        container.events.Add(kvp.Value);
+    //    }
+    //
+    //    // Create the json string
+    //    string json = JsonUtility.ToJson(container, true);
+    //
+    //    // Open file
+    //    FileStream fileStream = new FileStream(Application.streamingAssetsPath+ "/Events.json",FileMode.OpenOrCreate);
+    //
+    //    // Write the data!
+    //    using (StreamWriter writer = new StreamWriter(fileStream))
+    //    {
+	//		writer.Write(json);
+    //    }
+    //
+    //    // Close the file when we're done
+    //    fileStream.Close();
+    //}
 
     public void LoadEvents()
     {
         eventsDictionary = new Dictionary<string, Event>();
 
+        //List<string> eventIDs = new List<string>();
+        List<string> eventIDs = new List<string>(Directory.GetFiles(Application.streamingAssetsPath + "/Events").Where(f=>!f.EndsWith(".meta") ));
+        //eventIDs.AddRange());
+        
         // Open file
-        FileStream fileStream = new FileStream(Application.streamingAssetsPath + "/Events.json", FileMode.OpenOrCreate);
-
-        // Read the data!
-        using (StreamReader reader = new StreamReader(fileStream))
+        foreach (var eventPath in eventIDs)
         {
-            string json = reader.ReadToEnd();
+            FileStream fileStream = new FileStream(eventPath, FileMode.OpenOrCreate);
 
-            // Get the EventContainer object
-            EventContainer container = JsonUtility.FromJson<EventContainer>(json);
-
-            // Add the events to the dictionary
-            foreach (Event e in container.events)
+            // Read the data!
+            using (StreamReader reader = new StreamReader(fileStream))
             {
-                if (eventsDictionary.ContainsKey(e.id))
-                    eventsDictionary[e.id] = e;
+                string json = reader.ReadToEnd();
+
+                // Get the EventContainer object
+                Event newEvent = JsonUtility.FromJson<Event>(json);
+
+                // Add the events to the dictionary
+                if (newEvent != null)
+                {
+                    if (eventsDictionary.ContainsKey(newEvent.id))
+                        eventsDictionary[newEvent.id] = newEvent;
+                    else
+                        eventsDictionary.Add(newEvent.id, newEvent);
+                }
                 else
-                    eventsDictionary.Add(e.id, e);
+                {
+                    Debug.LogError("bro wtf?");
+                }
             }
+
+            // Close the file when we're done
+            fileStream.Close();
+
         }
-
-        // Close the file when we're done
-        fileStream.Close();
-
     }
 
     public void StartNewStory()
@@ -170,7 +172,8 @@ public class EventManager : MonoBehaviour
             Directory.CreateDirectory(Application.persistentDataPath + "/Stories");
 
         // Open a new FileStream
-        storyFileStream = new FileStream($"{Application.persistentDataPath}/Stories/STORY.txt", FileMode.OpenOrCreate);
+        storyFileStream = new FileStream($"{Application.persistentDataPath}/Stories/STORY_{DateTime.Now.ToString("HH-mm-ss")}.txt", FileMode.OpenOrCreate);
+        writer = new StreamWriter(storyFileStream);
 
         // Reset the text and choice windows
         textDisplayer.ResetText();
@@ -189,18 +192,15 @@ public class EventManager : MonoBehaviour
         statsEditor.editable = true;
     }
 
-	// Writes lines to the file.
-	public void WriteToFile(string line, bool updateWordCount = true)
+    // Writes lines to the file.
+    public void WriteToFile(string line, bool updateWordCount = true)
     {
         // Allow blank lines to be ignored. Prevents a ton of newline spam
         if (line.Length == 0)
             return;
 
         // Write da ting
-        using (StreamWriter writer = new StreamWriter(storyFileStream))
-        {
-            writer.Write(line);
-        }
+        writer.Write(line);
 
         // Update internal wordcount
         if (updateWordCount)
@@ -270,7 +270,9 @@ public class EventManager : MonoBehaviour
         //
         //textDisplayer = newText.GetComponent<TextDisplayer>();
         textDisplayer.text += currentOutcome.displayText+"\n\n";
-		wasStoryUpdated = true;
+        WriteToFile(currentOutcome.displayText + "\n\n");
+        writer.Flush();
+        wasStoryUpdated = true;
     }
     
     public void ShowChoices()
@@ -287,7 +289,12 @@ public class EventManager : MonoBehaviour
 
 			newChoiceObject.transform.SetParent(choicesWindow);
 
-			return;
+            // Close the story file stream
+            string wordcountText = $"\nTHE END\n\nWord Count: {wordCount.ToString()}";
+            writer.Write(wordcountText);
+            writer.Flush();
+            storyFileStream?.Close();
+            return;
         }
 
         // Create the choice buttons
