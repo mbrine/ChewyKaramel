@@ -1,54 +1,48 @@
 {
-    "id": "Root",
-    "requirements":
-    {
-        "strength": 0,
-        "dexterity": 0,
-        "constitution": 0,
-        "charisma": 0,
-        "magic": 0,
-        "karma": 0
+  "id": "Root",
+  "requirements": {
+    "strength": 0,
+    "dexterity": 0,
+    "constitution": 0,
+    "charisma": 0,
+    "magic": 0,
+    "karma": 0
+  },
+  "successAttributes": {
+    "strength": 0,
+    "dexterity": 0,
+    "constitution": 0,
+    "charisma": 0,
+    "magic": 0,
+    "karma": 0
+  },
+  "onSuccess": {
+    "displayText": "This story is set in a fantasy world, where Angels live amongst men. The angels are described as magical beings of great power, as humanoids with dark horns and pure white wings. Since the beginning, they ruled over humanity with an iron fist, subjugating them to their will. The humans, in turn, worshipped them, and that was the way of things for a very long time.\n\nBut once, an Angel was born without horns or wings. Externally, it was indistinguishable from a human child. This flaw was deemed unacceptable for the Angels; it was cast out of its birthplace, and left to fend for itself in the wilds.\n\nHe was named {Player}, and this is where his story begins.",
+    "modifyAttributes": {
+      "strength": 0,
+      "dexterity": 0,
+      "constitution": 0,
+      "charisma": 0,
+      "magic": 0,
+      "karma": 0
     },
-    "successAttributes":
-    {
-        "strength": 0,
-        "dexterity": 0,
-        "constitution": 0,
-        "charisma": 0,
-        "magic": 0,
-        "karma": 0
+    "choices": [
+      "{Player} was raised by villagers",
+      "{Player} was raised by royalty",
+      "{Player} was raised by wolves"
+    ]
+  },
+  "onFailure": {
+    "displayText": "none",
+    "modifyAttributes": {
+      "strength": 0,
+      "dexterity": 0,
+      "constitution": 0,
+      "charisma": 0,
+      "magic": 0,
+      "karma": 0
     },
-    "onSuccess":
-    {
-        "displayText": "This story is set in a fantasy world, where Angels live amongst men. The angels are described as magical beings of great power, as humanoids with dark horns and pure white wings. Since the beginning, they ruled over humanity with an iron fist, subjugating them to their will. The humans, in turn, worshipped them, and that was the way of things for a very long time.\n\nBut once, an Angel was born without horns or wings. Externally, it was indistinguishable from a human child. This flaw was deemed unacceptable for the Angels; it was cast out of its birthplace, and left to fend for itself in the wilds.\n\nHe was named Lupus, and this is where his story begins.",
-        "modifyAttributes":
-        {
-            "strength": 0,
-            "dexterity": 0,
-            "constitution": 0,
-            "charisma": 0,
-            "magic": 0,
-            "karma": 0
-        },
-        "choices": [
-            "Lupus was raised by villagers",
-            "Lupus was raised by royalty",
-            "Lupus was raised by wolves"
-            ]
-    },
-    "onFailure":
-    {
-        "displayText": "none",
-        "modifyAttributes":
-        {
-            "strength": 0,
-            "dexterity": 0,
-            "constitution": 0,
-            "charisma": 0,
-            "magic": 0,
-            "karma": 0
-        },
-        "choices": [
-            ]
-    }
+    "choices": [
+    ]
+  }
 }

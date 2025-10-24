@@ -68,7 +68,6 @@ public class EventManager : MonoBehaviour
     private int wordCount;
 
     public TextDisplayer textDisplayer;
-    private bool wasStoryUpdated;
 
 	private void Start()
 	{
@@ -272,7 +271,6 @@ public class EventManager : MonoBehaviour
         textDisplayer.text += currentOutcome.displayText+"\n\n";
         WriteToFile(currentOutcome.displayText + "\n\n");
         writer.Flush();
-        wasStoryUpdated = true;
     }
     
     public void ShowChoices()

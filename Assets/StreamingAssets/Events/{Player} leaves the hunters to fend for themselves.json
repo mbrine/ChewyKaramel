@@ -1,0 +1,47 @@
+{
+  "id": "{Player} leaves the hunters to fend for themselves",
+  "requirements": {
+    "strength": 0,
+    "dexterity": 0,
+    "constitution": 0,
+    "charisma": 0,
+    "magic": 0,
+    "karma": 0
+  },
+  "successAttributes": {
+    "strength": 0,
+    "dexterity": 0,
+    "constitution": 0,
+    "charisma": 0,
+    "magic": 0,
+    "karma": 0
+  },
+  "onSuccess": {
+    "displayText": "{Player} vanished into the depths of the forest, leaving the hunters to deal with the {Monster1} by themselves. As he ran deeper into the wilds, the sounds of fire and battle faded away behind him. Soon enough, only silence remained.\n\nUnbeknownst to him, however, the hunters would be saved by an {Kingdom#Adjective} knight who was patrolling the forest that day. Days later, this knight would track {Player} down, introducing herself by the name of {Knight1}. {Player} would try to evade her grasp, but his underdeveloped magical powers were no match for a knight's professional training. After capturing {Player}, {Knight1} was determined to bring him to {Capital1}, the royal capital of the kingdom of {Kingdom#Name}. This long journey would take at least two whole months, during which, {Player} learns some rudimentary language skills from his captors.\n\nHowever, just before the escort could reach {Capital1}, they were attacked by a {Monster2}, an aggressive magical beast with the body of a lion, and the head and wings of an eagle. During this attack, the {Monster2} killed all of the escorting men, gravely wounded {Knight1}, and tore a large hole in the cage where {Player} was held.",
+    "modifyAttributes": {
+      "strength": 0,
+      "dexterity": 0,
+      "constitution": 0,
+      "charisma": 0,
+      "magic": 0,
+      "karma": 0
+    },
+    "choices": [
+      "{Player} fights the {Monster2}",
+      "{Player} uses the opportunity to escape"
+    ]
+  },
+  "onFailure": {
+    "displayText": "",
+    "modifyAttributes": {
+      "strength": 0,
+      "dexterity": 0,
+      "constitution": 0,
+      "charisma": 0,
+      "magic": 0,
+      "karma": 0
+    },
+    "choices": [
+    ]
+  }
+}

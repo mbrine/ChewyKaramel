@@ -1,0 +1,45 @@
+{
+  "id": "{Player} attempts to escape {Lab1}",
+  "requirements": {
+    "strength": 0,
+    "dexterity": 0,
+    "constitution": 0,
+    "charisma": 0,
+    "magic": 0,
+    "karma": 0
+  },
+  "successAttributes": {
+    "strength": 0,
+    "dexterity": 0,
+    "constitution": 0,
+    "charisma": 0,
+    "magic": 2,
+    "karma": 0
+  },
+  "onSuccess": {
+    "displayText": "{Player}’ extensive training and combat knowledge, combined with his magical powers, allowed him to break free of his restraints before further experimentation could be performed on him. He rampaged through the entire facility, burning {Lab1} to the ground and setting free most of the people who were imprisoned there. The scientists who were stationed at the facility that day all but perished in the chaos and the flames. People were forced to evacuate the entire district, and the facility was subsequently cordoned off with a one-mile buffer zone, to prevent harmful substances from leaking into the surrounding area. After this incident, {Player} was never seen again.\n\nLegend has it that he still stalks the ruins of {Lab1} during the night, a haunting reminder of the nightmares that originated from that wretched place.",
+    "modifyAttributes": {
+      "strength": 0,
+      "dexterity": 0,
+      "constitution": 0,
+      "charisma": 0,
+      "magic": 0,
+      "karma": 0
+    },
+    "choices": [
+    ]
+  },
+  "onFailure": {
+    "displayText": "{Player} attempted to escape, but he was not strong enough to break free of his restraints. Kroger’s procedure would go on as scheduled, causing {Player} a tremendous amount of pain and physical trauma. This mysterious blend of chemicals, combined with his angelic blood, turned {Player} into an uncontrollable monster. In an instant, everyone in the room was ripped apart and smeared across the walls. However, this transformation would not last long. {Player} collapsed shortly after, never to wake again. In the aftermath of this incident, his name was struck from the records, information about him was redacted, and soon, he was forgotten.\n\n{Player} would go down in the annals of history as an anomaly, an unsolved mystery, an experiment which never bore fruit.",
+    "modifyAttributes": {
+      "strength": 0,
+      "dexterity": 0,
+      "constitution": 0,
+      "charisma": 0,
+      "magic": 0,
+      "karma": 0
+    },
+    "choices": [
+    ]
+  }
+}
