@@ -68,6 +68,7 @@ public class EventManager : MonoBehaviour
     private int wordCount;
 
     public TextDisplayer textDisplayer;
+    public GameObject characterCustomizationPanel;
 
 	private void Start()
 	{
@@ -160,7 +161,13 @@ public class EventManager : MonoBehaviour
 
         }
     }
+    public void InitFileSystem()
+    {
+        // Open a new FileStream
+        storyFileStream = new FileStream($"{Application.persistentDataPath}/Stories/STORY_{DateTime.Now.ToString("HH-mm-ss")}.txt", FileMode.OpenOrCreate);
+        writer = new StreamWriter(storyFileStream);
 
+    }
     public void StartNewStory()
     {
         // Close the fileStream if it's open
@@ -169,10 +176,6 @@ public class EventManager : MonoBehaviour
         // Directory sanity
         if (!Directory.Exists(Application.persistentDataPath + "/Stories"))
             Directory.CreateDirectory(Application.persistentDataPath + "/Stories");
-
-        // Open a new FileStream
-        storyFileStream = new FileStream($"{Application.persistentDataPath}/Stories/STORY_{DateTime.Now.ToString("HH-mm-ss")}.txt", FileMode.OpenOrCreate);
-        writer = new StreamWriter(storyFileStream);
 
         // Reset the text and choice windows
         textDisplayer.ResetText();
@@ -184,17 +187,8 @@ public class EventManager : MonoBehaviour
         // Reload the blackboard
         BlackboardLoader.LoadBlackboard();
 
-        // TEMP
-        Blackboard.AddObject("Player", "Chetto Geparto");
-
-        // Change to the "Root" event
-        // We can do random logic here as well if we want different start states, all up to the writers ofc
-        MoveToEvent("Root");
-
-        // Reset Character Stats
-        characterStats = new CharacterStats();
-        statsEditor.stats = characterStats;
-        statsEditor.editable = true;
+        // Enable character customization
+        characterCustomizationPanel.SetActive(true);
     }
 
     // Writes lines to the file.
@@ -350,6 +344,10 @@ public class EventManager : MonoBehaviour
     
     public void ShowChoices()
     {
+        // Don't show the choices if we're customizing
+        if (characterCustomizationPanel.activeSelf)
+            return;
+
         // If no choices, show a "Restart game?" button instead
         if(currentOutcome.choices.Count==0)
         {
