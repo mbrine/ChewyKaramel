@@ -267,6 +267,10 @@ public class EventManager : MonoBehaviour
     // Applies filters to the text, such as pulling blackboard values etc.
     public string FilteredText(string text)
     {
+        // Base case
+        if (!text.Contains("{"))
+            return text;
+
         string output = "";
         while(text.Contains("{"))
         {
@@ -277,7 +281,20 @@ public class EventManager : MonoBehaviour
             text = text.Substring(text.IndexOf("{")+1);
 
             // Get the command string
-            string inTextCommand = text.Substring(0,text.IndexOf("}"));
+            int depth = 0;
+            int commandEndIndex = 0;
+            for (; commandEndIndex < text.Length; commandEndIndex++)
+            {
+                if (text[commandEndIndex] == '{')
+                    ++depth;
+                if (text[commandEndIndex] == '}')
+                {
+                    if (depth == 0)
+                        break;
+                    --depth;
+                }
+            }
+            string inTextCommand = text.Substring(0,commandEndIndex);
 
             bool commandProcessed = true;
             // If the first character is _ that means this is a command.
@@ -310,11 +327,11 @@ public class EventManager : MonoBehaviour
             }
 
             // Shift the text forward to the start of the command
-            text = text.Substring(text.IndexOf("}")+1);
+            text = text.Substring(commandEndIndex + 1);
         }
 
         output += text;
-        return output;
+        return FilteredText(output);
     }
     public void UpdateStoryDisplay()
     {
