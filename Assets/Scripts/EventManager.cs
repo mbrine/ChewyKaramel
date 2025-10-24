@@ -184,6 +184,9 @@ public class EventManager : MonoBehaviour
         // Reload the blackboard
         BlackboardLoader.LoadBlackboard();
 
+        // TEMP
+        Blackboard.AddObject("Player", "Chetto Geparto");
+
         // Change to the "Root" event
         // We can do random logic here as well if we want different start states, all up to the writers ofc
         MoveToEvent("Root");
@@ -262,18 +265,55 @@ public class EventManager : MonoBehaviour
         UpdateStoryDisplay();
     }
     // Applies filters to the text, such as pulling blackboard values etc.
-    private string FilteredText(string text)
+    public string FilteredText(string text)
     {
         string output = "";
         while(text.Contains("{"))
         {
-            // TMP
-            break;
+            // Add to the output
             output += text.Substring(0, text.IndexOf("{"));
-            text = text.Substring(text.IndexOf("{"));
+
+            // Shift the text forward to the start of the command
+            text = text.Substring(text.IndexOf("{")+1);
+
+            // Get the command string
+            string inTextCommand = text.Substring(0,text.IndexOf("}"));
+
+            bool commandProcessed = true;
+            // If the first character is _ that means this is a command.
+            if (inTextCommand[0] == '_')
+            {
+                string command = inTextCommand.Split(':')[0];
+                string commandBody = inTextCommand.Split(':')[1];
+
+                switch (command)
+                {
+                    case "_Random":
+                        string[] options = commandBody.Split("|");
+                        output += options[UnityEngine.Random.Range(0, options.Length)];
+                        break;
+                }
+                commandProcessed = true;
+            }
+            // If not a command, we attempt to pull from the blackboard.
+            else
+            {
+                if (Blackboard.HasObject(inTextCommand))
+                {
+                    commandProcessed = true;
+                    output += Blackboard.GetObject(inTextCommand);
+                }
+            }
+            if (!commandProcessed)
+            {
+                output += $"<FAILED TEXT COMMAND: {{{inTextCommand}}}>";
+            }
+
+            // Shift the text forward to the start of the command
+            text = text.Substring(text.IndexOf("}")+1);
         }
-        // TMP
-        output = text;
+
+        output += text;
         return output;
     }
     public void UpdateStoryDisplay()

@@ -33,7 +33,7 @@ public class ChoiceContainer : MonoBehaviour
                     // Check the stats, enable the button if better
                     if (eventManagerReference.characterStats > _event.requirements)
                         button.interactable = true;
-                    GetComponentInChildren<TMPro.TextMeshProUGUI>().text = _storedChoice;
+                    GetComponentInChildren<TMPro.TextMeshProUGUI>().text =eventManagerReference.FilteredText(_storedChoice);
                 }
                 else
                 {

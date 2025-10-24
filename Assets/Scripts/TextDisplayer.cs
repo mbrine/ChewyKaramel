@@ -3,7 +3,7 @@ using UnityEngine;
 public class TextDisplayer : MonoBehaviour
 {
 	// Text display speed in characters per second
-	private static readonly float _textDisplaySpeed = 85.0f;
+	private static readonly float _textDisplaySpeed = 850.0f;
 	private float progress = 0.0f;
 	public bool textDisplaying { get; private set; } = true;
 	public string text;
