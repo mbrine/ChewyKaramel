@@ -26,7 +26,6 @@ public class ChoiceContainer : MonoBehaviour
                     Debug.LogError($"Referencing nonexistent event {_storedChoice}!");
 
                 //Get the button
-                string eventName = "<MISSING STRING TABLE ENTRY>";
                 Button button = GetComponent<Button>();
                 button.interactable = false;
                 if (_event != null)

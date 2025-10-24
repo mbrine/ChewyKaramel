@@ -1,0 +1,45 @@
+{
+  "id": "{Player} drops his loot and helps {Knight1}",
+  "requirements": {
+    "strength": 0,
+    "dexterity": 0,
+    "constitution": 0,
+    "charisma": 0,
+    "magic": 0,
+    "karma": 0
+  },
+  "successAttributes": {
+    "strength": 0,
+    "dexterity": 0,
+    "constitution": 0,
+    "charisma": 0,
+    "magic": 0,
+    "karma": 0
+  },
+  "onSuccess": {
+    "displayText": "{Player} dropped whatever he was carrying and fights off the ambush, once again saving {Knight1}’s life. However, he was cut by a poisoned knife during the scuffle. This poison was so potent, such that even with his angelic powers, {Player} could not cleanse it from his body. He collapsed soon after, his consciousness fading into nothingness. That last thing that he saw would be {Knight1}’s face, full of sorrow.",
+    "modifyAttributes": {
+      "strength": 0,
+      "dexterity": 0,
+      "constitution": 0,
+      "charisma": 0,
+      "magic": 0,
+      "karma": 0
+    },
+    "choices": [
+    ]
+  },
+  "onFailure": {
+    "displayText": "",
+    "modifyAttributes": {
+      "strength": 0,
+      "dexterity": 0,
+      "constitution": 0,
+      "charisma": 0,
+      "magic": 0,
+      "karma": 0
+    },
+    "choices": [
+    ]
+  }
+}

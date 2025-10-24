@@ -1,0 +1,47 @@
+{
+  "id": "{Player} doubts the validity of the war",
+  "requirements": {
+    "strength": 0,
+    "dexterity": 0,
+    "constitution": 0,
+    "charisma": 0,
+    "magic": 0,
+    "karma": 0
+  },
+  "successAttributes": {
+    "strength": 0,
+    "dexterity": 0,
+    "constitution": 0,
+    "charisma": 0,
+    "magic": 0,
+    "karma": 0
+  },
+  "onSuccess": {
+    "displayText": "{Player} shares with {Knight1} his uncertainty of the {Kingdom#Adjective} regime. This statement plants a seed of doubt in her mind, which eventually leads her to shelter a group of starving refugees from an enemy nation. At first, it was not a big deal, but as the war continued, she began to shelter increasingly more people, and word of this treasonous act would reach inquisitors from the {Kingdom#Adjective} army.\n\nBy a twisted stroke of fate, {Player} would be ordered to capture {Knight1} and bring her to heel.",
+    "modifyAttributes": {
+      "strength": 0,
+      "dexterity": 0,
+      "constitution": 0,
+      "charisma": 0,
+      "magic": 0,
+      "karma": 0
+    },
+    "choices": [
+      "{Player} captures {Knight1}",
+      "{Player} does not capture {Knight1}"
+    ]
+  },
+  "onFailure": {
+    "displayText": "",
+    "modifyAttributes": {
+      "strength": 0,
+      "dexterity": 0,
+      "constitution": 0,
+      "charisma": 0,
+      "magic": 0,
+      "karma": 0
+    },
+    "choices": [
+    ]
+  }
+}

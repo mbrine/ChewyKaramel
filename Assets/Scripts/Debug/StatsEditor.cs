@@ -74,7 +74,7 @@ public class StatsEditor : MonoBehaviour
 			// Add to statsinputs
 			statsInputs.Add(inputField);
 
-			newInput.transform.parent = transform;
+			newInput.transform.SetParent(transform);
 		}
 		stats = new CharacterStats();
 
