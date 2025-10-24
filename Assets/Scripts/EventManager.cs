@@ -182,6 +182,9 @@ public class EventManager : MonoBehaviour
             Destroy(child.gameObject);
         }
 
+        // Reload the blackboard
+        BlackboardLoader.LoadBlackboard();
+
         // Change to the "Root" event
         // We can do random logic here as well if we want different start states, all up to the writers ofc
         MoveToEvent("Root");
@@ -259,7 +262,21 @@ public class EventManager : MonoBehaviour
         // Update the story display
         UpdateStoryDisplay();
     }
-
+    // Applies filters to the text, such as pulling blackboard values etc.
+    private string FilteredText(string text)
+    {
+        string output = "";
+        while(text.Contains("{"))
+        {
+            // TMP
+            break;
+            output += text.Substring(0, text.IndexOf("{"));
+            text = text.Substring(text.IndexOf("{"));
+        }
+        // TMP
+        output = text;
+        return output;
+    }
     public void UpdateStoryDisplay()
     {
         // Create a new text object and set the text, then set parent
@@ -269,8 +286,9 @@ public class EventManager : MonoBehaviour
         //newText.transform.SetParent(textWindow);
         //
         //textDisplayer = newText.GetComponent<TextDisplayer>();
-        textDisplayer.text += currentOutcome.displayText+"\n\n";
-        WriteToFile(currentOutcome.displayText + "\n\n");
+        string newText = FilteredText(currentOutcome.displayText) + "\n\n";
+        textDisplayer.text += newText;
+        WriteToFile(newText);
         writer.Flush();
         wasStoryUpdated = true;
     }

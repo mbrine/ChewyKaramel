@@ -32,4 +32,10 @@ public static class Blackboard
         // Return the object
         return (T)_blackboard[key];
     }
+
+    public static void Wipe()
+    {
+        _blackboard.Clear();
+        _blackboard = new Dictionary<string, object>();
+    }
 }
