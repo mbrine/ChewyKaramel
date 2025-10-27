@@ -33,7 +33,7 @@
     ]
   },
   "onFailure": {
-    "displayText": "none",
+    "displayText": "",
     "modifyAttributes": {
       "strength": 0,
       "dexterity": 0,

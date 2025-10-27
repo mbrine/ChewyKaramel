@@ -81,6 +81,7 @@ public class EventManager : MonoBehaviour
         if (textDisplayer.textDisplaying)
         {
             contentSizeFitter.enabled = false;
+            sliderReference.gameObject.SetActive(false);
         }
     }
 
@@ -91,35 +92,11 @@ public class EventManager : MonoBehaviour
             contentSizeFitter.enabled = true;
             sliderReference.value = 0;
         }
-        //if (wasStoryUpdated && !textDisplayer.textDisplaying)
-        //{
-        //    wasStoryUpdated = false;
-        //}
+        else
+        {
+            sliderReference.gameObject.SetActive(true);
+        }
     }
-
-	//public void SaveEvents()
-    //{
-    //    // Add all the events from the dictionaries
-    //    foreach(var kvp in eventsDictionary)
-    //    {
-    //        container.events.Add(kvp.Value);
-    //    }
-    //
-    //    // Create the json string
-    //    string json = JsonUtility.ToJson(container, true);
-    //
-    //    // Open file
-    //    FileStream fileStream = new FileStream(Application.streamingAssetsPath+ "/Events.json",FileMode.OpenOrCreate);
-    //
-    //    // Write the data!
-    //    using (StreamWriter writer = new StreamWriter(fileStream))
-    //    {
-	//		writer.Write(json);
-    //    }
-    //
-    //    // Close the file when we're done
-    //    fileStream.Close();
-    //}
 
     public void LoadEvents()
     {
@@ -243,7 +220,11 @@ public class EventManager : MonoBehaviour
         }
         else
         {
-            currentOutcome = currentEvent.onFailure;
+            // Play safe, if the "fail" state is blank we ignore it
+            if (currentEvent.onFailure.displayText != ""&&currentEvent.onFailure.displayText != "none")
+                currentOutcome = currentEvent.onFailure;
+            else
+                currentOutcome = currentEvent.onSuccess;
         }
 
         if (statsEditor.editable)

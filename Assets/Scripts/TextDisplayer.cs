@@ -1,15 +1,17 @@
 using UnityEngine;
+using UnityEngine.UI;
 
 public class TextDisplayer : MonoBehaviour
 {
 	// Text display speed in characters per second
-	private static readonly float _textDisplaySpeed = 850.0f;
+	public float _textDisplaySpeed = 850.0f;
 	private float progress = 0.0f;
 	public bool textDisplaying { get; private set; } = true;
 	public string text;
 
 	private TMPro.TextMeshProUGUI textComponent;
 	public EventManager eventManager;
+	public Slider speedSlider;
 
 	public void Start()
 	{
@@ -17,6 +19,7 @@ public class TextDisplayer : MonoBehaviour
 	}
 	public void Update()
 	{
+		_textDisplaySpeed = speedSlider.value;
 		if (textDisplaying)
 		{
 			progress += Time.deltaTime * _textDisplaySpeed;
