@@ -9,7 +9,7 @@ public class TextDisplayer : MonoBehaviour
 	public bool textDisplaying { get; private set; } = true;
 	public string text;
 
-	private TMPro.TextMeshProUGUI textComponent;
+	public TMPro.TextMeshProUGUI textComponent;
 	public EventManager eventManager;
 	public Slider speedSlider;
 
