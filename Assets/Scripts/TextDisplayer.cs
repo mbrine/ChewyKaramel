@@ -20,10 +20,12 @@ public class TextDisplayer : MonoBehaviour
 	public void Update()
 	{
 		_textDisplaySpeed = speedSlider.value;
+		textComponent.text = text;//.Substring(0, (int)progress);
+		textComponent.maxVisibleCharacters = (int)progress;
 		if (textDisplaying)
 		{
 			progress += Time.deltaTime * _textDisplaySpeed;
-			transform.position = Vector3.zero;
+			//transform.localPosition = Vector3.zero;
 		}
 		if (progress >= text.Length && textDisplaying)
 		{
@@ -36,7 +38,6 @@ public class TextDisplayer : MonoBehaviour
 			textDisplaying = true;
 		}
 
-		textComponent.text = text.Substring(0, (int)progress);
 	}
 
 	public void ResetText()

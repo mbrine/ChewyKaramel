@@ -81,7 +81,7 @@ public class EventManager : MonoBehaviour
         if (textDisplayer.textDisplaying)
         {
             contentSizeFitter.enabled = false;
-            sliderReference.gameObject.SetActive(false);
+            //sliderReference.gameObject.SetActive(false);
         }
     }
 
@@ -94,7 +94,7 @@ public class EventManager : MonoBehaviour
         }
         else
         {
-            sliderReference.gameObject.SetActive(true);
+            //sliderReference.gameObject.SetActive(true);
         }
     }
 
