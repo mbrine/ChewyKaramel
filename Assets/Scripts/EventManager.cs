@@ -81,7 +81,7 @@ public class EventManager : MonoBehaviour
         if (textDisplayer.textDisplaying)
         {
             contentSizeFitter.enabled = false;
-            sliderReference.gameObject.SetActive(false);
+            //sliderReference.gameObject.SetActive(false);
         }
     }
 
@@ -90,11 +90,11 @@ public class EventManager : MonoBehaviour
         if (textDisplayer.textDisplaying)
         {
             contentSizeFitter.enabled = true;
-            sliderReference.value = 0;
+            sliderReference.value = 1-textDisplayer.textComponent.renderedHeight/textDisplayer.textComponent.preferredHeight;
         }
         else
         {
-            sliderReference.gameObject.SetActive(true);
+            //sliderReference.gameObject.SetActive(true);
         }
     }
 
