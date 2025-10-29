@@ -1,0 +1,53 @@
+{
+    "id": "{Player} was raised by villagers",
+    "requirements":
+    {
+        "strength": 0,
+        "dexterity": 0,
+        "constitution": 0,
+        "charisma": 0,
+        "magic": 0,
+        "karma": 0
+    },
+    "successAttributes":
+    {
+        "strength": 0,
+        "dexterity": 0,
+        "constitution": 0,
+        "charisma": 0,
+        "magic": 0,
+        "karma": 0
+    },
+    "onSuccess":
+    {
+        "displayText": "After being abandoned by the angels, the young {Player} was found in the wilderness by humans from {_Random:the remote village of {VillageName}|a small, remote village {_Random:called {VillageName}|named {VillageName}}}. The villagers raised him as one of their own, {_Random:a quiet and kind child who grew into a strong young man|a loud and boisterous child eventually grew into a strong and kind young man}.",
+        "modifyAttributes":
+        {
+            "strength": 0,
+            "dexterity": 0,
+            "constitution": 0,
+            "charisma": 0,
+            "magic": 0,
+            "karma": 0
+        },
+        "choices": [
+            "{Player} was always eager to help around the village",
+            "{Player} often kept to himself, mastering the mysterious powers within him"
+            ]
+    },
+    "onFailure":
+    {
+        "displayText": "",
+        "modifyAttributes":
+        {
+            "strength": 0,
+            "dexterity": 0,
+            "constitution": 0,
+            "charisma": 0,
+            "magic": 0,
+            "karma": 0
+        },
+        "choices": [
+            ]
+    }
+}
