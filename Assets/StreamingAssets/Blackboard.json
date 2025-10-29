@@ -5,7 +5,10 @@
     "Monster1:Chimera|Tridrake|Pyrahydra|Infernobeast",
     "Monster2:Gryphon|Skyrend|Aetherwing|Stormclaw",
     "Kingdom#Name:Aphelia|Solmere|Caelthria",
+    "Kingdom#Name2:Solmere|Caelthria|Aphelia",
+    "Queen#Name:Maria|Bernice|Artemis",
     "Kingdom#Adjective:Aphelion|Solmeric|Caelthrian",
+    "Kingdom#Adjective2:Solmeric|Caelthrian|Aphelion",
     "Capital1:Granich|Vaelport|Cindergate",
     "Lab1:Mordova|Ebonspire|Glasshaven",
     "Site1:Elrath|Moonvale|Ironfen"
