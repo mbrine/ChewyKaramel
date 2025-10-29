@@ -1,5 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Diagnostics;
+using System.IO;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -19,12 +21,18 @@ public class ChoiceContainer : MonoBehaviour
                 GetComponent<Button>().interactable = true;
                 GetComponentInChildren<TMPro.TextMeshProUGUI>().text = "Start again?";
             }
+            else if (_storedChoice == "_OPENDIRECTORY")
+            {
+                //Get the button
+                GetComponent<Button>().interactable = true;
+                GetComponentInChildren<TMPro.TextMeshProUGUI>().text = "Open story directory";
+            }
             else
             {
                 Event _event = null;
                 if (!eventManagerReference.eventsDictionary.TryGetValue(_storedChoice, out _event))
-                    Debug.LogError($"Referencing nonexistent event {_storedChoice}!");
-
+                    UnityEngine.Debug.LogError($"Referencing nonexistent event {_storedChoice}!");
+                
                 //Get the button
                 Button button = GetComponent<Button>();
                 button.interactable = false;
@@ -49,7 +57,9 @@ public class ChoiceContainer : MonoBehaviour
     {
         if (storedChoice == "_RESTART")
             eventManagerReference.StartNewStory();
-        else
+        else if (storedChoice == "_OPENDIRECTORY")
+			Process.Start(Application.persistentDataPath + "/Stories");
+		else
             eventManagerReference.SelectChoice(storedChoice);
     }
 }

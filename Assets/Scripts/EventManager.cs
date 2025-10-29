@@ -82,7 +82,6 @@ public class EventManager : MonoBehaviour
         if (textDisplayer.textDisplaying)
         {
             contentSizeFitter.enabled = false;
-            //sliderReference.gameObject.SetActive(false);
         }
     }
 
@@ -95,7 +94,6 @@ public class EventManager : MonoBehaviour
         }
         else
         {
-            //sliderReference.gameObject.SetActive(true);
         }
     }
 
@@ -388,9 +386,19 @@ public class EventManager : MonoBehaviour
 			// Instantiate the choice button
 			GameObject newChoiceObject = Instantiate(choiceButtonReference);
 
+            // Start new story
 			ChoiceContainer choiceContainer = newChoiceObject.GetComponent<ChoiceContainer>();
 			choiceContainer.eventManagerReference = this;
 			choiceContainer.storedChoice = "_RESTART";
+
+			newChoiceObject.transform.SetParent(choicesWindow);
+            
+            // Story directory
+            newChoiceObject = Instantiate(choiceButtonReference);
+
+			choiceContainer = newChoiceObject.GetComponent<ChoiceContainer>();
+			choiceContainer.eventManagerReference = this;
+			choiceContainer.storedChoice = "_OPENDIRECTORY";
 
 			newChoiceObject.transform.SetParent(choicesWindow);
 
@@ -416,4 +424,9 @@ public class EventManager : MonoBehaviour
         }
 
     }
+
+    public void SkipLine()
+    {
+		sliderReference.value = 0;
+	}
 }

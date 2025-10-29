@@ -29,9 +29,7 @@ public class TextDisplayer : MonoBehaviour
 		}
 		if (progress >= text.Length && textDisplaying)
 		{
-			progress = text.Length;
-			textDisplaying = false;
-			eventManager.ShowChoices();
+			SkipLine();
 		}
 		else if (progress < text.Length)
 		{
@@ -40,6 +38,15 @@ public class TextDisplayer : MonoBehaviour
 
 	}
 
+	public void SkipLine()
+	{
+		if ((textDisplaying))
+		{
+			progress = text.Length;
+			textDisplaying = false;
+			eventManager.ShowChoices();
+		}
+	}
 	public void ResetText()
 	{
 		text = "";
