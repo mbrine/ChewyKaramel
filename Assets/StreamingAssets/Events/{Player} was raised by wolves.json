@@ -1,47 +1,53 @@
 {
-  "id": "{Player} was raised by wolves",
-  "requirements": {
-    "strength": 0,
-    "dexterity": 0,
-    "constitution": 0,
-    "charisma": 0,
-    "magic": 0,
-    "karma": 0
-  },
-  "successAttributes": {
-    "strength": 0,
-    "dexterity": 0,
-    "constitution": 0,
-    "charisma": 0,
-    "magic": 0,
-    "karma": 0
-  },
-  "onSuccess": {
-    "displayText": "With no one to look after him but himself, {Player} grew up alone in the forests of {Forest1}, amongst wild animals. In such a harsh environment, he could only survive by using his latent angelic powers to their fullest extent, using magic to strengthen his body and heal his wounds. However, without someone to mentor him in the ways of the arcane, his control of magic was crude at best.\n\nOne day, {Player} was found by hunters from the nearby kingdom of {Kingdom#Name}. Like many other kingdoms, {Kingdom#Name} worshipped the Angels as deities, and would submit to their will without question. {Player}, however, was not an Angel to them. After all, Angels were supposed to have horns and wings! All the hunters saw was a feral boy with unusual magic powers.\n\nIn an attempt to bring {Player} back to the kingdom for scientific study, the hunters chased him through the forest for days on end. This chase eventually led them into the territory of a fearsome predator: the three-headed, fire-breathing {MonsterName1}. As the hunters were being attacked, they let out a cry for help.",
-    "modifyAttributes": {
-      "strength": 0,
-      "dexterity": 0,
-      "constitution": 0,
-      "charisma": 0,
-      "magic": 0,
-      "karma": 0
+    "id": "{Player} was raised by wolves",
+    "requirements":
+    {
+        "strength": 0,
+        "dexterity": 0,
+        "constitution": 0,
+        "charisma": 0,
+        "magic": 0,
+        "karma": 0
     },
-    "choices": [
-      "{Player} helps the hunters",
-      "{Player} leaves the hunters to fend for themselves"
-    ]
-  },
-  "onFailure": {
-    "displayText": "",
-    "modifyAttributes": {
-      "strength": 0,
-      "dexterity": 0,
-      "constitution": 0,
-      "charisma": 0,
-      "magic": 0,
-      "karma": 0
+    "successAttributes":
+    {
+        "strength": 0,
+        "dexterity": 0,
+        "constitution": 0,
+        "charisma": 0,
+        "magic": 0,
+        "karma": 0
     },
-    "choices": [
-    ]
-  }
+    "onSuccess":
+    {
+        "displayText": "{_Random:With no one to look after him but himself{_AddAttr:dexterity+1}|Having had to fend for himself all his life{_AddAttr:strength+1}|With no guardian in sight}, {Player} grew up alone in the forests of {Forest1}, amongst wild animals. In such a harsh environment, he could only survive by {_Random:using his latent angelic powers to their fullest extent{_AddAttr:constitution+1}|using magic to strengthen his body and heal his wounds{_AddAttr:magic+1}|relying on his sheer strength to overpower his foes{_AddAttr:strength+1}}. However, without someone to mentor him in the ways of the arcane, his control of magic was crude at best.\n\nOne day, {Player} was found by hunters from the nearby kingdom of {Kingdom#Name}. Like many other kingdoms, {Kingdom#Name} worshipped the Angels as deities, and would submit to their will {_Random:without question|unquestioningly}. {Player}, however, was not an Angel to them. After all, Angels were supposed to have horns and wings! All the hunters saw was a feral boy with unusual magic powers.\n\nIn an attempt to bring {Player} back to the kingdom for scientific study, the hunters chased him through the forest for days on end. This chase eventually led them into the territory of a fearsome predator: the three-headed, fire-breathing {Monster1}. As the hunters were being attacked, they let out a cry for help.",
+        "modifyAttributes":
+        {
+            "strength": 0,
+            "dexterity": 0,
+            "constitution": 0,
+            "charisma": 0,
+            "magic": 0,
+            "karma": 0
+        },
+        "choices": [
+            "{Player} helps the hunters",
+            "{Player} {_Random:leaves the hunters to fend for themselves|abandons the hunters|turns his back on the hunters}"
+            ]
+    },
+    "onFailure":
+    {
+        "displayText": "",
+        "modifyAttributes":
+        {
+            "strength": 0,
+            "dexterity": 0,
+            "constitution": 0,
+            "charisma": 0,
+            "magic": 0,
+            "karma": 0
+        },
+        "choices": [
+            ]
+    }
 }
