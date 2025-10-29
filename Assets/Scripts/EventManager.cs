@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Globalization;
 using System.IO;
 using System.Linq;
+using System.Reflection;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
@@ -275,14 +276,58 @@ public class EventManager : MonoBehaviour
             // If the first character is _ that means this is a command.
             if (inTextCommand[0] == '_')
             {
-                string command = inTextCommand.Split(':')[0];
-                string commandBody = inTextCommand.Split(':')[1];
+                string command = inTextCommand.Substring(0, inTextCommand.IndexOf(':'));
+                string commandBody = inTextCommand.Substring(inTextCommand.IndexOf(':')+1);
 
-                switch (command)
+				switch (command)
                 {
                     case "_Random":
-                        string[] options = commandBody.Split("|");
-                        output += options[UnityEngine.Random.Range(0, options.Length)];
+                        {
+                            List<string> options = new List<string>();
+                            depth = 0;
+							for (int commandBodyIndex = 0; commandBodyIndex <= commandBody.Length; commandBodyIndex++)
+							{
+                                if(commandBodyIndex==commandBody.Length)
+                                {
+                                    options.Add(commandBody);
+                                    break;
+                                }
+								if (commandBody[commandBodyIndex] == '{')
+									++depth;
+								if (commandBody[commandBodyIndex] == '}')
+								{
+									if (depth == 0)
+										break;
+									--depth;
+								}
+
+                                if(commandBody[commandBodyIndex] == '|' && depth == 0)
+                                {
+                                    options.Add(commandBody.Substring(0, commandBodyIndex));
+									commandBody = commandBody.Substring(commandBodyIndex + 1);
+									commandBodyIndex = 0;
+                                }
+							}
+
+                            output += options[UnityEngine.Random.Range(0, options.Count)];
+                        }
+                        break;
+                    // Adds value to the specified attribute
+                    case "_AddAttr":
+                        {
+                            string[] attributes = commandBody.Split("|");
+                            foreach (string attribute in attributes)
+                            {
+                                string attributeName = attribute.Split("+")[0];
+                                FieldInfo field = characterStats.GetType().GetField(attributeName);
+                                if (field == null)
+                                {
+                                    Debug.LogWarning($"Attempting to perform AddAttr on nonexistent stat {attributeName}!");
+                                    break;
+                                }
+                                field.SetValue(characterStats, int.Parse(attribute.Split("+")[1]) + (int)field.GetValue(characterStats));
+                            }
+                        }
                         break;
                 }
                 commandProcessed = true;
@@ -295,6 +340,11 @@ public class EventManager : MonoBehaviour
                     commandProcessed = true;
                     output += Blackboard.GetObject(inTextCommand);
                 }
+                else
+                {
+                    // Error here because THERES NOTHING IN THE BLACKBOARD FOR THIS.
+                    Debug.LogError($"YOU ARE TRYING TO ACCESS A NONEXISTENT BLACKBOARD VARIABLE {inTextCommand} FOR GOD'S SAKE");
+                }
             }
             if (!commandProcessed)
             {
@@ -302,6 +352,7 @@ public class EventManager : MonoBehaviour
             }
 
             // Shift the text forward to the start of the command
+            if(commandEndIndex<text.Length)
             text = text.Substring(commandEndIndex + 1);
         }
 
@@ -321,6 +372,8 @@ public class EventManager : MonoBehaviour
         textDisplayer.text += newText;
         WriteToFile(newText);
         writer.Flush();
+
+        statsEditor.stats = characterStats;
     }
     
     public void ShowChoices()

@@ -1,4 +1,4 @@
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
@@ -12,7 +12,10 @@ public class CharacterCustomization : MonoBehaviour
 
     public void ApplyCustomizations()
     {
-        Blackboard.AddObject("Player", m_characterName.text);
+        if (Input.GetKey(KeyCode.O))
+            Blackboard.AddObject("Player", "Ωμεγα");
+        else
+            Blackboard.AddObject("Player", m_characterName.text);
         gameObject.SetActive(false);
 
         // Init the filesystem
