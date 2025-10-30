@@ -1,0 +1,53 @@
+{
+    "id": "{Player} trained to master Fire magic",
+    "requirements":
+    {
+        "strength": 0,
+        "dexterity": 0,
+        "constitution": 0,
+        "charisma": 0,
+        "magic": 0,
+        "karma": 0
+    },
+    "successAttributes":
+    {
+        "strength": 0,
+        "dexterity": 0,
+        "constitution": 0,
+        "charisma": 0,
+        "magic": 0,
+        "karma": 0
+    },
+    "onSuccess":
+    {
+        "displayText": "From sparks at his fingertips to a roaring flame, {Player}’s mastery over fire grew with each passing day. At first, the magic flickered weakly, sputtering out before it could take form. Slowly, the flames began to obey, swirling and dancing in rhythm with his breath.\n\nOne afternoon, while {Player} trained in the forest, he noticed {VillageGirl}, a young villager girl, watching him. Before they could speak, a massive, enraged wild boar burst from the underbrush, charging straight at her.\n\nFlames erupted from {Player}’s palms, forming a wall between {VillageGirl} and the boar. The creature recoiled, but his fear fed the fire until it roared. With a final burst, he drove the boar back into the woods. Smoke hung in the air as {VillageGirl}’s wide eyes met his.",
+        "modifyAttributes":
+        {
+            "strength": 0,
+            "dexterity": 1,
+            "constitution": 0,
+            "charisma": 1,
+            "magic": 1,
+            "karma": 1
+        },
+        "choices": [
+            "{Player} uses his magic to help the villagers",
+            "{Player} keeps his magic a secret"
+            ]
+    },
+    "onFailure":
+    {
+        "displayText": "",
+        "modifyAttributes":
+        {
+            "strength": 0,
+            "dexterity": 0,
+            "constitution": 0,
+            "charisma": 0,
+            "magic": 0,
+            "karma": 0
+        },
+        "choices": [
+            ]
+    }
+}

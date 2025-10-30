@@ -11,6 +11,9 @@
     "Kingdom#Adjective2:Solmeric|Caelthrian|Aphelion",
     "Capital1:Granich|Vaelport|Cindergate",
     "Lab1:Mordova|Ebonspire|Glasshaven",
-    "Site1:Elrath|Moonvale|Ironfen"
+    "Site1:Elrath|Moonvale|Ironfen",
+    "VillageName:Elderbrook|Ravenstead|Brindlehollow",
+    "VillageGirl:Lira|Elara|Maren",
+    "TownName:ElderFell|StoneFord|Oakridge"
   ]
 }
