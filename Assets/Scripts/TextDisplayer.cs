@@ -28,7 +28,7 @@ public class TextDisplayer : MonoBehaviour
 		string tmpTxt = "";
 		if ((int)progress > 0)
 			tmpTxt = text.Substring(0, (int)progress - 1);
-		tmpTxt += '█';
+		tmpTxt += '|';//█';
 		if ((int)progress > 0)
 			tmpTxt += text.Substring((int)progress);
 		textComponent.text = tmpTxt;//.Substring(0, (int)progress);
