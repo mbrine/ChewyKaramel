@@ -169,6 +169,9 @@ public class EventManager : MonoBehaviour
         characterCustomizationPanel.SetActive(true);
 
         wordCount = 0;
+
+        characterStats = new CharacterStats();
+        statsEditor.stats = characterStats;
     }
 
     // Writes lines to the file.
@@ -237,7 +240,7 @@ public class EventManager : MonoBehaviour
 
         statsEditor.stats = characterStats;
         statsEditor.editable = false;
-        statsEditor.UpdateValues();
+        //statsEditor.UpdateValues();
 
         // Update the story display
         UpdateStoryDisplay();
