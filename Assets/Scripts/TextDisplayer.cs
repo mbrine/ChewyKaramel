@@ -21,13 +21,13 @@ public class TextDisplayer : MonoBehaviour
 	public void Update()
 	{
 		_textDisplaySpeed = speedSlider.value;
-			string tmpTxt = "";
-		if (progress > 0)
-		tmpTxt = text.Substring(0,(int)progress-1);
-		tmpTxt += '█';
-		if (progress > 0)
-		tmpTxt += text.Substring((int)progress);
-        textComponent.text = tmpTxt;//.Substring(0, (int)progress);
+		string tmpTxt = "";
+		if ((int)progress > 0)
+			tmpTxt = text.Substring(0, (int)progress - 1);
+		tmpTxt += '|';//█';
+		if ((int)progress > 0)
+			tmpTxt += text.Substring((int)progress);
+		textComponent.text = tmpTxt;//.Substring(0, (int)progress);
 		textComponent.maxVisibleCharacters = (int)progress;
 		if (textDisplaying)
 		{
