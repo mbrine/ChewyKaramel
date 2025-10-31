@@ -70,6 +70,7 @@ public class EventManager : MonoBehaviour
 
     public TextDisplayer textDisplayer;
     public GameObject characterCustomizationPanel;
+    public TMPro.TextMeshProUGUI wordCountDisplay;
 
 	private void Start()
 	{
@@ -83,6 +84,7 @@ public class EventManager : MonoBehaviour
         {
             contentSizeFitter.enabled = false;
         }
+        wordCountDisplay.text = wordCount.ToString();
     }
 
     private void LateUpdate()
@@ -165,6 +167,8 @@ public class EventManager : MonoBehaviour
 
         // Enable character customization
         characterCustomizationPanel.SetActive(true);
+
+        wordCount = 0;
     }
 
     // Writes lines to the file.
