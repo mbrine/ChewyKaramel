@@ -14,6 +14,10 @@ public class TextDisplayer : MonoBehaviour
 	public EventManager eventManager;
 	public Slider speedSlider;
 
+	private bool caretVisible = false;
+	private float caretBlinkTime = 0.5f;
+	private float currCaretBlinkTime = 0.0f;
+
 	public void Start()
 	{
 		textComponent = GetComponent<TMPro.TextMeshProUGUI>();
@@ -34,7 +38,19 @@ public class TextDisplayer : MonoBehaviour
 			progress += Time.deltaTime * _textDisplaySpeed;
 			//transform.localPosition = Vector3.zero;
 		}
-		if (progress >= text.Length && textDisplaying)
+		else
+		{
+			currCaretBlinkTime -= Time.deltaTime;
+			if (currCaretBlinkTime < 0.0f)
+			{
+				currCaretBlinkTime = caretBlinkTime;
+				caretVisible = !caretVisible;
+			}
+
+			if (caretVisible == false)
+				textComponent.maxVisibleCharacters = (int)progress - 1 > 0 ? (int)progress - 1 - 1 : 0;
+        }
+        if (progress >= text.Length && textDisplaying)
 		{
 			SkipLine();
 		}
