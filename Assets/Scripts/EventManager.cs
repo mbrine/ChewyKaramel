@@ -403,35 +403,35 @@ public class EventManager : MonoBehaviour
 
         statsEditor.stats = characterStats;
     }
-    
+
     public void PerformDFSTest()
     {
         debugging = true;
-		// Reference the root
-		Event rootEvent = eventsDictionary["Root"];
+        // Reference the root
+        Event rootEvent = eventsDictionary["Root"];
         List<string> routes = new List<string>();
 
-		// Directory sanity
-		if (!Directory.Exists(Application.persistentDataPath + "/Debug"))
-			Directory.CreateDirectory(Application.persistentDataPath + "/Debug");
+        // Directory sanity
+        if (!Directory.Exists(Application.persistentDataPath + "/Debug"))
+            Directory.CreateDirectory(Application.persistentDataPath + "/Debug");
         if (File.Exists($"{Application.persistentDataPath}/Debug/FullDFSTest.json"))
             File.Delete($"{Application.persistentDataPath}/Debug/FullDFSTest.json");
 
-		// Open a new FileStream
-		var debugFileStream = new FileStream($"{Application.persistentDataPath}/Debug/FullDFSTest.json", FileMode.OpenOrCreate);
-		var debugWriter = new StreamWriter(debugFileStream);
+        // Open a new FileStream
+        var debugFileStream = new FileStream($"{Application.persistentDataPath}/Debug/FullDFSTest.json", FileMode.OpenOrCreate);
+        var debugWriter = new StreamWriter(debugFileStream);
 
         // Force reload the blackboard
         BlackboardLoader.LoadBlackboard(true);
 
         DFS(ref routes, "Root", rootEvent);
-
+        List<DFSWordCountResult> results = new List<DFSWordCountResult>();
         foreach (string route in routes)
         {
             string[] fullPath = route.Split('\n');
             wordCount = 0;
-            string currentStoryText = FilteredText(rootEvent.onSuccess.displayText,true);
-            foreach(string eventID in fullPath)
+            string currentStoryText = FilteredText(rootEvent.onSuccess.displayText, true);
+            foreach (string eventID in fullPath)
             {
                 string[] details = eventID.Split('`');
                 Event _event = eventsDictionary[details[0]];
@@ -447,8 +447,9 @@ public class EventManager : MonoBehaviour
             result.wordCount = wordCount;
             result.route = new List<string>(fullPath);
             result.story = currentStoryText;
+            results.Add(result);
 
-			debugWriter.Write(JsonUtility.ToJson(result,true)+",\n");
+            debugWriter.Write(JsonUtility.ToJson(result, true) + ",\n");
             debugWriter.Flush();
         }
 
@@ -456,11 +457,31 @@ public class EventManager : MonoBehaviour
         StartNewStory();
 
         // Open the debug folder
-		Process.Start(Application.persistentDataPath + "/Debug");
+        Process.Start(Application.persistentDataPath + "/Debug");
         debugWriter.Flush();
-		debugFileStream?.Close();
+        debugFileStream?.Close();
+
+        debugFileStream = new FileStream($"{Application.persistentDataPath}/Debug/DFSSummary.json", FileMode.OpenOrCreate);
+        debugWriter = new StreamWriter(debugFileStream);
+
+        DFSWordCountResultSummary dFSWordCountResultSummary = new DFSWordCountResultSummary();
+        float wordCountTotal = 0;
+        float branchDepthTotal = 0;
+        foreach (var result in results)
+        {
+            wordCountTotal += result.wordCount;
+            branchDepthTotal += result.route.Count;
+        }
+        dFSWordCountResultSummary.averageWordCount = wordCountTotal / results.Count + 1;
+        dFSWordCountResultSummary.averageBranchDepth = branchDepthTotal / results.Count + 1;
+
+		debugWriter.Write(JsonUtility.ToJson(dFSWordCountResultSummary, true));
+
+		debugWriter.Flush();
+        debugFileStream?.Close();
+
         debugging = false;
-	}
+    }
 
     public void DFS(ref List<string> routes, string currentRoute, Event currentEvent)
     {
@@ -475,27 +496,36 @@ public class EventManager : MonoBehaviour
         availableChoiceIDs.AddRange(currentEvent.onSuccess.choices);
         availableChoiceIDs.AddRange(currentEvent.onFailure.choices);
 
-        if(availableChoiceIDs.Count==0)
+        if (currentEvent.onSuccess.choices.Count == 0)
         {
-            routes.Add(currentRoute+"`S");
-            if(currentEvent.onFailure.displayText!="")
-            routes.Add(currentRoute+"`F");
+            routes.Add(currentRoute + "`S");
+            if (currentEvent.onFailure.displayText != "")
+                routes.Add(currentRoute + "`F");
 
             return;
+        }
+        if (currentEvent.onFailure.displayText != "")
+        {
+            if (currentEvent.onFailure.choices.Count == 0)
+            {
+                routes.Add(currentRoute + "`F");
+                return;
+            }
+
         }
 
         foreach (string choiceID in currentEvent.onSuccess.choices)
         {
             if (eventsDictionary.ContainsKey(choiceID))
             {
-                DFS(ref routes, currentRoute+"`S\n"+choiceID, eventsDictionary[choiceID]);
+                DFS(ref routes, currentRoute + "`S\n" + choiceID, eventsDictionary[choiceID]);
             }
         }
         foreach (string choiceID in currentEvent.onFailure.choices)
         {
             if (eventsDictionary.ContainsKey(choiceID))
             {
-                DFS(ref routes, currentRoute+"`F\n"+choiceID, eventsDictionary[choiceID]);
+                DFS(ref routes, currentRoute + "`F\n" + choiceID, eventsDictionary[choiceID]);
             }
         }
     }

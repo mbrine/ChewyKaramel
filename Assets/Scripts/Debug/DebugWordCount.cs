@@ -10,3 +10,8 @@ public class DFSWordCountResult
 	public List<string> route;
 	public string story;
 }
+public class DFSWordCountResultSummary
+{
+	public float averageWordCount;
+	public float averageBranchDepth;
+}
