@@ -14,7 +14,7 @@ public static class BlackboardLoader
     private static string _filePath = $"{Application.streamingAssetsPath}/Blackboard.json";
 
     private static Dictionary<string, int> preRandomIndexes;
-    public static void LoadBlackboard()
+    public static void LoadBlackboard(bool debug = false)
     {
         // Wipe the blackboard
         Blackboard.Wipe();
@@ -38,6 +38,13 @@ public static class BlackboardLoader
                 string key = entry.Split(":")[0];
                 string optionsSection = entry.Split(":")[1];
                 string[] options = optionsSection.Split("|");
+
+                if(debug)
+                {
+                    Blackboard.AddObject(key, options[0]);
+                    continue;
+                }
+
                 if (entry.Contains("#"))
                 {
                     string preRandomID = entry.Substring(0, entry.IndexOf("#"));
