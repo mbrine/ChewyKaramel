@@ -385,7 +385,7 @@ public class EventManager : MonoBehaviour
         }
 
         output += text;
-        return FilteredText(output);
+        return FilteredText(output, debug);
     }
     public void UpdateStoryDisplay()
     {
