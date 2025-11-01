@@ -8,4 +8,5 @@ public class DFSWordCountResult
 {
 	public int wordCount;
 	public List<string> route;
+	public string story;
 }

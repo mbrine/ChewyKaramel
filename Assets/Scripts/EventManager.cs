@@ -259,7 +259,7 @@ public class EventManager : MonoBehaviour
     }
 
     // Applies filters to the text, such as pulling blackboard values etc.
-    // If debug, all blackboard text is replaced with 1 word and all _Random uses the first option
+    // If debug, all blackboard text is replaced with the first option (BBValue if not found) and all _Random uses the first option
     public string FilteredText(string text, bool debug = false)
     {
         // Base case
@@ -433,8 +433,12 @@ public class EventManager : MonoBehaviour
             string currentStoryText = FilteredText(rootEvent.onSuccess.displayText,true);
             foreach(string eventID in fullPath)
             {
-                Event _event = eventsDictionary[eventID];
-                currentStoryText += FilteredText(_event.onSuccess.displayText,true);
+                string[] details = eventID.Split('`');
+                Event _event = eventsDictionary[details[0]];
+                if (details[1] == "S")
+                    currentStoryText += FilteredText(_event.onSuccess.displayText, true);
+                else
+                    currentStoryText += FilteredText(_event.onFailure.displayText, true);
             }
 
             UpdateWordCount(currentStoryText);
@@ -442,8 +446,10 @@ public class EventManager : MonoBehaviour
             DFSWordCountResult result = new DFSWordCountResult();
             result.wordCount = wordCount;
             result.route = new List<string>(fullPath);
-            debugWriter.Write(JsonUtility.ToJson(result,true)+',');
-        debugWriter.Flush();
+            result.story = currentStoryText;
+
+			debugWriter.Write(JsonUtility.ToJson(result,true)+",\n");
+            debugWriter.Flush();
         }
 
         // Restart the story
@@ -471,15 +477,25 @@ public class EventManager : MonoBehaviour
 
         if(availableChoiceIDs.Count==0)
         {
-            routes.Add(currentRoute);
+            routes.Add(currentRoute+"`S");
+            if(currentEvent.onFailure.displayText!="")
+            routes.Add(currentRoute+"`F");
+
             return;
         }
 
-        foreach (string choiceID in availableChoiceIDs)
+        foreach (string choiceID in currentEvent.onSuccess.choices)
         {
             if (eventsDictionary.ContainsKey(choiceID))
             {
-                DFS(ref routes, currentRoute+"\n"+choiceID, eventsDictionary[choiceID]);
+                DFS(ref routes, currentRoute+"`S\n"+choiceID, eventsDictionary[choiceID]);
+            }
+        }
+        foreach (string choiceID in currentEvent.onFailure.choices)
+        {
+            if (eventsDictionary.ContainsKey(choiceID))
+            {
+                DFS(ref routes, currentRoute+"`F\n"+choiceID, eventsDictionary[choiceID]);
             }
         }
     }
