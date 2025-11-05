@@ -193,8 +193,11 @@ public class EventManager : MonoBehaviour
         // Write da ting
         writer.Write(line);
 
-        if(updateWordCount )
-        UpdateWordCount(textDisplayer.text);
+        if (updateWordCount)
+        {
+            wordCount = 0;
+            UpdateWordCount(textDisplayer.text);
+        }
     }
 
     private void UpdateWordCount(string text)
