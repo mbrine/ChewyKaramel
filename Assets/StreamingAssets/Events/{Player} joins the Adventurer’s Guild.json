@@ -31,6 +31,8 @@
             "karma": 0
         },
         "choices": [
+            "{Player} masters magic from humans",
+            "{Player} masters the sword from humans"
             ]
     },
     "onFailure":
