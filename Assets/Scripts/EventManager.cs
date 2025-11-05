@@ -1,12 +1,14 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Globalization;
 using System.IO;
 using System.Linq;
 using System.Reflection;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.Rendering.VirtualTexturing;
 using UnityEngine.UI;
 
 [System.Serializable]
@@ -67,9 +69,11 @@ public class EventManager : MonoBehaviour
     private StreamWriter writer;
 
     private int wordCount;
+    private bool debugging;
 
     public TextDisplayer textDisplayer;
     public GameObject characterCustomizationPanel;
+    public TMPro.TextMeshProUGUI wordCountDisplay;
 
 	private void Start()
 	{
@@ -82,7 +86,11 @@ public class EventManager : MonoBehaviour
         if (textDisplayer.textDisplaying)
         {
             contentSizeFitter.enabled = false;
-            //sliderReference.gameObject.SetActive(false);
+        }
+        wordCountDisplay.text = wordCount.ToString();
+        if (Input.GetKey(KeyCode.LeftShift)&&Input.GetKey(KeyCode.RightShift)&&Input.GetKeyDown(KeyCode.D))
+        {
+            PerformDFSTest();
         }
     }
 
@@ -95,7 +103,6 @@ public class EventManager : MonoBehaviour
         }
         else
         {
-            //sliderReference.gameObject.SetActive(true);
         }
     }
 
@@ -130,7 +137,7 @@ public class EventManager : MonoBehaviour
                 }
                 else
                 {
-                    Debug.LogError("bro wtf?");
+					UnityEngine.Debug.LogError("bro wtf?");
                 }
             }
 
@@ -167,11 +174,18 @@ public class EventManager : MonoBehaviour
 
         // Enable character customization
         characterCustomizationPanel.SetActive(true);
+
+        wordCount = 0;
+
+        characterStats = new CharacterStats();
+        statsEditor.stats = characterStats;
     }
 
     // Writes lines to the file.
     public void WriteToFile(string line, bool updateWordCount = true)
     {
+        if (debugging)
+            return;
         // Allow blank lines to be ignored. Prevents a ton of newline spam
         if (line.Length == 0)
             return;
@@ -179,15 +193,18 @@ public class EventManager : MonoBehaviour
         // Write da ting
         writer.Write(line);
 
-        // Update internal wordcount
-        if (updateWordCount)
-        {
-            char[] delimiters = new char[] { ' ', '\r', '\n' };
-            wordCount += line.Split(delimiters, StringSplitOptions.RemoveEmptyEntries).Length;
-        }
+        if(updateWordCount )
+        UpdateWordCount(textDisplayer.text);
     }
 
-    public void SelectChoice(string choiceID)
+    private void UpdateWordCount(string text)
+    {
+        // Update internal wordcount
+        char[] delimiters = new char[] { ' ', '\r', '\n' };
+        wordCount += text.Split(delimiters, StringSplitOptions.RemoveEmptyEntries).Length;
+    }
+
+	public void SelectChoice(string choiceID)
     {
         MoveToEvent(choiceID);
     }
@@ -196,7 +213,7 @@ public class EventManager : MonoBehaviour
     {
         if(!eventsDictionary.ContainsKey(eventID))
         {
-            Debug.LogError($"ERROR: Event with ID {eventID} does not exist!!!");
+			UnityEngine.Debug.LogError($"ERROR: Event with ID {eventID} does not exist!!!");
             return;
         }
         
@@ -235,13 +252,15 @@ public class EventManager : MonoBehaviour
 
         statsEditor.stats = characterStats;
         statsEditor.editable = false;
-        statsEditor.UpdateValues();
+        //statsEditor.UpdateValues();
 
         // Update the story display
         UpdateStoryDisplay();
     }
+
     // Applies filters to the text, such as pulling blackboard values etc.
-    public string FilteredText(string text)
+    // If debug, all blackboard text is replaced with the first option (BBValue if not found) and all _Random uses the first option
+    public string FilteredText(string text, bool debug = false)
     {
         // Base case
         if (!text.Contains("{"))
@@ -277,44 +296,48 @@ public class EventManager : MonoBehaviour
             if (inTextCommand[0] == '_')
             {
                 string command = inTextCommand.Substring(0, inTextCommand.IndexOf(':'));
-                string commandBody = inTextCommand.Substring(inTextCommand.IndexOf(':')+1);
+                string commandBody = inTextCommand.Substring(inTextCommand.IndexOf(':') + 1);
 
-				switch (command)
+                switch (command)
                 {
                     case "_Random":
                         {
                             List<string> options = new List<string>();
                             depth = 0;
-							for (int commandBodyIndex = 0; commandBodyIndex <= commandBody.Length; commandBodyIndex++)
-							{
-                                if(commandBodyIndex==commandBody.Length)
+                            for (int commandBodyIndex = 0; commandBodyIndex <= commandBody.Length; commandBodyIndex++)
+                            {
+                                if (commandBodyIndex == commandBody.Length)
                                 {
                                     options.Add(commandBody);
                                     break;
                                 }
-								if (commandBody[commandBodyIndex] == '{')
-									++depth;
-								if (commandBody[commandBodyIndex] == '}')
-								{
-									if (depth == 0)
-										break;
-									--depth;
-								}
+                                if (commandBody[commandBodyIndex] == '{')
+                                    ++depth;
+                                if (commandBody[commandBodyIndex] == '}')
+                                {
+                                    if (depth == 0)
+                                        break;
+                                    --depth;
+                                }
 
-                                if(commandBody[commandBodyIndex] == '|' && depth == 0)
+                                if (commandBody[commandBodyIndex] == '|' && depth == 0)
                                 {
                                     options.Add(commandBody.Substring(0, commandBodyIndex));
-									commandBody = commandBody.Substring(commandBodyIndex + 1);
-									commandBodyIndex = 0;
+                                    commandBody = commandBody.Substring(commandBodyIndex + 1);
+                                    commandBodyIndex = 0;
                                 }
-							}
-
-                            output += options[UnityEngine.Random.Range(0, options.Count)];
+                            }
+                            if (debug)
+                                output += options[0];
+                            else
+                                output += options[UnityEngine.Random.Range(0, options.Count)];
                         }
                         break;
                     // Adds value to the specified attribute
                     case "_AddAttr":
                         {
+                            if (debug)
+                                break;
                             string[] attributes = commandBody.Split("|");
                             foreach (string attribute in attributes)
                             {
@@ -322,7 +345,7 @@ public class EventManager : MonoBehaviour
                                 FieldInfo field = characterStats.GetType().GetField(attributeName);
                                 if (field == null)
                                 {
-                                    Debug.LogWarning($"Attempting to perform AddAttr on nonexistent stat {attributeName}!");
+                                    UnityEngine.Debug.LogWarning($"Attempting to perform AddAttr on nonexistent stat {attributeName}!");
                                     break;
                                 }
                                 field.SetValue(characterStats, int.Parse(attribute.Split("+")[1]) + (int)field.GetValue(characterStats));
@@ -335,18 +358,23 @@ public class EventManager : MonoBehaviour
             // If not a command, we attempt to pull from the blackboard.
             else
             {
+
                 if (Blackboard.HasObject(inTextCommand))
                 {
                     commandProcessed = true;
                     output += Blackboard.GetObject(inTextCommand);
                 }
+                else if (debug)
+                {
+                    output += "BBValue";
+                }
                 else
                 {
                     // Error here because THERES NOTHING IN THE BLACKBOARD FOR THIS.
-                    Debug.LogError($"YOU ARE TRYING TO ACCESS A NONEXISTENT BLACKBOARD VARIABLE {inTextCommand} FOR GOD'S SAKE");
+                    UnityEngine.Debug.LogError($"YOU ARE TRYING TO ACCESS A NONEXISTENT BLACKBOARD VARIABLE {inTextCommand} FOR GOD'S SAKE");
                 }
             }
-            if (!commandProcessed)
+            if (!commandProcessed&&!debug)
             {
                 output += $"<FAILED TEXT COMMAND: {{{inTextCommand}}}>";
             }
@@ -357,7 +385,7 @@ public class EventManager : MonoBehaviour
         }
 
         output += text;
-        return FilteredText(output);
+        return FilteredText(output, debug);
     }
     public void UpdateStoryDisplay()
     {
@@ -375,8 +403,133 @@ public class EventManager : MonoBehaviour
 
         statsEditor.stats = characterStats;
     }
-    
-    public void ShowChoices()
+
+    public void PerformDFSTest()
+    {
+        debugging = true;
+        // Reference the root
+        Event rootEvent = eventsDictionary["Root"];
+        List<string> routes = new List<string>();
+
+        // Directory sanity
+        if (!Directory.Exists(Application.persistentDataPath + "/Debug"))
+            Directory.CreateDirectory(Application.persistentDataPath + "/Debug");
+        if (File.Exists($"{Application.persistentDataPath}/Debug/FullDFSTest.json"))
+            File.Delete($"{Application.persistentDataPath}/Debug/FullDFSTest.json");
+
+        // Open a new FileStream
+        var debugFileStream = new FileStream($"{Application.persistentDataPath}/Debug/FullDFSTest.json", FileMode.OpenOrCreate);
+        var debugWriter = new StreamWriter(debugFileStream);
+
+        // Force reload the blackboard
+        BlackboardLoader.LoadBlackboard(true);
+
+        DFS(ref routes, "Root", rootEvent);
+        List<DFSWordCountResult> results = new List<DFSWordCountResult>();
+        foreach (string route in routes)
+        {
+            string[] fullPath = route.Split('\n');
+            wordCount = 0;
+            string currentStoryText = FilteredText(rootEvent.onSuccess.displayText, true);
+            foreach (string eventID in fullPath)
+            {
+                string[] details = eventID.Split('`');
+                Event _event = eventsDictionary[details[0]];
+                if (details[1] == "S")
+                    currentStoryText += FilteredText(_event.onSuccess.displayText, true);
+                else
+                    currentStoryText += FilteredText(_event.onFailure.displayText, true);
+            }
+
+            UpdateWordCount(currentStoryText);
+
+            DFSWordCountResult result = new DFSWordCountResult();
+            result.wordCount = wordCount;
+            result.route = new List<string>(fullPath);
+            result.story = currentStoryText;
+            results.Add(result);
+
+            debugWriter.Write(JsonUtility.ToJson(result, true) + ",\n");
+            debugWriter.Flush();
+        }
+
+        // Restart the story
+        StartNewStory();
+
+        // Open the debug folder
+        Process.Start(Application.persistentDataPath + "/Debug");
+        debugWriter.Flush();
+        debugFileStream?.Close();
+
+        debugFileStream = new FileStream($"{Application.persistentDataPath}/Debug/DFSSummary.json", FileMode.OpenOrCreate);
+        debugWriter = new StreamWriter(debugFileStream);
+
+        DFSWordCountResultSummary dFSWordCountResultSummary = new DFSWordCountResultSummary();
+        float wordCountTotal = 0;
+        float branchDepthTotal = 0;
+        foreach (var result in results)
+        {
+            wordCountTotal += result.wordCount;
+            branchDepthTotal += result.route.Count;
+        }
+        dFSWordCountResultSummary.averageWordCount = wordCountTotal / results.Count + 1;
+        dFSWordCountResultSummary.averageBranchDepth = branchDepthTotal / results.Count + 1;
+
+		debugWriter.Write(JsonUtility.ToJson(dFSWordCountResultSummary, true));
+
+		debugWriter.Flush();
+        debugFileStream?.Close();
+
+        debugging = false;
+    }
+
+    public void DFS(ref List<string> routes, string currentRoute, Event currentEvent)
+    {
+
+        if (currentEvent == null)
+        {
+            routes.Add(currentRoute);
+            return;
+        }
+        // Get a list of all available choices within this event
+        List<string> availableChoiceIDs = new List<string>();
+        availableChoiceIDs.AddRange(currentEvent.onSuccess.choices);
+        availableChoiceIDs.AddRange(currentEvent.onFailure.choices);
+
+        if (currentEvent.onSuccess.choices.Count == 0)
+        {
+            routes.Add(currentRoute + "`S");
+            if (currentEvent.onFailure.displayText != "")
+                routes.Add(currentRoute + "`F");
+
+            return;
+        }
+        if (currentEvent.onFailure.displayText != "")
+        {
+            if (currentEvent.onFailure.choices.Count == 0)
+            {
+                routes.Add(currentRoute + "`F");
+                return;
+            }
+
+        }
+
+        foreach (string choiceID in currentEvent.onSuccess.choices)
+        {
+            if (eventsDictionary.ContainsKey(choiceID))
+            {
+                DFS(ref routes, currentRoute + "`S\n" + choiceID, eventsDictionary[choiceID]);
+            }
+        }
+        foreach (string choiceID in currentEvent.onFailure.choices)
+        {
+            if (eventsDictionary.ContainsKey(choiceID))
+            {
+                DFS(ref routes, currentRoute + "`F\n" + choiceID, eventsDictionary[choiceID]);
+            }
+        }
+    }
+	public void ShowChoices()
     {
         // Don't show the choices if we're customizing
         if (characterCustomizationPanel.activeSelf)
@@ -388,9 +541,19 @@ public class EventManager : MonoBehaviour
 			// Instantiate the choice button
 			GameObject newChoiceObject = Instantiate(choiceButtonReference);
 
+            // Start new story
 			ChoiceContainer choiceContainer = newChoiceObject.GetComponent<ChoiceContainer>();
 			choiceContainer.eventManagerReference = this;
 			choiceContainer.storedChoice = "_RESTART";
+
+			newChoiceObject.transform.SetParent(choicesWindow);
+            
+            // Story directory
+            newChoiceObject = Instantiate(choiceButtonReference);
+
+			choiceContainer = newChoiceObject.GetComponent<ChoiceContainer>();
+			choiceContainer.eventManagerReference = this;
+			choiceContainer.storedChoice = "_OPENDIRECTORY";
 
 			newChoiceObject.transform.SetParent(choicesWindow);
 
@@ -416,4 +579,9 @@ public class EventManager : MonoBehaviour
         }
 
     }
+
+    public void SkipLine()
+    {
+		sliderReference.value = 0;
+	}
 }

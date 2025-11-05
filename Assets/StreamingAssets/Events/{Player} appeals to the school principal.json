@@ -32,7 +32,7 @@
     ]
   },
   "onFailure": {
-    "displayText": "{Player} makes an appeal to the school principal to have the accusations waived. Unfortunately, {Player} was found to be lacking of character and the principal decides to expel him from the academy. After this, he is transferred to {Lab1}, an underground research facility within {Capital1}.\n\nThere, {Player} was relentlessly experimented upon by {Kingdom#Adjective} scientists who wanted to find the source of his power and recreate it for themselves. However, many such attempts would fail. Driven by desperation, a scientist by the name of Kroger devised a brand new procedure in which {Player} would be subjected to a concoction of dangerous chemicals.",
+    "displayText": "{Player} makes an appeal to the school principal to have the accusations waived. Unfortunately, {Player} was found to be lacking of character and the principal decides to expel him from the academy. After this, he is transferred to {Lab1}, an underground research facility within {Capital1}.\n\nThere, {Player} was relentlessly experimented upon by {Kingdom#Adjective} scientists who wanted to find the source of his power and recreate it for themselves. However, many such attempts would fail. Driven by desperation, a scientist by the name of {Scientist} devised a brand new procedure in which {Player} would be subjected to a concoction of dangerous chemicals.",
     "modifyAttributes": {
       "strength": 0,
       "dexterity": 0,

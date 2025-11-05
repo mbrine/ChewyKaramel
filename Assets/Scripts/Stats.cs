@@ -2,7 +2,7 @@ using System.Reflection;
 using Unity.VisualScripting;
 using UnityEngine;
 [System.Serializable]
-public struct CharacterStats
+public class CharacterStats
 {
     public int strength;
     public int dexterity;
@@ -13,6 +13,13 @@ public struct CharacterStats
 
     public static bool RandomChanceByDifference(CharacterStats _this, CharacterStats other)
     {
+        // we tried
+        return true;
+
+        // Return true outright if other is all zero
+		if (other.IsZero())
+			return true;
+
         CharacterStats difference = other - _this;
         FieldInfo[] fields = difference.GetType().GetFields(BindingFlags.Public | BindingFlags.NonPublic | BindingFlags.Instance);
         int diffTotal = 10;
@@ -21,9 +28,6 @@ public struct CharacterStats
             diffTotal += (int)field.GetValue(difference);
         }
 
-        // Return true outright if other is all zero
-		if (other.IsZero())
-			return true;
 
 		// 1 in 10 + diffTotal chance of being false
 		// Basically the higher you are over the requirements, the lower chance of random fail
@@ -50,29 +54,33 @@ public struct CharacterStats
         }
         return RandomChanceByDifference(_this, other);
     }
+    public void Set( CharacterStats other)
+    {
+        FieldInfo[] fields = this.GetType().GetFields(BindingFlags.Public | BindingFlags.NonPublic | BindingFlags.Instance);
+        foreach (FieldInfo field in fields)
+        {
+            field.SetValue(this, field.GetValue(other));
+        }
+    }
     public static CharacterStats operator -(CharacterStats _this, CharacterStats other)
     {
         FieldInfo[] fields = _this.GetType().GetFields(BindingFlags.Public | BindingFlags.NonPublic | BindingFlags.Instance);
-        object boxed = new CharacterStats();
         foreach (FieldInfo field in fields)
         {
             int total = (int)field.GetValue(_this) - (int)field.GetValue(other);
-            field.SetValue(boxed, total);
+            field.SetValue(_this, total);
         }
-        _this = (CharacterStats)boxed;
 
         return _this;
     }
     public static CharacterStats operator +(CharacterStats _this, CharacterStats other)
     {
         FieldInfo[] fields = _this.GetType().GetFields(BindingFlags.Public | BindingFlags.NonPublic | BindingFlags.Instance);
-        object boxed = new CharacterStats();
         foreach (FieldInfo field in fields)
         {
             int total = (int)field.GetValue(_this) + (int)field.GetValue(other);
-            field.SetValue(boxed, total);
+            field.SetValue(_this, total);
         }
-        _this = (CharacterStats)boxed;
 
         return _this;
     }
