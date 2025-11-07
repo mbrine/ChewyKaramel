@@ -1,0 +1,47 @@
+{
+  "id": "{Player} heads to his room to witness the festival",
+  "requirements": {
+    "strength": 0,
+    "dexterity": 0,
+    "constitution": 0,
+    "charisma": 0,
+    "magic": 0,
+    "karma": 0
+  },
+  "successAttributes": {
+    "strength": 0,
+    "dexterity": 0,
+    "constitution": 0,
+    "charisma": 0,
+    "magic": 0,
+    "karma": 0
+  },
+  "onSuccess": {
+    "displayText": "The capital was alive with light and laughter. Lanterns floated above the streets like drifting stars,and banners of white and gold swayed gently in the night breeze. It was the Festival of Wings the grand celebration honoring the Angels. From the palace balcony, {Player} stood gazing down at the sea of color and movement. Dancers in feathered garb twirled across the courtyard, their imitation halos glinting beneath the torchlight. Music filled the air triumphant, divine, all too familiar. And yet, as {Player} watched, an unease stirred within him. Each song, each prayer, felt hollow as though the celebration mocked something buried deep within his soul.\n\nLost in his thoughts, he almost didn’t notice the sudden cries that broke through the music. A torch had fallen among the dancers and a performer’s costume was quickly consumed by fire.",
+    "modifyAttributes": {
+      "strength": 0,
+      "dexterity": 0,
+      "constitution": 0,
+      "charisma": 0,
+      "magic": 0,
+      "karma": 0
+    },
+    "choices": [
+      "{Player} points out his finger towards the scene",
+      "{Player} stares"
+    ]
+  },
+  "onFailure": {
+    "displayText": "",
+    "modifyAttributes": {
+      "strength": 0,
+      "dexterity": 0,
+      "constitution": 0,
+      "charisma": 0,
+      "magic": 0,
+      "karma": 0
+    },
+    "choices": [
+    ]
+  }
+}

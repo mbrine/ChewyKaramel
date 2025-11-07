@@ -1,0 +1,47 @@
+{
+  "id": "{Player} heads into the forest alone",
+  "requirements": {
+    "strength": 0,
+    "dexterity": 0,
+    "constitution": 0,
+    "charisma": 0,
+    "magic": 0,
+    "karma": 0
+  },
+  "successAttributes": {
+    "strength": 0,
+    "dexterity": 0,
+    "constitution": 0,
+    "charisma": 0,
+    "magic": 0,
+    "karma": 0
+  },
+  "onSuccess": {
+    "displayText": "{Player} decided to head into the forest. With no destination in mind, he pressed onward, letting instinct guide his steps through the twisting trees and misty undergrowth.\n\nSuddenly, a well equipped hooded figure stepped out from behind a fallen trunk. “Hail, traveler,” the stranger said, voice calm but edged with suspicion. A faint glimmer of steel could be seen beneath the folds of his cloak. “Not many dare to walk these woods alone. Tell me, what business brings you here?”\n\nThe forest fell silent around them no wind, no birdsong only the quiet tension between the two.",
+    "modifyAttributes": {
+      "strength": 0,
+      "dexterity": 0,
+      "constitution": 0,
+      "charisma": 0,
+      "magic": 0,
+      "karma": 0
+    },
+    "choices": [
+      "{Player} tells the truth",
+      "{Player} spin a lie"
+    ]
+  },
+  "onFailure": {
+    "displayText": "",
+    "modifyAttributes": {
+      "strength": 0,
+      "dexterity": 0,
+      "constitution": 0,
+      "charisma": 0,
+      "magic": 0,
+      "karma": 0
+    },
+    "choices": [
+    ]
+  }
+}

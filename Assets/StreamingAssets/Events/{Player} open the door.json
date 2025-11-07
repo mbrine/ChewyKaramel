@@ -1,0 +1,47 @@
+{
+  "id": "{Player} open the door",
+  "requirements": {
+    "strength": 0,
+    "dexterity": 0,
+    "constitution": 0,
+    "charisma": 0,
+    "magic": 0,
+    "karma": 0
+  },
+  "successAttributes": {
+    "strength": 0,
+    "dexterity": 0,
+    "constitution": 0,
+    "charisma": 0,
+    "magic": 0,
+    "karma": 0
+  },
+  "onSuccess": {
+    "displayText": "As {Player} opened his door, he saw two guards standing outside. “By order of His Majesty, you are to appear before the king,” one said.\n{Player} followed in silence to the throne room. Upon entering, he saw his adoptive parents before him, the king and queen, along with several priests of the Angelic Order.\n\n“It is confirmed,” one priest said. “Angelic power was detected in this area last night. We were sent by the Angel we serve to investigate.”\nThe king’s face hardened. “Send him to the prison. He is to be executed at dawn.”\n“A wise choice, my king,” said another priest. “It would not serve your kingdom well if our master were to discover what kind of entity you have been harboring all these years.” ",
+    "modifyAttributes": {
+      "strength": 0,
+      "dexterity": 0,
+      "constitution": 0,
+      "charisma": 0,
+      "magic": 0,
+      "karma": 0
+    },
+    "choices": [
+      "{Player} accepts his fate",
+      "{Player} attacks the priests"
+    ]
+  },
+  "onFailure": {
+    "displayText": "",
+    "modifyAttributes": {
+      "strength": 0,
+      "dexterity": 0,
+      "constitution": 0,
+      "charisma": 0,
+      "magic": 0,
+      "karma": 0
+    },
+    "choices": [
+    ]
+  }
+}

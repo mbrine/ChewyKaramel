@@ -1,0 +1,47 @@
+{
+  "id": "{Player} enter the cathedral",
+  "requirements": {
+    "strength": 0,
+    "dexterity": 0,
+    "constitution": 0,
+    "charisma": 0,
+    "magic": 0,
+    "karma": 0
+  },
+  "successAttributes": {
+    "strength": 0,
+    "dexterity": 0,
+    "constitution": 0,
+    "charisma": 0,
+    "magic": 0,
+    "karma": 0
+  },
+  "onSuccess": {
+    "displayText": "{Player} pushed the massive doors open, stepping into the cavernous hall. Candlelight flickered across marble floors and stained-glass windows, casting shifting patterns on the walls. Figures in flowing robes moved quietly between the pews, their whispers blending with the hum of magic that filled the air.\n\nAt the center of the hall, a glowing sigil pulsed faintly, radiating power that tugged at {Player}’s chest. Each step he took toward it made the air hum stronger, and he felt an invisible weight pressing down. {Player} stood at the edge of the dais, the glowing sigil pulsing beneath his feet. The hum of power resonated through the cathedral, stirring something deep inside him. Every instinct screamed caution, yet curiosity and the pull of his half-Angel nature made it nearly impossible to look away.",
+    "modifyAttributes": {
+      "strength": 0,
+      "dexterity": 0,
+      "constitution": 0,
+      "charisma": 0,
+      "magic": 0,
+      "karma": 0
+    },
+    "choices": [
+      "{Player} approach the sigil and touch it",
+      "{Player} hide and obsevere the cathedral’s interior"
+    ]
+  },
+  "onFailure": {
+    "displayText": "",
+    "modifyAttributes": {
+      "strength": 0,
+      "dexterity": 0,
+      "constitution": 0,
+      "charisma": 0,
+      "magic": 0,
+      "karma": 0
+    },
+    "choices": [
+    ]
+  }
+}

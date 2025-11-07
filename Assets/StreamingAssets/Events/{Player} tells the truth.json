@@ -1,0 +1,47 @@
+{
+  "id": "{Player} tells the truth",
+  "requirements": {
+    "strength": 0,
+    "dexterity": 0,
+    "constitution": 0,
+    "charisma": 0,
+    "magic": 0,
+    "karma": 0
+  },
+  "successAttributes": {
+    "strength": 0,
+    "dexterity": 0,
+    "constitution": 0,
+    "charisma": 0,
+    "magic": 0,
+    "karma": 0
+  },
+  "onSuccess": {
+    "displayText": "{Player} hesitated, then lowered his guard. “I’m just passing through,” he said. “I… fled the capital. I know I’m being chased. Someone must have seen what I did-” {Player} stopped himself before saying more, but it might have already been too late.\n\nThe hooded figure tilted his head slightly. “The capital, you say? And what exactly did you do?” He stepped closer, his tone shifting from curiosity to something colder. “I have a particular hatred for Angels, you see. This relic I carry glows whenever their influence is near… and it seems to be reacting to you. So tell me, traveler what are you?”",
+    "modifyAttributes": {
+      "strength": 0,
+      "dexterity": 0,
+      "constitution": 0,
+      "charisma": 0,
+      "magic": 0,
+      "karma": 0
+    },
+    "choices": [
+      "{Player} talks about what happened last night",
+      "{Player} makes a run for it"
+    ]
+  },
+  "onFailure": {
+    "displayText": "",
+    "modifyAttributes": {
+      "strength": 0,
+      "dexterity": 0,
+      "constitution": 0,
+      "charisma": 0,
+      "magic": 0,
+      "karma": 0
+    },
+    "choices": [
+    ]
+  }
+}

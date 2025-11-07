@@ -1,0 +1,45 @@
+{
+  "id": "{Player} attempt to escape",
+  "requirements": {
+    "strength": 0,
+    "dexterity": 0,
+    "constitution": 0,
+    "charisma": 0,
+    "magic": 0,
+    "karma": 0
+  },
+  "successAttributes": {
+    "strength": 0,
+    "dexterity": 0,
+    "constitution": 0,
+    "charisma": 0,
+    "magic": 0,
+    "karma": 0
+  },
+  "onSuccess": {
+    "displayText": "Realizing he was outnumbered, {Player} bolted toward the nearest exit, weaving between pillars and shattered pews. The robed figures pursued, their staves glowing with blinding white energy.\n\nHe rounded the central dais, the sigil pulsing faintly behind him, and tried to reach a side door. One figure was already there, staff raised. A beam of pure light struck him squarely, burning through the last of the sigil’s residual energy.\n\n{Player} collapsed onto the marble floor, chest heaving, as shadows swallowed his final view of the glowing sigil. The cathedral fell silent, leaving only the echoes of the power he had unleashed and the life he had lost.”,,
+    "modifyAttributes": {
+      "strength": 0,
+      "dexterity": 0,
+      "constitution": 0,
+      "charisma": 0,
+      "magic": 0,
+      "karma": 0
+    },
+    "choices": [
+    ]
+  },
+  "onFailure": {
+    "displayText": "",
+    "modifyAttributes": {
+      "strength": 0,
+      "dexterity": 0,
+      "constitution": 0,
+      "charisma": 0,
+      "magic": 0,
+      "karma": 0
+    },
+    "choices": [
+    ]
+  }
+}
