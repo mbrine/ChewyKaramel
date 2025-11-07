@@ -27,8 +27,8 @@
             "karma": 2
         },
         "choices": [
-            "{Player} travels east toward {Lake#Name}",
-            "{Player} ventures west toward {Mountain#Name}"
+            "{Player} travels east toward {Lake}",
+            "{Player} ventures west toward {Mountain}"
         ]
     },
     "onFailure": {

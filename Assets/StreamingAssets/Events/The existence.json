@@ -28,7 +28,7 @@
         },
         "choices": [
             "Continue to his never-ending journey",
-            "Return to {Kingdom#Name}"
+            "Returns to {Kingdom#Name}"
         ]
     },
     "onFailure": {

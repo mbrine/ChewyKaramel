@@ -1,5 +1,5 @@
 {
-    "id": "{Player} examines the strange totem",
+    "id": "Examine the strange totem",
     "requirements": {
         "strength": 0,
         "dexterity": 0,

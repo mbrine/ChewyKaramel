@@ -28,7 +28,7 @@
         },
         "choices": [
             "{Player} approaches the glowing figure of {Spirit1}",
-            "{Player} stands his ground as {Monster1} emerges from the mist"
+            "{Player} stands his ground as {Monster3} emerges from the mist"
         ]
     },
     "onFailure": {

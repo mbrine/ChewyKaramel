@@ -1,0 +1,46 @@
+{
+    "id": "Examine the magic circle",
+    "requirements": {
+        "strength": 0,
+        "dexterity": 0,
+        "constitution": 0,
+        "charisma": 0,
+        "magic": 0,
+        "karma": 0
+    },
+    "successAttributes": {
+        "strength": 1,
+        "dexterity": 1,
+        "constitution": 1,
+        "charisma": 0,
+        "magic": 2,
+        "karma": 0
+    },
+    "onSuccess": {
+        "displayText": "{Player} crouched to study the intricate patterns of the magic circle etched into the stone floor. Strange glyphs spiraled outward, faintly glowing with a pulsating rhythm that seemed to sync with his heartbeat. As he hesitated, the circle flared suddenly, light spilling across the chamber. The ground beneath him shifted, and before he could react, he felt himself lifted, the stone walls vanishing in a blink.\n\nMoments later, {Player} found himself on a platform suspended above endless clouds. The sky shimmered with unnatural hues, and a figure descended from the air like liquid light, its wings sharp and shadowed, radiating an eerie, unsettling aura. The angel, {Angel1}, gazed upon {Player} with piercing eyes, a cruel smile tugging at the corners of its mouth. Its voice echoed inside his mind like a blade: *\"You are a mistake, a deviation the world never intended. Your existence is a failure, and you were never meant to endure.\"*\n\nThe angel's presence pressed on {Player}, suffocating yet mesmerizing, forcing him to confront a terrible truth. Then {Angel1} extended two stark choices, each carrying danger and uncertainty: surrender to death, or attempt to flee, knowing that consequences might be worse than the end itself.",
+        "modifyAttributes": {
+            "strength": 1,
+            "dexterity": 1,
+            "constitution": 1,
+            "charisma": 1,
+            "magic": 2,
+            "karma": 0
+        },
+        "choices": [
+            "{Player} fights against {Angel1}",
+            "Flees from {Angel1}"
+        ]
+    },
+    "onFailure": {
+        "displayText": "",
+        "modifyAttributes": {
+            "strength": 0,
+            "dexterity": 0,
+            "constitution": 0,
+            "charisma": 0,
+            "magic": 0,
+            "karma": 0
+        },
+        "choices": []
+    }
+}

@@ -1,5 +1,5 @@
 {
-    "id": "Flees from {Angel#Name}",
+    "id": "Flees from {Angel1}",
     "requirements": {
         "strength": 0,
         "dexterity": 0,
@@ -17,7 +17,7 @@
         "karma": 0
     },
     "onSuccess": {
-        "displayText": "{Player} turned away from the radiant yet oppressive figure of {Angel#Name} and ran across the shifting platform. The clouds blurred beneath him as he escaped through the flashes of light and vanished from the domain. For months afterward, he wondered if the angel had pursued him or abandoned the chase entirely—he could never be certain. Every shadow and wind seemed charged with the possibility of detection, yet he survived, haunted and cautious.\n\nEventually, {Player} chose to embark on a never-ending journey, seeking a place where he could exist on his own terms, free from judgment and the weight of celestial scrutiny. Though the road ahead was endless, it was his own to walk.",
+        "displayText": "{Player} turned away from the radiant yet oppressive figure of {Angel1} and ran across the shifting platform. The clouds blurred beneath him as he escaped through the flashes of light and vanished from the domain. For months afterward, he wondered if the angel had pursued him or abandoned the chase entirely—he could never be certain. Every shadow and wind seemed charged with the possibility of detection, yet he survived, haunted and cautious.\n\nEventually, {Player} chose to embark on a never-ending journey, seeking a place where he could exist on his own terms, free from judgment and the weight of celestial scrutiny. Though the road ahead was endless, it was his own to walk.",
         "modifyAttributes": {
             "strength": 0,
             "dexterity": 0,
