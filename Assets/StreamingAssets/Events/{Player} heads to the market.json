@@ -28,7 +28,7 @@
     },
     "choices": [
       "{Player} run after the figure",
-      "{Player} follows the sound of music and laughter coming from a nearby tavern"
+      "{Player} stays in the market"
     ]
   },
   "onFailure": {

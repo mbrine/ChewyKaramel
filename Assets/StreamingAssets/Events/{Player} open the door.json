@@ -17,7 +17,7 @@
     "karma": 0
   },
   "onSuccess": {
-    "displayText": "As {Player} opened his door, he saw two guards standing outside. “By order of His Majesty, you are to appear before the king,” one said.\n{Player} followed in silence to the throne room. Upon entering, he saw his adoptive parents before him, the king and queen, along with several priests of the Angelic Order.\n\n“It is confirmed,” one priest said. “Angelic power was detected in this area last night. We were sent by the Angel we serve to investigate.”\nThe king’s face hardened. “Send him to the prison. He is to be executed at dawn.”\n“A wise choice, my king,” said another priest. “It would not serve your kingdom well if our master were to discover what kind of entity you have been harboring all these years.” ",
+    "displayText": "As {Player} opened his door, two guards stood waiting, their presence heavy with purpose. They led him through the dim corridors of the castle, where the silence felt sharper than any accusation./n/nIn the throne room, the king and queen awaited, their expressions grave. Before them stood several priests of the Angelic Order, their relics faintly glowing with divine light. They had come at the command of their Angelic master, sent to trace a disturbance in the divine balance and their search had led them here. The faint signature of celestial power clung to {Player}, exposing the truth he had never meant to reveal.\n\nThe king's judgment came swiftly, his decision absolute. Guards stepped forward as the sentence was delivered. {Player} was to be imprisoned and executed at dawn.",
     "modifyAttributes": {
       "strength": 0,
       "dexterity": 0,

@@ -1,47 +1,53 @@
 {
-  "id": "{Player} run to the slums”,,
-  "requirements": {
-    "strength": 0,
-    "dexterity": 0,
-    "constitution": 0,
-    "charisma": 0,
-    "magic": 0,
-    "karma": 0
-  },
-  "successAttributes": {
-    "strength": 0,
-    "dexterity": 0,
-    "constitution": 0,
-    "charisma": 0,
-    "magic": 0,
-    "karma": 0
-  },
-  "onSuccess": {
-    "displayText": "Upon reaching the slums, {Player} felt the air grow heavier. The streets were narrow and uneven, lined with crumbling walls and flickering lamps that cast long, uncertain shadows. From the corner of his eye, he caught a glimpse of movement a figure watching him from an alleyway. But when he turned to look, the figure darted away, vanishing into the maze of streets before he could react.",
-    "modifyAttributes": {
-      "strength": 0,
-      "dexterity": 0,
-      "constitution": 0,
-      "charisma": 0,
-      "magic": 0,
-      "karma": 0
+    "id": "{Player} run to the slums",
+    "requirements":
+    {
+        "strength": 0,
+        "dexterity": 0,
+        "constitution": 0,
+        "charisma": 0,
+        "magic": 0,
+        "karma": 0
     },
-    "choices": [
-      "{Player} run after the figure",
-      "{Player} stay in the slums"
-    ]
-  },
-  "onFailure": {
-    "displayText": "",
-    "modifyAttributes": {
-      "strength": 0,
-      "dexterity": 0,
-      "constitution": 0,
-      "charisma": 0,
-      "magic": 0,
-      "karma": 0
+    "successAttributes":
+    {
+        "strength": 0,
+        "dexterity": 0,
+        "constitution": 0,
+        "charisma": 0,
+        "magic": 0,
+        "karma": 0
     },
-    "choices": [
-    ]
-  }
+    "onSuccess":
+    {
+        "displayText": "Upon reaching the slums, {Player} felt the air grow heavier. The streets were narrow and uneven, lined with crumbling walls and flickering lamps that cast long, uncertain shadows. From the corner of his eye, he caught a glimpse of movement a figure watching him from an alleyway. But when he turned to look, the figure darted away, vanishing into the maze of streets before he could react.",
+        "modifyAttributes":
+        {
+            "strength": 0,
+            "dexterity": 0,
+            "constitution": 0,
+            "charisma": 0,
+            "magic": 0,
+            "karma": 0
+        },
+        "choices": [
+             "{Player} run after the figure",
+             "{Player} stay in the slums"
+            ]
+    },
+    "onFailure":
+    {
+        "displayText": "",
+        "modifyAttributes":
+        {
+            "strength": 0,
+            "dexterity": 0,
+            "constitution": 0,
+            "charisma": 0,
+            "magic": 0,
+            "karma": 0
+        },
+        "choices": [
+            ]
+    }
 }
