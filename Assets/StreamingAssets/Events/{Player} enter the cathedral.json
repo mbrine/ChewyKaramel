@@ -28,7 +28,7 @@
     },
     "choices": [
       "{Player} approach the sigil and touch it",
-      "{Player} hide and obsevere the cathedral’s interior"
+      "{Player} hide and observe the cathedral’s interior"
     ]
   },
   "onFailure": {
