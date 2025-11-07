@@ -1,0 +1,46 @@
+{
+    "id": "A heavenly place",
+    "requirements": {
+        "strength": 0,
+        "dexterity": 0,
+        "constitution": 0,
+        "charisma": 0,
+        "magic": 0,
+        "karma": 0
+    },
+    "successAttributes": {
+        "strength": 1,
+        "dexterity": 1,
+        "constitution": 2,
+        "charisma": 0,
+        "magic": 2,
+        "karma": 0
+    },
+    "onSuccess": {
+        "displayText": "{Player} was enveloped in an otherworldly light as the totem's glow intensified. The chamber faded into a realm that felt impossibly vast, a place that did not seem to obey the laws of reality. Floating islands drifted across skies painted with impossible colors, and the air hummed with a strange resonance. In the distance, a figure descended from above, wings gleaming and shadowed, radiating both beauty and terror.\n\nThe angel, {Angel#Name}, looked down at {Player} with eyes that pierced into his soul. \"You are a failure,\" it whispered, its voice both melodic and cruel, \"an angel without wings, without purpose, a deviation from what should have been.\" \n\nBefore {Player} could react, two paths became clear: confront the angel in battle, risking everything to prove himself, or flee, attempting to escape the angel’s domain and the unknown consequences of defiance.",
+        "modifyAttributes": {
+            "strength": 0,
+            "dexterity": 0,
+            "constitution": 1,
+            "charisma": 0,
+            "magic": 2,
+            "karma": 1
+        },
+        "choices": [
+            "{Player} fights against {Angel#Name}",
+            "Flees from {Angel#Name}"
+        ]
+    },
+    "onFailure": {
+        "displayText": "",
+        "modifyAttributes": {
+            "strength": 0,
+            "dexterity": 0,
+            "constitution": 0,
+            "charisma": 0,
+            "magic": 0,
+            "karma": 0
+        },
+        "choices": []
+    }
+}

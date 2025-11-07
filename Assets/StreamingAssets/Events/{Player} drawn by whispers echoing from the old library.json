@@ -1,0 +1,46 @@
+{
+    "id": "{Player} drawn by whispers echoing from the old library",
+    "requirements": {
+        "strength": 0,
+        "dexterity": 0,
+        "constitution": 0,
+        "charisma": 0,
+        "magic": 0,
+        "karma": 0
+    },
+    "successAttributes": {
+        "strength": 0,
+        "dexterity": 0,
+        "constitution": 0,
+        "charisma": 0,
+        "magic": 0,
+        "karma": 0
+    },
+    "onSuccess": {
+        "displayText": "As {Player} made his way through the marble halls of the palace, a faint whisper echoed in the back of his mind. It was soft at first, almost like the sigh of the wind, but as he turned away from the laughter and music of the Festival of Wings, the whisper grew clearer — beckoning him toward the old library.\n\nFew dared to enter the library after dusk. It was ancient, older even than the palace itself, a relic from an era when Angels still walked openly among men. The air grew cool as {Player} approached the heavy oaken doors. Their surface was etched with symbols of wings and halos, their meaning long forgotten. With a deep breath, he pushed them open, and the scent of old parchment and dust greeted him.\n\nMoonlight spilled through high stained-glass windows, painting the vast hall in spectral hues. Shelves stretched endlessly, lined with forgotten tomes and relics of ages past. And then he heard it again — the whisper, coming from deeper within.\n\nFollowing the sound, {Player} found a single book resting on a pedestal at the center of the room. Its cover was bound in black leather, etched with faint silver runes that pulsed softly with light. The whispers seemed to emanate from it, calling his name, urging him closer.\n\nHis heart pounded as he reached out a trembling hand. The air around him shimmered faintly, and a strange warmth filled the chamber. For reasons he could not explain, {Player} knew — whatever lay within this book was connected to who he truly was.",
+        "modifyAttributes": {
+            "strength": 1,
+            "dexterity": 1,
+            "constitution": 1,
+            "charisma": 1,
+            "magic": 1,
+            "karma": 0
+        },
+        "choices": [
+            "{Player} hesitates, then decides to open the book",
+            "{Player} steps back, rejecting the whispers"
+        ]
+    },
+    "onFailure": {
+        "displayText": "",
+        "modifyAttributes": {
+            "strength": 0,
+            "dexterity": 0,
+            "constitution": 0,
+            "charisma": 0,
+            "magic": 0,
+            "karma": 0
+        },
+        "choices": []
+    }
+}

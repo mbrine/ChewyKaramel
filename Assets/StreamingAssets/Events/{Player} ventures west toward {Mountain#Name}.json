@@ -1,0 +1,46 @@
+{
+    "id": "{Player} ventures west toward {Mountain#Name}",
+    "requirements": {
+        "strength": 0,
+        "dexterity": 0,
+        "constitution": 0,
+        "charisma": 0,
+        "magic": 0,
+        "karma": 0
+    },
+    "successAttributes": {
+        "strength": 0,
+        "dexterity": 0,
+        "constitution": 0,
+        "charisma": 0,
+        "magic": 0,
+        "karma": 0
+    },
+    "onSuccess": {
+        "displayText": "{Player} followed the narrow trail into the shadow of {Mountain#Name}. The air thinned with each step, and the rocky cliffs rose like ancient walls around him. Mist clung to the mountainside, swirling with each gust of wind. His boots slipped over damp stone, and his hands brushed against weathered rock, but the black book in his pack seemed to pulse with quiet reassurance.\n\nHalfway up the mountain, the path split unexpectedly. A faint opening appeared between jagged rocks, half-hidden by the mist. Above, the trail continued steeply, promising the hermit who might hold answers about the strange whispers in {Player}'s mind. Yet the hidden opening seemed to hum with its own invitation, dark and silent.",
+        "modifyAttributes": {
+            "strength": 1,
+            "dexterity": 1,
+            "constitution": 1,
+            "charisma": 0,
+            "magic": 2,
+            "karma": 0
+        },
+        "choices": [
+            "{Player} continues climbing towards the peak",
+            "{Player} enters the hidden opening in the mountainside"
+        ]
+    },
+    "onFailure": {
+        "displayText": "",
+        "modifyAttributes": {
+            "strength": 0,
+            "dexterity": 0,
+            "constitution": 0,
+            "charisma": 0,
+            "magic": 0,
+            "karma": 0
+        },
+        "choices": []
+    }
+}

@@ -1,0 +1,46 @@
+{
+    "id": "The existence",
+    "requirements": {
+        "strength": 0,
+        "dexterity": 0,
+        "constitution": 0,
+        "charisma": 0,
+        "magic": 0,
+        "karma": 0
+    },
+    "successAttributes": {
+        "strength": 1,
+        "dexterity": 1,
+        "constitution": 1,
+        "charisma": 1,
+        "magic": 2,
+        "karma": 1
+    },
+    "onSuccess": {
+        "displayText": "{Player} stepped into the radiant visions projected by the totem. Memories long hidden, fragments of a past he never knew, flashed before his eyes—visions of celestial light, wings that never fully formed, and an essence not human. He realized with a shock that he was an angel, yet without angelic traits, a deviation of creation itself. The knowledge settled like both a weight and a revelation: he was unique, incomplete, and powerful in ways he had never understood.\n\nWith this clarity, {Player} saw two paths before him. One led into an endless journey, a quest to discover a place in the world where he truly belonged. The other offered a return to the kingdom, to face his origin and find reconciliation with those who loved him, despite the truth of his unnatural existence.",
+        "modifyAttributes": {
+            "strength": 0,
+            "dexterity": 0,
+            "constitution": 0,
+            "charisma": 0,
+            "magic": 1,
+            "karma": 2
+        },
+        "choices": [
+            "Continue to his never-ending journey",
+            "Return to {Kingdom#Name}"
+        ]
+    },
+    "onFailure": {
+        "displayText": "",
+        "modifyAttributes": {
+            "strength": 0,
+            "dexterity": 0,
+            "constitution": 0,
+            "charisma": 0,
+            "magic": 0,
+            "karma": 0
+        },
+        "choices": []
+    }
+}

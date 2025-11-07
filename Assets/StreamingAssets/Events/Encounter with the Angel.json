@@ -1,0 +1,46 @@
+{
+    "id": "Encounter with the Angel",
+    "requirements": {
+        "strength": 0,
+        "dexterity": 0,
+        "constitution": 0,
+        "charisma": 0,
+        "magic": 0,
+        "karma": 0
+    },
+    "successAttributes": {
+        "strength": 0,
+        "dexterity": 0,
+        "constitution": 0,
+        "charisma": 0,
+        "magic": 0,
+        "karma": 0
+    },
+    "onSuccess": {
+        "displayText":  "{Player} stood before {Angel#Name}, the cruel, radiant being suspended above the clouds. Its wings stretched wide, each feather shimmering like sharpened blades, and the air around it seemed to hum with a power that set {Player}'s heart racing. The angel’s piercing gaze bore into {Player}'s very essence, unraveling memories, fears, and truths he had long tried to ignore.\n\n\"Your existence is a failure,\" {Angel#Name} whispered, its voice both beautiful and cruel, echoing across the endless sky. \"You were born without the grace, the power, or the purpose of one of us. You are an angel in form only, a flaw in creation itself, and you were never meant to endure.\"\n\nA shiver ran down {Player}'s spine. The clouds beneath swirled violently, as if responding to the angel’s presence. Time seemed to stretch; every heartbeat thundered in his ears. {Player} felt the weight of his origin, the unnatural truth of what he was, pressing down like a storm. Doubt and fear clawed at him, yet somewhere deep inside, a spark of defiance flickered.\n\nThe angel extended a hand, and a cold, radiant energy pulsed outward, brushing {Player} like a warning and a challenge at once. In that moment, he realized he had only two choices: confront {Angel#Name} and attempt to defy the being that had judged him for his very existence, or flee into the unknown, risking the angel’s wrath or indifference as he tried to escape.",
+        "modifyAttributes": {
+            "strength": 0,
+            "dexterity": 0,
+            "constitution": 0,
+            "charisma": 0,
+            "magic": 0,
+            "karma": 0
+        },
+        "choices": [
+            "{Player} fights against {Angel#Name}",
+            "Flees from {Angel#Name}"
+        ]
+    },
+    "onFailure": {
+        "displayText": "",
+        "modifyAttributes": {
+            "strength": 0,
+            "dexterity": 0,
+            "constitution": 0,
+            "charisma": 0,
+            "magic": 0,
+            "karma": 0
+        },
+        "choices": []
+    }
+}
