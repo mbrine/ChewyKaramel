@@ -125,24 +125,26 @@ public class EventManager : MonoBehaviour
                 string json = reader.ReadToEnd();
 
                 // Get the EventContainer object
-                Event newEvent = JsonUtility.FromJson<Event>(json);
-
-                // Add the events to the dictionary
-                if (newEvent != null)
+                try
                 {
-                    if (eventsDictionary.ContainsKey(newEvent.id))
-                        eventsDictionary[newEvent.id] = newEvent;
-                    else
-                        eventsDictionary.Add(newEvent.id, newEvent);
+                    Event newEvent = JsonUtility.FromJson<Event>(json);
+                    // Add the events to the dictionary
+                    if (newEvent != null)
+                    {
+                        if (eventsDictionary.ContainsKey(newEvent.id))
+                            eventsDictionary[newEvent.id] = newEvent;
+                        else
+                            eventsDictionary.Add(newEvent.id, newEvent);
+                    }
                 }
-                else
+                catch
                 {
-					UnityEngine.Debug.LogError("bro wtf?");
+                    UnityEngine.Debug.LogError($"JSON File Parse Error in {eventPath}");
                 }
-            }
+			}
 
-            // Close the file when we're done
-            fileStream.Close();
+			// Close the file when we're done
+			fileStream.Close();
 
         }
     }
@@ -226,12 +228,6 @@ public class EventManager : MonoBehaviour
 			Destroy(child.gameObject);
 		}
 
-		// Specifically for GameOver ID, we treat it as if we end the game ig, idk what else we want to do here
-		if (eventID == "GameOver")
-        {
-            //Do things
-        }
-
         // Change to the new event
         currentEventID = eventID;
         currentEvent = eventsDictionary[eventID];
@@ -250,6 +246,7 @@ public class EventManager : MonoBehaviour
 
         if (statsEditor.editable)
             characterStats = statsEditor.stats;
+
         // Update character stats
         characterStats += currentOutcome.modifyAttributes;
 
