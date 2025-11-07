@@ -1,0 +1,46 @@
+{
+    "id": "{Player} approaches the glowing figure of {Spirit1}",
+    "requirements": {
+        "strength": 0,
+        "dexterity": 0,
+        "constitution": 0,
+        "charisma": 0,
+        "magic": 0,
+        "karma": 0
+    },
+    "successAttributes": {
+        "strength": 0,
+        "dexterity": 0,
+        "constitution": 0,
+        "charisma": 0,
+        "magic": 0,
+        "karma": 0
+    },
+    "onSuccess": {
+        "displayText": "The soft light from {Spirit1} shimmered like moonlight caught in mist. {Player} stepped closer, drawn by a feeling that was both strange and familiar. The figure’s features were faint, almost translucent, yet its eyes glowed with a gentle understanding.\n\n*You have walked far, child of two worlds,* the spirit said. Its voice echoed not through the air, but within {Player}’s heart. *You were not born of this kingdom, nor of mortal hands. When the stars fell upon the earth, one spark of their light became you.*\n\nThe spirit extended a hand, and the black book floated from {Player}’s grasp, opening to pages filled with symbols that shone like constellations. The air shimmered around him, and for a brief moment, he saw himself surrounded by radiant wings that folded from his back, bright and vast like dawn itself.\n\nTears welled in his eyes as the truth sank in. He was not simply found in the forest by {Queen#Name}. He was something ancient, something hidden away to protect both himself and the world from what that truth might bring.\n\nThe spirit’s light began to fade, leaving only a whisper behind. *The choice is yours. Live as the starborn you are, or return to the life that gave you peace.*\n\nThe lake stilled once more. The night was quiet. {Player} now stood at the edge of two destinies.",
+        "modifyAttributes": {
+            "strength": 1,
+            "dexterity": 0,
+            "constitution": 1,
+            "charisma": 2,
+            "magic": 3,
+            "karma": 2
+        },
+        "choices": [
+            "{Player} accepts the truth of his celestial origin and sets forth to embrace his destiny",
+            "{Player} buries the truth and returns to {Kingdom#Name} to live as a prince once more"
+        ]
+    },
+    "onFailure": {
+        "displayText": "",
+        "modifyAttributes": {
+            "strength": 0,
+            "dexterity": 0,
+            "constitution": 0,
+            "charisma": 0,
+            "magic": 0,
+            "karma": 0
+        },
+        "choices": []
+    }
+}

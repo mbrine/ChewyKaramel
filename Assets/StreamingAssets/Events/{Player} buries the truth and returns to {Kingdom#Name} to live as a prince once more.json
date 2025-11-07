@@ -1,0 +1,43 @@
+{
+    "id": "{Player} buries the truth and returns to {Kingdom#Name} to live as a prince once more",
+    "requirements": {
+        "strength": 0,
+        "dexterity": 0,
+        "constitution": 0,
+        "charisma": 0,
+        "magic": 0,
+        "karma": 0
+    },
+    "successAttributes": {
+        "strength": 0,
+        "dexterity": 0,
+        "constitution": 0,
+        "charisma": 0,
+        "magic": 0,
+        "karma": 0
+    },
+    "onSuccess": {
+        "displayText": "The ripples on {Lake} faded into stillness. The stars above shone brightly, but {Player} turned his gaze away. The truth he had seen was too heavy to carry, too vast for a mortal heart. Some truths, he realized, were meant to remain buried.\n\nHe closed the black book and placed it gently into the water. It sank without a sound, leaving only a faint shimmer before disappearing beneath the surface. The whisper in his mind grew quiet, fading into memory.\n\nBy the time the first light of dawn touched the horizon, {Player} was already walking back toward {Kingdom#Name}. The path home felt longer, yet lighter somehow. When he reached the palace gates, the guards greeted him with relief, unaware that anything had changed.\n\nYears later, tales of a mysterious light over {Lake} would still drift among travelers and poets, but {Player} never spoke of it. He ruled with kindness, carrying a calm wisdom that few understood. In the quiet hours of the night, when the stars shone brightest, he would sometimes feel the faint brush of unseen wings and smile, remembering what he chose to forget.",
+        "modifyAttributes": {
+            "strength": 1,
+            "dexterity": 0,
+            "constitution": 2,
+            "charisma": 3,
+            "magic": 1,
+            "karma": 4
+        },
+        "choices": []
+    },
+    "onFailure": {
+        "displayText": "",
+        "modifyAttributes": {
+            "strength": 0,
+            "dexterity": 0,
+            "constitution": 0,
+            "charisma": 0,
+            "magic": 0,
+            "karma": 0
+        },
+        "choices": []
+    }
+}

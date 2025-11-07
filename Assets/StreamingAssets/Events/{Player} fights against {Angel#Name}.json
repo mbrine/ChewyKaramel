@@ -1,0 +1,46 @@
+{
+    "id": "{Player} fights against {Angel1}",
+    "requirements": {
+        "strength": 0,
+        "dexterity": 0,
+        "constitution": 0,
+        "charisma": 0,
+        "magic": 0,
+        "karma": 0
+    },
+    "successAttributes": {
+        "strength": 2,
+        "dexterity": 1,
+        "constitution": 2,
+        "charisma": 0,
+        "magic": 2,
+        "karma": 0
+    },
+    "onSuccess": {
+        "displayText": "With every ounce of strength and resolve, {Player} fought {Angel1}. Each strike echoed across the cloudy expanse as the angel's words clawed at his mind, speaking of his true nature: a failed angel, a flaw in creation, a being never meant to exist. Yet, through sheer will, {Player} triumphed, and {Angel1}'s form shattered, leaving silence in its wake.\n\nAlone above the clouds, {Player} felt a complex mixture of triumph, sorrow, and emptiness. He knew he belonged nowhere ordinary, and the world he once called home could never contain him.",
+        "modifyAttributes": {
+            "strength": 3,
+            "dexterity": 3,
+            "constitution": 0,
+            "charisma": 0,
+            "magic": 3,
+            "karma": 0
+        },
+        "choices": [
+            "Continue to his never-ending journey",
+            "Returns to {Kingdom#Name}"
+        ]
+    },
+    "onFailure": {
+        "displayText": "{Player} fought valiantly, but the overwhelming power of {Angel1} was too great. As his vision dimmed, the angel whispered one final, cruel truth: '*Your existence was never meant to endure.*' Darkness claimed him, and {Player}'s journey ended there, a silent testament to a life that could never reconcile its origins.",
+        "modifyAttributes": {
+            "strength": 0,
+            "dexterity": 0,
+            "constitution": 0,
+            "charisma": 0,
+            "magic": 0,
+            "karma": 0
+        },
+        "choices": []
+    }
+}

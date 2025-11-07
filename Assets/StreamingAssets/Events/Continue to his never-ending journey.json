@@ -1,0 +1,43 @@
+{
+    "id": "Continue to his never-ending journey",
+    "requirements": {
+        "strength": 0,
+        "dexterity": 0,
+        "constitution": 0,
+        "charisma": 0,
+        "magic": 0,
+        "karma": 0
+    },
+    "successAttributes": {
+        "strength": 0,
+        "dexterity": 0,
+        "constitution": 0,
+        "charisma": 0,
+        "magic": 0,
+        "karma": 0
+    },
+    "onSuccess": {
+        "displayText": "Carrying both the weight of truth and the spark of freedom. He wandered through dense forests where shadows whispered secrets of ages past, across windswept mountains where the cold air cleared his mind, and into sprawling cities where strangers became fleeting companions. The road never ended, yet each mile brought a deeper understanding of himself, of his place between worlds. Though lonely at times, he felt alive, unbound by destiny, driven by curiosity and the quiet hope that somewhere, perhaps, he might find a space that accepted the strange and broken beauty of his existence.",
+        "modifyAttributes": {
+            "strength": 0,
+            "dexterity": 0,
+            "constitution": 0,
+            "charisma": 0,
+            "magic": 0,
+            "karma": 0
+        },
+        "choices": []
+    },
+    "onFailure": {
+        "displayText": "",
+        "modifyAttributes": {
+            "strength": 0,
+            "dexterity": 0,
+            "constitution": 0,
+            "charisma": 0,
+            "magic": 0,
+            "karma": 0
+        },
+        "choices": []
+    }
+}

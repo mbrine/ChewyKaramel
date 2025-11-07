@@ -15,6 +15,11 @@
     "VillageName:Elderbrook|Ravenstead|Brindlehollow",
     "VillageGirl:Lira|Elara|Maren",
     "TownName:ElderFell|StoneFord|Oakridge",
-    "Scientist:Kroger|Eramund|Merov"
+    "Scientist:Kroger|Eramund|Merov",
+    "Mountain:Mount Aetherion|Celestfell|Shadowvale Peaks",
+    "Lake:Lake Seraphis|Aurafount|Moonreach Lake",
+    "Spirit1:Aquielle|Sylphara|Undine",
+    "Angel1:Seraphiel|Uriel|Zephariel",
+    "Monster3:Kelphorse|Kappa|Water Djinn"
   ]
 }

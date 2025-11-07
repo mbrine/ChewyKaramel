@@ -1,0 +1,46 @@
+{
+    "id": "Examine the strange totem",
+    "requirements": {
+        "strength": 0,
+        "dexterity": 0,
+        "constitution": 0,
+        "charisma": 0,
+        "magic": 0,
+        "karma": 0
+    },
+    "successAttributes": {
+        "strength": 1,
+        "dexterity": 1,
+        "constitution": 1,
+        "charisma": 0,
+        "magic": 2,
+        "karma": 0
+    },
+    "onSuccess": {
+        "displayText": "{Player} stepped closer to the towering totem. Its surface was carved with strange runes and abstract patterns, and though worn by time, it radiated an inexplicable energy. A sense of familiarity and nostalgia washed over him, as if the totem whispered fragments of memories not entirely his own. He reached out, and the moment his fingers brushed the stone, it glowed brilliantly, the light expanding to fill the entire chamber, shimmering against the walls and casting long, dancing shadows.\n\nThe brightness coalesced into shapes and visions, revealing glimpses of possibilities and realms beyond mortal comprehension. The room seemed to stretch into infinity, leaving {Player} standing at the threshold of mysteries that defied explanation.",
+        "modifyAttributes": {
+            "strength": 0,
+            "dexterity": 0,
+            "constitution": 2,
+            "charisma": 0,
+            "magic": 2,
+            "karma": 0
+        },
+        "choices": [
+            "The existence",
+            "A heavenly place"
+        ]
+    },
+    "onFailure": {
+        "displayText": "",
+        "modifyAttributes": {
+            "strength": 0,
+            "dexterity": 0,
+            "constitution": 0,
+            "charisma": 0,
+            "magic": 0,
+            "karma": 0
+        },
+        "choices": []
+    }
+}
