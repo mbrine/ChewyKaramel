@@ -137,7 +137,7 @@ public class EventManager : MonoBehaviour
                             eventsDictionary.Add(newEvent.id, newEvent);
                     }
                 }
-                catch (Exception ex)
+                catch
                 {
                     UnityEngine.Debug.LogError($"JSON File Parse Error in {eventPath}");
                 }
