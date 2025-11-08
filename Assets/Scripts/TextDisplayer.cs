@@ -6,7 +6,7 @@ public class TextDisplayer : MonoBehaviour
 {
 	// Text display speed in characters per second
 	public float _textDisplaySpeed = 850.0f;
-	private float progress = 0.0f;
+	public float progress { get; private set; } = 0.0f;
 	public bool textDisplaying { get; private set; } = true;
 	public string text;
 
