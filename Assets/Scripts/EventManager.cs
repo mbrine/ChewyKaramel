@@ -467,13 +467,36 @@ public class EventManager : MonoBehaviour
         DFSWordCountResultSummary dFSWordCountResultSummary = new DFSWordCountResultSummary();
         float wordCountTotal = 0;
         float branchDepthTotal = 0;
+        int longestStoryLength = 0;
+        int shortestStoryLength = 0;
+
+        int numStoryPathsUnder1000=0;
+        int numStoryPathsOver1000=0;
+
         foreach (var result in results)
         {
             wordCountTotal += result.wordCount;
             branchDepthTotal += result.route.Count;
+
+            if (shortestStoryLength == 0)
+                shortestStoryLength = result.wordCount;
+            shortestStoryLength = result.wordCount < shortestStoryLength ? result.wordCount : shortestStoryLength;
+
+			longestStoryLength = result.wordCount > longestStoryLength ? result.wordCount : longestStoryLength;
+
+            if (result.wordCount < 1000)
+                ++numStoryPathsUnder1000;
+            else
+                ++numStoryPathsOver1000;
         }
+
         dFSWordCountResultSummary.averageWordCount = wordCountTotal / results.Count + 1;
         dFSWordCountResultSummary.averageBranchDepth = branchDepthTotal / results.Count + 1;
+
+        dFSWordCountResultSummary.longestStoryLength = longestStoryLength;
+        dFSWordCountResultSummary.shortestStoryLength = shortestStoryLength;
+        dFSWordCountResultSummary.numStoryPathsUnder1000 = numStoryPathsUnder1000;
+        dFSWordCountResultSummary.numStoryPathsOver1000 = numStoryPathsOver1000;
 
 		debugWriter.Write(JsonUtility.ToJson(dFSWordCountResultSummary, true));
 
