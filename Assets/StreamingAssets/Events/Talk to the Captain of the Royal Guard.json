@@ -1,0 +1,52 @@
+{
+    "id": "Talk to the Captain of the Royal Guard",
+    "requirements":
+    {
+        "strength": 0,
+        "dexterity": 0,
+        "constitution": 0,
+        "charisma": 0,
+        "magic": 0,
+        "karma": 0
+    },
+    "successAttributes":
+    {
+        "strength": 0,
+        "dexterity": 0,
+        "constitution": 0,
+        "charisma": 0,
+        "magic": 0,
+        "karma": 0
+    },
+    "onSuccess":
+    {
+        "displayText": "Seeking someone who had witnessed the day he was found, {Player} approached {CaptainName}, the steadfast Captain of the Royal Guard. The man paused his duties and stood at attention, eyes steady but thoughtful. When {Player} asked about the Queen’s stroll through {Forest1}, the Captain nodded slowly.\n\n“It was midday,” he recalled, “the sun filtering through the leaves, birdsong in the distance. We followed the Queen when she heard your cries and found you beneath a great tree near {VillageName}. The forest seemed… almost protective that day. The Queen ordered us to speak of it only to you.” Loyalty and reverence softened his words.\n\nAA village name and an iconic landmark were enough to guide {Player}. With the path before him now clear, there was no need for further deliberation, it was time to make his way.",
+        "modifyAttributes":
+        {
+            "strength": 0,
+            "dexterity": 0,
+            "constitution": 0,
+            "charisma": 0,
+            "magic": 0,
+            "karma": 0
+        },
+        "choices": [
+             "Venture forth to {VillageName}"
+            ]
+    },
+    "onFailure":
+    {
+        "displayText": "",
+        "modifyAttributes":
+        {
+            "strength": 0,
+            "dexterity": 0,
+            "constitution": 0,
+            "charisma": 0,
+            "magic": 0,
+            "karma": 0
+        },
+        "choices": [
+            ]
+    }
+}

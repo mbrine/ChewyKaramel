@@ -1,0 +1,53 @@
+{
+    "id": "Seek the village elder for the lay of the forest",
+    "requirements":
+    {
+        "strength": 0,
+        "dexterity": 0,
+        "constitution": 0,
+        "charisma": 0,
+        "magic": 0,
+        "karma": 0
+    },
+    "successAttributes":
+    {
+        "strength": 0,
+        "dexterity": 0,
+        "constitution": 0,
+        "charisma": 0,
+        "magic": 0,
+        "karma": 0
+    },
+    "onSuccess":
+    {
+        "displayText": "{Player} made his way to the center of the village, guided by the smell of hearth smoke and the chatter of villagers. The elder, a weathered figure with eyes that had seen countless seasons, welcomed him warmly. He shared the lay of the forest, pointing out landmarks, hidden paths, and signs that travelers often missed. Listening intently, {Player} committed the information to memory, realizing that understanding the land might be as important as knowing where he came from. With guidance in hand, he now felt a firmer grasp of what lay ahead.\n\nAs {Player} took his first steps toward the forest, gratitude for the kind elder lingered in his heart. A quiet thought whispered in his mind, “Why not stay a bit longer and help the village in return for this precious knowledge? The past isn’t going anywhere within that forest.”",
+        "modifyAttributes":
+        {
+            "strength": 0,
+            "dexterity": 0,
+            "constitution": 0,
+            "charisma": 0,
+            "magic": 0,
+            "karma": 0
+        },
+        "choices": [
+             "Stay awhile longer",
+             "Head straight into the forest"
+            ]
+    },
+    "onFailure":
+    {
+        "displayText": "",
+        "modifyAttributes":
+        {
+            "strength": 0,
+            "dexterity": 0,
+            "constitution": 0,
+            "charisma": 0,
+            "magic": 0,
+            "karma": 0
+        },
+        "choices": [
+            ]
+    }
+}

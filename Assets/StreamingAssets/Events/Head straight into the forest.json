@@ -1,0 +1,53 @@
+{
+    "id": "Head straight into the forest",
+    "requirements":
+    {
+        "strength": 0,
+        "dexterity": 0,
+        "constitution": 0,
+        "charisma": 0,
+        "magic": 0,
+        "karma": 0
+    },
+    "successAttributes":
+    {
+        "strength": 0,
+        "dexterity": 0,
+        "constitution": 0,
+        "charisma": 0,
+        "magic": 0,
+        "karma": 0
+    },
+    "onSuccess":
+    {
+        "displayText": "Hours had passed, yet the majestic oak was nowhere to be found. The only sign of passing time was the shifting sun above the endless canopy. Regret began to weigh heavy on {Player}’s heart, if only he hadn’t been so foolhardy, if only he had sought more knowledge from the villagers before entering.\n\n“Always gather as much information as you can before proceeding,” his father’s voice echoed in his mind, a lesson once meant to guard him from rash choices. And yet here he was, lost amid the whispering trees, the forest’s paths winding endlessly around him.\n\nNow before him lay two diverging trails, one to the left and one to the right. Neither offered promise nor certainty. He would have to choose… and remember well how to find his way back.",
+        "modifyAttributes":
+        {
+            "strength": 0,
+            "dexterity": 0,
+            "constitution": 0,
+            "charisma": 0,
+            "magic": 0,
+            "karma": 0
+        },
+        "choices": [
+             "Take the left path",
+             "Take the right path"
+            ]
+    },
+    "onFailure":
+    {
+        "displayText": "",
+        "modifyAttributes":
+        {
+            "strength": 0,
+            "dexterity": 0,
+            "constitution": 0,
+            "charisma": 0,
+            "magic": 0,
+            "karma": 0
+        },
+        "choices": [
+            ]
+    }
+}

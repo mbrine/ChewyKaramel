@@ -1,0 +1,51 @@
+{
+    "id": "Continue on the path of an heir",
+    "requirements":
+    {
+        "strength": 0,
+        "dexterity": 0,
+        "constitution": 0,
+        "charisma": 0,
+        "magic": 0,
+        "karma": 0
+    },
+    "successAttributes":
+    {
+        "strength": 0,
+        "dexterity": 0,
+        "constitution": 0,
+        "charisma": 0,
+        "magic": 0,
+        "karma": 0
+    },
+    "onSuccess":
+    {
+        "displayText": "Despite the unanswered questions about his past, {Player} threw himself into his duties as heir. He focused on practical matters: the stability of the kingdom, ensuring the well-being of its citizens, and strengthening the bonds between the royal family and the common folk.\n\nHe learned everything he could about the challenges facing the kingdom: agriculture, trade, security, and the health of the people. He spent countless hours with advisors, visiting towns and speaking with local leaders, all while drafting policies aimed at improving life for those who depended on the crown.\n\nThough the questions about his origins still lingered in his mind, he knew the path forward lay in service to his people. His future was bound to their future, and the time to rule with wisdom and compassion had arrived.\n\nThe past, for now, would remain a mystery. But the kingdom needed him now, and that was enough.",
+        "modifyAttributes":
+        {
+            "strength": 0,
+            "dexterity": 0,
+            "constitution": 0,
+            "charisma": 0,
+            "magic": 0,
+            "karma": 0
+        },
+        "choices": [
+            ]
+    },
+    "onFailure":
+    {
+        "displayText": "",
+        "modifyAttributes":
+        {
+            "strength": 0,
+            "dexterity": 0,
+            "constitution": 0,
+            "charisma": 0,
+            "magic": 0,
+            "karma": 0
+        },
+        "choices": [
+            ]
+    }
+}

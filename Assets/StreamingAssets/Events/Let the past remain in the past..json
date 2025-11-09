@@ -1,0 +1,52 @@
+{
+    "id": "Let the past remain in the past.",
+    "requirements":
+    {
+        "strength": 0,
+        "dexterity": 0,
+        "constitution": 0,
+        "charisma": 0,
+        "magic": 0,
+        "karma": 0
+    },
+    "successAttributes":
+    {
+        "strength": 0,
+        "dexterity": 0,
+        "constitution": 0,
+        "charisma": 0,
+        "magic": 0,
+        "karma": 0
+    },
+    "onSuccess":
+    {
+        "displayText": "Hearing the truth laid bare before him, {Player} knew that some questions about his past might never be answered, but he would not compromise the kingdom’s future.\n\nSeeing the forlorn face of her child, Queen {Queen#Name} pulled {Player} into her embrace as she did many times before.\n\n”It’s alright my dear,” The queen consoled,”There may come a chance in the future where your questions will be answered.“",
+        "modifyAttributes":
+        {
+            "strength": 0,
+            "dexterity": 0,
+            "constitution": 0,
+            "charisma": 0,
+            "magic": 0,
+            "karma": 0
+        },
+        "choices": [
+             "”The needs of the kingdom outweigh the needs of the one”"
+            ]
+    },
+    "onFailure":
+    {
+        "displayText": "",
+        "modifyAttributes":
+        {
+            "strength": 0,
+            "dexterity": 0,
+            "constitution": 0,
+            "charisma": 0,
+            "magic": 0,
+            "karma": 0
+        },
+        "choices": [
+            ]
+    }
+}
