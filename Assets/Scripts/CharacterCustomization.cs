@@ -9,14 +9,25 @@ public class CharacterCustomization : MonoBehaviour
     public TMPro.TMP_Dropdown m_characterGender;
 
     public EventManager eventManagerReference;
+    public GameObject advancedPane;
+    public void ToggleAdvancedPanel()
+    {
+        advancedPane.SetActive(!advancedPane.activeSelf);
+    }
 
-    public void ApplyCustomizations()
+	private void OnEnable()
+	{
+		foreach (BlackboardEditor bbEditor in advancedPane.GetComponentsInChildren<BlackboardEditor>())
+		{
+			bbEditor.UpdateValue();
+		}
+	}
+	public void ApplyCustomizations()
     {
         if (Input.GetKey(KeyCode.O))
             Blackboard.AddObject("Player", "Ωμεγα");
         else
             Blackboard.AddObject("Player", m_characterName.text);
-        gameObject.SetActive(false);
 
         // Init the filesystem
         eventManagerReference.InitFileSystem();
@@ -29,5 +40,12 @@ public class CharacterCustomization : MonoBehaviour
         eventManagerReference.characterStats = new CharacterStats();
         eventManagerReference.statsEditor.stats = eventManagerReference.characterStats;
         eventManagerReference.statsEditor.editable = false;
+
+        foreach(BlackboardEditor bbEditor in advancedPane.GetComponentsInChildren<BlackboardEditor>())
+        {
+            bbEditor.SetValue();
+        }
+
+        gameObject.SetActive(false);
     }
 }
