@@ -5,8 +5,8 @@ using UnityEngine;
 
 public class BlackboardEditor : MonoBehaviour
 {
-    public string blackboardTargetValue;
-    public TMPro.TMP_InputField inputField;
+	public string blackboardTargetValue;
+	public TMPro.TMP_InputField inputField;
 
 	private void OnEnable()
 	{
@@ -14,11 +14,13 @@ public class BlackboardEditor : MonoBehaviour
 	}
 	public void UpdateValue()
 	{
-		if(Blackboard.HasObject(blackboardTargetValue))
-		inputField.text = Blackboard.GetObject(blackboardTargetValue);
+		if (Blackboard.HasObject(blackboardTargetValue))
+		{
+			inputField.text = Blackboard.GetObject(blackboardTargetValue);
+		}
 	}
 	public void SetValue()
-    {
+	{
 		Blackboard.AddObject(blackboardTargetValue, inputField.text);
-    }
+	}
 }

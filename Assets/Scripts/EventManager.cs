@@ -75,9 +75,15 @@ public class EventManager : MonoBehaviour
     public GameObject characterCustomizationPanel;
     public TMPro.TextMeshProUGUI wordCountDisplay;
 
+	private void Awake()
+	{
+		// Reload the blackboard
+		BlackboardLoader.LoadBlackboard();
+
+		LoadEvents();	
+	}
 	private void Start()
 	{
-        LoadEvents();
         StartNewStory();
     }
 
@@ -171,8 +177,6 @@ public class EventManager : MonoBehaviour
             Destroy(child.gameObject);
         }
 
-        // Reload the blackboard
-        BlackboardLoader.LoadBlackboard();
 
         // Enable character customization
         characterCustomizationPanel.SetActive(true);

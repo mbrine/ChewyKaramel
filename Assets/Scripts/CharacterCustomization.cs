@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System.ComponentModel;
 using Unity.VisualScripting;
 using UnityEngine;
 
@@ -10,7 +11,10 @@ public class CharacterCustomization : MonoBehaviour
 
     public EventManager eventManagerReference;
     public GameObject advancedPane;
-    public void ToggleAdvancedPanel()
+
+	bool inited = false;
+
+	public void ToggleAdvancedPanel()
     {
         advancedPane.SetActive(!advancedPane.activeSelf);
     }
@@ -21,7 +25,19 @@ public class CharacterCustomization : MonoBehaviour
 		{
 			bbEditor.UpdateValue();
 		}
+        //ToggleAdvancedPanel();
 	}
+    private void Update()
+    {
+        if (!inited)
+        {
+            foreach (BlackboardEditor bbEditor in advancedPane.GetComponentsInChildren<BlackboardEditor>())
+            {
+                bbEditor.UpdateValue();
+            }
+            inited = true;
+        }
+    }
 	public void ApplyCustomizations()
     {
         if (Input.GetKey(KeyCode.O))
