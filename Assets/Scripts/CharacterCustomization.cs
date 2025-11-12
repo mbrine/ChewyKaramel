@@ -21,7 +21,7 @@ public class CharacterCustomization : MonoBehaviour
 
 	private void OnEnable()
 	{
-		foreach (BlackboardEditor bbEditor in advancedPane.GetComponentsInChildren<BlackboardEditor>())
+		foreach (BlackboardEditor bbEditor in GetComponentsInChildren<BlackboardEditor>())
 		{
 			bbEditor.UpdateValue();
 		}
@@ -31,7 +31,7 @@ public class CharacterCustomization : MonoBehaviour
     {
         if (!inited)
         {
-            foreach (BlackboardEditor bbEditor in advancedPane.GetComponentsInChildren<BlackboardEditor>())
+            foreach (BlackboardEditor bbEditor in GetComponentsInChildren<BlackboardEditor>())
             {
                 bbEditor.UpdateValue();
             }
@@ -57,7 +57,7 @@ public class CharacterCustomization : MonoBehaviour
         eventManagerReference.statsEditor.stats = eventManagerReference.characterStats;
         eventManagerReference.statsEditor.editable = false;
 
-        foreach(BlackboardEditor bbEditor in advancedPane.GetComponentsInChildren<BlackboardEditor>())
+        foreach(BlackboardEditor bbEditor in GetComponentsInChildren<BlackboardEditor>())
         {
             bbEditor.SetValue();
         }
