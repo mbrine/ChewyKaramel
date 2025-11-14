@@ -201,6 +201,7 @@ public class EventManager : MonoBehaviour
         if (line.Length == 0)
             return;
 
+        // Remove all tags
         try
         {
             while (line.Contains("<"))
@@ -212,6 +213,7 @@ public class EventManager : MonoBehaviour
             }
         }
         catch { }
+
         // Write da ting
         writer.Write(line);
 

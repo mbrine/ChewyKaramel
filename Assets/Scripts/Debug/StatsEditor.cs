@@ -83,13 +83,6 @@ public class StatsEditor : MonoBehaviour
 
 	public void UpdateStats()
 	{
-		//FieldInfo[] fields = _stats.GetType().GetFields(BindingFlags.Public | BindingFlags.NonPublic | BindingFlags.Instance);
-		//
-		//// Update the values in the stats object
-		//for (int i = 0; i < fields.Length; i++)
-		//{
-		//	fields[i].SetValue(boxed, int.Parse(statsInputs[i].text));
-		//}
 	}
 
 	public void UpdateValues()

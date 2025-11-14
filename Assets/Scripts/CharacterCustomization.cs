@@ -12,6 +12,8 @@ public class CharacterCustomization : MonoBehaviour
     public EventManager eventManagerReference;
     public GameObject advancedPane;
 
+    List<BlackboardEditor> blackboardEditors;
+
 	bool inited = false;
 
 	public void ToggleAdvancedPanel()
@@ -21,7 +23,7 @@ public class CharacterCustomization : MonoBehaviour
 
 	private void OnEnable()
 	{
-		foreach (BlackboardEditor bbEditor in GetComponentsInChildren<BlackboardEditor>())
+		foreach (BlackboardEditor bbEditor in GetComponentsInChildren<BlackboardEditor>(true))
 		{
 			bbEditor.UpdateValue();
 		}
@@ -31,10 +33,12 @@ public class CharacterCustomization : MonoBehaviour
     {
         if (!inited)
         {
-            foreach (BlackboardEditor bbEditor in GetComponentsInChildren<BlackboardEditor>())
+            foreach (BlackboardEditor bbEditor in GetComponentsInChildren<BlackboardEditor>(true))
             {
                 bbEditor.UpdateValue();
             }
+            blackboardEditors = new List<BlackboardEditor>();
+            blackboardEditors.AddRange(GetComponentsInChildren<BlackboardEditor>(true));
             inited = true;
         }
     }
@@ -57,10 +61,11 @@ public class CharacterCustomization : MonoBehaviour
         eventManagerReference.statsEditor.stats = eventManagerReference.characterStats;
         eventManagerReference.statsEditor.editable = false;
 
-        foreach(BlackboardEditor bbEditor in GetComponentsInChildren<BlackboardEditor>())
+        foreach(BlackboardEditor bbEditor in blackboardEditors)
         {
             bbEditor.SetValue();
         }
+
 
         gameObject.SetActive(false);
     }
