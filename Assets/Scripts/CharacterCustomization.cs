@@ -33,12 +33,17 @@ public class CharacterCustomization : MonoBehaviour
     {
         if (!inited)
         {
-            foreach (BlackboardEditor bbEditor in GetComponentsInChildren<BlackboardEditor>(true))
+            if (blackboardEditors == null)
+            {
+                blackboardEditors = new List<BlackboardEditor>();
+                blackboardEditors.AddRange(GetComponentsInChildren<BlackboardEditor>(true));
+            }
+
+            BlackboardLoader.LoadBlackboard();
+            foreach (BlackboardEditor bbEditor in blackboardEditors)
             {
                 bbEditor.UpdateValue();
             }
-            blackboardEditors = new List<BlackboardEditor>();
-            blackboardEditors.AddRange(GetComponentsInChildren<BlackboardEditor>(true));
             inited = true;
         }
     }
@@ -66,7 +71,7 @@ public class CharacterCustomization : MonoBehaviour
             bbEditor.SetValue();
         }
 
-
+        inited = false;
         gameObject.SetActive(false);
     }
 }

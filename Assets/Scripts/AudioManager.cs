@@ -6,7 +6,7 @@ public class AudioManager : MonoBehaviour
 {
     // References
     public TextDisplayer textDisplayer;
-    public UnityEngine.UI.Slider speedSlider;
+    public UnityEngine.UI.Slider volumeSlider;
     private AudioSource audioSource;
 
     // Vars
@@ -38,7 +38,7 @@ public class AudioManager : MonoBehaviour
                     if (Random.Range(0.0f, 1.0f) < randomFactor)
                     {
                         audioSource.pitch = Random.Range(1.0f- pitchRange, 1.0f+ pitchRange);
-                        audioSource.PlayOneShot(scribbleSounds[Random.Range(0, scribbleSounds.Count)], Random.Range(1.0f - volumeRange, 1.0f + volumeRange));
+                        audioSource.PlayOneShot(scribbleSounds[Random.Range(0, scribbleSounds.Count)], Random.Range(1.0f - volumeRange, 1.0f + volumeRange)*volumeSlider.value);
                     }
                 }
             }
