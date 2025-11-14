@@ -300,17 +300,22 @@ public class EventManager : MonoBehaviour
             CharacterStats statsDiff = newStats - prevStats;
             FieldInfo[] fields = statsDiff.GetType().GetFields(BindingFlags.Public | BindingFlags.NonPublic | BindingFlags.Instance);
 
-            var tmpText = "Stats gained: ";
+            var tmpText = ColorCodes.Apply("Stats gained: ", ColorCodes.goldHighlight);
             // Update the values in the stats object
+            int count = 0;
             for (int i = 0; i < fields.Length; i++)
             {
                 int diff = (int)fields[i].GetValue(statsDiff);
                 if (diff != 0)
                 {
-                    tmpText += $"{fields[i].Name.Substring(0, 1).ToUpper() + fields[i].Name.Substring(1)} {(diff > 0 ? "+" : "-")}{diff}";
+                    if (count++ > 0)
+                        tmpText += ColorCodes.Apply(" | ", ColorCodes.goldHighlight);
+                    tmpText += ColorCodes.Apply($"{fields[i].Name.Substring(0, 1).ToUpper() + fields[i].Name.Substring(1)} {(diff > 0 ? "+" : "")}{diff}",diff>0?ColorCodes.statGained:ColorCodes.statLost);
                 }
             }
-            tmpText = "\n\n";
+            tmpText += "\n\n";
+
+            textDisplayer.text += tmpText;
 
         }
     }
