@@ -9,11 +9,11 @@
         "karma": 0
     },
     "successAttributes": {
-        "strength": 2,
-        "dexterity": 1,
+        "strength": 3,
+        "dexterity": 3,
         "constitution": 2,
         "charisma": 0,
-        "magic": 2,
+        "magic": 6,
         "karma": 0
     },
     "onSuccess": {

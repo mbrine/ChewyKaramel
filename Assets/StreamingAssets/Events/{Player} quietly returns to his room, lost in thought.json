@@ -19,12 +19,12 @@
     "onSuccess": {
         "displayText": "{Player} walked the silent halls back to his chamber, the cool stone beneath his feet echoing faintly with each step. The whispers he’d heard in the library — if they were even real — still brushed faintly at the edge of his thoughts. He couldn’t explain it, only that something deep within him felt… unsettled. Different.\n\nWhen dawn came, sunlight spilled through the curtains, painting the room in gold. A soft knock broke the quiet. One of the queen’s attendants entered and bowed. ‘Her Majesty requests your presence,’ they said gently. ‘Immediately.’\n\nThe throne hall was nearly empty when he arrived. Queen {Queen#Name} stood near one of the tall windows, the morning light catching her silvered hair. Her expression was calm, but there was a weight in her eyes that {Player} had never seen before.\n\n‘You seem troubled,’ she began softly. ‘I felt it the moment you stepped into the room.’\n\n{Player} hesitated. ‘It’s nothing, Your Majesty. I just… couldn’t sleep.’\n\nThe queen smiled faintly, though not without sadness. ‘There are moments in life when the world begins to whisper things we cannot yet understand. You’ve reached such a moment, haven’t you?’\n\nHe looked down, unsure how to answer. The queen stepped closer, resting a gentle hand on his shoulder. ‘You’ve always felt apart from this place — as though a piece of you belonged elsewhere. When the heart begins to ask questions, my child, it is often because it already knows the answer.’\n\nHer gaze turned toward the horizon beyond the castle walls. ‘There are truths that cannot be found within stone and crown. If ever you feel the call to seek them, do not ignore it. Sometimes, to understand who we are, we must first step beyond the life we’ve been given.’\n\nHer words lingered long after she dismissed him. {Player} left the throne room feeling the pull of something distant — not a command, but an invitation. A quiet promise that the answers he sought would not be found within the safety of the palace walls.",
         "modifyAttributes": {
-            "strength": 1,
-            "dexterity": 1,
-            "constitution": 1,
-            "charisma": 2,
-            "magic": 1,
-            "karma": 2
+            "strength": 0,
+            "dexterity": 0,
+            "constitution": 0,
+            "charisma": 1,
+            "magic": 0,
+            "karma": 1
         },
         "choices": [
             "{Player} travels east toward {Lake}",

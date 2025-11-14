@@ -19,10 +19,10 @@
     "onSuccess": {
         "displayText": "The journey eastward carried {Player} through winding meadows and quiet hills where the grass swayed like waves beneath the morning sun. Birds circled above, calling softly to one another as if warning him that he walked a path not often taken. Each step away from {Kingdom#Name} filled him with both freedom and unease.\n\nBy the time he reached {VillageName}, the sun had begun to sink. The villagers were kind but wary, and they spoke in hushed tones when he asked about {Lake}. One old woman, her eyes clouded with age, whispered that the lake was not meant for ordinary men. They said that on nights of the full moon, the water became a mirror that showed not a reflection, but the truth hidden within one’s soul.\n\nThat night, {Player} continued alone. The road narrowed into a trail surrounded by tall reeds, and the air grew cool and still. When the trees parted, {Lake} appeared before him, vast and silver beneath the light of the moon. The surface was so still it looked like glass, reflecting the stars in perfect silence.\n\nAs {Player} approached the water’s edge, the black book in his pack began to tremble. He pulled it out, and the silver runes across its cover shimmered brightly. A faint voice echoed from the lake itself, soft but clear, as though the water had found its own tongue.\n\n*Child of the forgotten sky, why do you seek what was hidden?*\n\nThe reflection in the water changed. It no longer showed {Player} as he was, but a figure with faint, translucent wings that shimmered faintly in the moonlight. The vision faded as quickly as it appeared, leaving ripples spreading across the still surface.\n\nThe voice spoke once more, quieter now. *The truth lies where the veil is thinnest. Seek the place where light touches shadow, and your path will unfold.*\n\nAs the waters settled, {Player} felt something shift within him. The whisper that had once guided him now felt part of his own thoughts. The road ahead was uncertain, but the need for understanding had grown stronger than ever.",
         "modifyAttributes": {
-            "strength": 1,
-            "dexterity": 1,
-            "constitution": 1,
-            "charisma": 0,
+            "strength": 0,
+            "dexterity": 0,
+            "constitution": 0,
+            "charisma": 2,
             "magic": 2,
             "karma": 1
         },

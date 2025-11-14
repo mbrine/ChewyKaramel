@@ -27,7 +27,7 @@
             "karma": 3
         },
         "choices": [
-            "{Player} continues to his never-ending journey",
+            "Continue to his never-ending journey",
             "Returns to {Kingdom#Name}"
         ]
 },
