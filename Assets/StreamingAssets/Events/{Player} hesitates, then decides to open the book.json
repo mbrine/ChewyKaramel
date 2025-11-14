@@ -20,7 +20,7 @@
         "displayText": "A shiver ran down {Player}'s spine as he reached for the book. The leather cover felt warmer than it should, pulsing lightly beneath his fingers, as if alive. The whispers swelled, softer now, like words just beyond comprehension:\n\n*Seek… remember… do not settle for what is known…*\n\nThe pages flipped on their own, revealing faded ink and sketches that seemed to shimmer and move when he looked away. Shadows of shapes and faces danced in the corners of the library, just out of focus. He could almost feel eyes watching him from the illustrations, but they weren't hostile curious, maybe even welcoming.\n\nHe leaned closer. One illustration caught his breath: a figure, small and human-like, yet with subtle hints of something… different. Its eyes were too bright, too aware. A faint warmth spread across {Player}'s chest, like a distant memory trying to surface. He shook his head. It must be imagination. He was just a human boy, nothing more.\n\nThe whispers returned, now a soft murmur threading through his thoughts. *Do not ignore yourself. There is more than you know.*\n\n{Player} blinked. The library felt larger, older, and impossibly quiet, as if holding its breath. He closed the book for a moment, heart hammering, and realized he could no longer ignore the pull inside him something was stirring, something he didn't yet understand.\n\nEven as he stepped back, the sense of curiosity burned brighter, a quiet demand: the world he knew was incomplete, and he might be the missing piece.",
         "modifyAttributes": {
             "strength": 1,
-            "dexterity": 0,
+            "dexterity": 1,
             "constitution": 1,
             "charisma": 0,
             "magic": 2,

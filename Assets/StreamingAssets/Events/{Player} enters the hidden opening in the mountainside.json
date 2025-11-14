@@ -19,11 +19,11 @@
     "onSuccess": {
         "displayText": "{Player} slipped through the narrow opening, the cool air inside carrying the scent of damp stone and earth. The path twisted sharply, descending deeper into the mountainside. Stalactites hung like silent sentinels, and faint luminescent runes traced the walls, pulsing softly in rhythm with his heartbeat. The trail narrowed and widened unpredictably, echoing each footstep and reminding {Player} that he was far from the outside world.\n\nHours seemed to pass as he descended. The temperature dropped, and the air thickened with an ancient, almost electric tension. Eventually, the tunnel opened into a small chamber, its walls covered with worn carvings of strange symbols, creatures, and scenes hinting at forgotten knowledge. Wisps of glowing light floated along the floor and ceiling, illuminating the carvings in an ethereal glow. Shadows twisted unnaturally across the jagged rocks, making it difficult to distinguish where the stone ended and the illusions began.\n\nBeyond this chamber, the tunnel widened into a vast room. The ruins seemed to hum with an unseen energy. Crystalline formations jutted from the walls, faintly resonating with the glow of the symbols. Some carvings appeared to shift subtly when {Player} blinked, as though the stones themselves were alive. Every step echoed in the cavernous space, amplifying the sense that he had entered a place untouched by time or mortal hands. After thoroughly examining this chamber, he moved cautiously toward the larger room ahead.",
         "modifyAttributes": {
-            "strength": 1,
+            "strength": 0,
             "dexterity": 1,
-            "constitution": 2,
+            "constitution": 1,
             "charisma": 0,
-            "magic": 0,
+            "magic": 1,
             "karma": 0
         },
         "choices": [
