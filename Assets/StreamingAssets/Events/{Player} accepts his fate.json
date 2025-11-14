@@ -1,0 +1,47 @@
+{
+  "id": "{Player} accepts his fate",
+  "requirements": {
+    "strength": 0,
+    "dexterity": 0,
+    "constitution": 0,
+    "charisma": 0,
+    "magic": 0,
+    "karma": 0
+  },
+  "successAttributes": {
+    "strength": 0,
+    "dexterity": 0,
+    "constitution": 0,
+    "charisma": 0,
+    "magic": 0,
+    "karma": 0
+  },
+  "onSuccess": {
+    "displayText": "{Player} quietly accepted his fate, though turmoil brewed within him. Inside the cell, still trying to process everything that had happened, he heard the guard outside say, “You have a visitor.”\nLooking up, he saw the queen. “Hush, child. Do not make a sound,” she whispered as she stepped closer. “I understand what you are feeling, but you must trust me and your father, the king. He sent you here to protect you from the priests.”\n\n“I have had the servants prepare supplies for your journey beyond the kingdom. We will stage your death in this cell while you escape.”\n\n{Player} wanted to stay, to remain with the family that had loved him throughout his life, even though they did not share the same blood. Noticing his hesitation, the queen spoke softly, “I have never regretted the day I found you in that forest. You are meant for greater things. Now go.”\n\nAt her signal, a guard approached {Player} and led him out of the dungeon through a hidden passageway.\n\nOutside, {Player} notices a traveliing caravan heading into the forest near the kingdom.",
+    "modifyAttributes": {
+      "strength": 0,
+      "dexterity": 0,
+      "constitution": 1,
+      "charisma": 0,
+      "magic": 0,
+      "karma": 2
+    },
+    "choices": [
+      "{Player} tries to hitch a ride with the caravan",
+      "{Player} heads into the forest alone"
+    ]
+  },
+  "onFailure": {
+    "displayText": "",
+    "modifyAttributes": {
+      "strength": 0,
+      "dexterity": 0,
+      "constitution": 0,
+      "charisma": 0,
+      "magic": 0,
+      "karma": 0
+    },
+    "choices": [
+    ]
+  }
+}

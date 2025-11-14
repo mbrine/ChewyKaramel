@@ -1,0 +1,47 @@
+{
+  "id": "{Player} gathers supplies before leaving the kingdom",
+  "requirements": {
+    "strength": 0,
+    "dexterity": 0,
+    "constitution": 0,
+    "charisma": 0,
+    "magic": 0,
+    "karma": 0
+  },
+  "successAttributes": {
+    "strength": 0,
+    "dexterity": 0,
+    "constitution": 0,
+    "charisma": 0,
+    "magic": 0,
+    "karma": 0
+  },
+  "onSuccess": {
+    "displayText": "Although he needed to leave immediately, {Player} knew he couldn't afford to be reckless. The road ahead would be long, and preparation meant survival. He decided to stop by a pawn shop first, selling a few valuable accessories he still carried to gather some travel funds. With the coin he earned, {Player} purchased a sturdy backpack, a few days' worth of rations, and some basic tools he might need for the journey ahead.\n\nOutside the kingdom, {Player} notices a caravan parked near the kingdom's gates.",
+    "modifyAttributes": {
+      "strength": 0,
+      "dexterity": 0,
+      "constitution": 1,
+      "charisma": 0,
+      "magic": 0,
+      "karma": 2
+    },
+    "choices": [
+      "{Player} tries to hitch a ride with the caravan",
+      "{Player} ask the traveling caravan about any happenings nearby"
+    ]
+  },
+  "onFailure": {
+    "displayText": "",
+    "modifyAttributes": {
+      "strength": 0,
+      "dexterity": 0,
+      "constitution": 0,
+      "charisma": 0,
+      "magic": 0,
+      "karma": 0
+    },
+    "choices": [
+    ]
+  }
+}

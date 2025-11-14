@@ -1,0 +1,45 @@
+{
+  "id": "{Player} makes a run for it",
+  "requirements": {
+    "strength": 0,
+    "dexterity": 0,
+    "constitution": 0,
+    "charisma": 0,
+    "magic": 0,
+    "karma": 0
+  },
+  "successAttributes": {
+    "strength": 0,
+    "dexterity": 0,
+    "constitution": 0,
+    "charisma": 0,
+    "magic": 0,
+    "karma": 0
+  },
+  "onSuccess": {
+    "displayText": "Without a word, {Player} turned and bolted through the trees. Branches whipped against his face, roots clawed at his feet, but he didn't dare look back. His heart pounded louder than the wind, louder than thought itself.\n\nA sharp whistle cut through the forest. In the next instant, something whirred past his ear an arrow, glowing faintly with white light, embedding itself in a nearby trunk. {Player} stumbled, gasping for air, and pushed harder.\n\nThen pain. A sudden, searing pain pierced his back. The force threw him forward into the dirt. He clawed weakly at the ground, trying to crawl, but his strength was fading fast.\n\nThe hooded figure emerged from the mist, bow in hand, his steps calm and deliberate. “You should have answered,” he said quietly, lowering the weapon. “Running only proves what you are.”\n\nAs {Player}'s vision dimmed, he could just barely make out the faint shimmer of the arrow lodged in his back the light of the Angels' power, burning away his last breath. Then, all went still.",
+    "modifyAttributes": {
+      "strength": 0,
+      "dexterity": 0,
+      "constitution": 0,
+      "charisma": 0,
+      "magic": 0,
+      "karma": 0
+    },
+    "choices": [
+    ]
+  },
+  "onFailure": {
+    "displayText": "",
+    "modifyAttributes": {
+      "strength": 0,
+      "dexterity": 0,
+      "constitution": 0,
+      "charisma": 0,
+      "magic": 0,
+      "karma": 0
+    },
+    "choices": [
+    ]
+  }
+}

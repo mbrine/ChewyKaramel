@@ -1,0 +1,45 @@
+{
+  "id": "{Player} stay in the slums",
+  "requirements": {
+    "strength": 0,
+    "dexterity": 0,
+    "constitution": 0,
+    "charisma": 0,
+    "magic": 0,
+    "karma": 0
+  },
+  "successAttributes": {
+    "strength": 0,
+    "dexterity": 0,
+    "constitution": 0,
+    "charisma": 0,
+    "magic": 0,
+    "karma": 0
+  },
+  "onSuccess": {
+    "displayText": "{Player} decided to stay in the slums, thinking no one would bother a drifter among the city's forgotten. The air was thick with the stench of smoke and stagnant water, and the narrow streets twisted like a maze. He wandered aimlessly, passing beggars huddled by fires and traders dealing in scraps.\n\nAs he loitered near an abandoned tavern, a voice called out from behind. “You don't belong here, stranger.” Before {Player} could turn, a blade flashed past his shoulder. He stumbled back, catching sight of a ragged man with eyes wild from hunger. The attacker lunged again this time, the knife finding its mark.\n\n{Player} collapsed against the wall, the world dimming as footsteps faded into the night. The city's bells rang faintly in the distance, marking another life quietly lost in the slums.",
+    "modifyAttributes": {
+      "strength": 0,
+      "dexterity": 0,
+      "constitution": 0,
+      "charisma": 0,
+      "magic": 0,
+      "karma": 0
+    },
+    "choices": [
+    ]
+  },
+  "onFailure": {
+    "displayText": "",
+    "modifyAttributes": {
+      "strength": 0,
+      "dexterity": 0,
+      "constitution": 0,
+      "charisma": 0,
+      "magic": 0,
+      "karma": 0
+    },
+    "choices": [
+    ]
+  }
+}

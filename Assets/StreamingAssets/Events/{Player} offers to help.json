@@ -1,0 +1,49 @@
+{
+  "id": "{Player} offers to help",
+  "requirements": {
+    "strength": 0,
+    "dexterity": 0,
+    "constitution": 0,
+    "charisma": 0,
+    "magic": 0,
+    "karma": 0
+  },
+  "successAttributes": {
+    "strength": 0,
+    "dexterity": 0,
+    "constitution": 0,
+    "charisma": 0,
+    "magic": 0,
+    "karma": 2
+  },
+  "onSuccess": {
+    "displayText": "“Truly?” exclaimed the merchant. “We would be most grateful! We're already behind schedule for our next stop. If you can fix this, we can be on our way at once.”\n\n{Player} rummaged through his bag and found a few tools and scraps that could do the job. After a short while, the wheel was mended and fitted back into place.\n\n“This is fantastic!” the merchant said, grinning as he shook {Player}'s hand. “You've saved us hours of waiting. Come, ride with us it's the least we can do.”\n\nAs the caravan began to roll forward along the dusty road, {Player} took one last look toward the distant spires of the kingdom. The sun was setting behind them, its golden light fading fast. Whatever life he once knew was now behind him, and the path ahead stretched into uncertainty.\n\nHours passed before the caravan finally reached its destination the grand capital of the Angels, {Kingdom#Name}. The city rose like a monument of marble and light, its towers piercing the clouds above.\n{Player} thanked the caravan for their kindness and bid them farewell before setting off on his own, the echoes of celestial bells ringing faintly in the distance.",
+    "modifyAttributes": {
+      "strength": 0,
+      "dexterity": 0,
+      "constitution": 0,
+      "charisma": 1,
+      "magic": 0,
+      "karma": 0
+    },
+    "choices": [
+      "{Player} heads towards the direction of the bell",
+      "{Player} heads to the market"
+    ]
+  },
+  "onFailure": {
+    "displayText": "{Player} offered to help, but quickly stopped himself upon realizing he had no tools to fix the wheel. Embarrassed, he gave the merchant an apologetic smile and stepped back. After bidding the caravan farewell, {Player} turned toward the open road, uncertain which direction to take but knowing he had to keep moving.",
+    "modifyAttributes": {
+      "strength": 0,
+      "dexterity": 0,
+      "constitution": 0,
+      "charisma": 0,
+      "magic": 0,
+      "karma": 0
+    },
+    "choices": [
+      "{Player} heads into the forest alone",
+      "{Player} move towards the sea"
+    ]
+  }
+}

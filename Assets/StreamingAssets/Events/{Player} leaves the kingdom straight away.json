@@ -1,0 +1,47 @@
+{
+  "id": "{Player} leaves the kingdom straight away",
+  "requirements": {
+    "strength": 0,
+    "dexterity": 0,
+    "constitution": 0,
+    "charisma": 0,
+    "magic": 0,
+    "karma": 0
+  },
+  "successAttributes": {
+    "strength": 0,
+    "dexterity": 0,
+    "constitution": 0,
+    "charisma": 0,
+    "magic": 0,
+    "karma": 0
+  },
+  "onSuccess": {
+    "displayText": "{Player} feels like they cannot afford to stay in this kingdom any longer so they decide to leave immediately. Outside they notices a merchant caravan.",
+    "modifyAttributes": {
+      "strength": 0,
+      "dexterity": 0,
+      "constitution": 0,
+      "charisma": 0,
+      "magic": 0,
+      "karma": 0
+    },
+    "choices": [
+      "{Player} tries to hitch a ride with the caravan",
+      "{Player} ask the traveling caravan about any happenings nearby"
+    ]
+  },
+  "onFailure": {
+    "displayText": "",
+    "modifyAttributes": {
+      "strength": 0,
+      "dexterity": 0,
+      "constitution": 0,
+      "charisma": 0,
+      "magic": 0,
+      "karma": 0
+    },
+    "choices": [
+    ]
+  }
+}

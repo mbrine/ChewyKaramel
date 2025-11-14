@@ -1,9 +1,14 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Diagnostics;
+using System.Globalization;
 using System.IO;
+using System.Linq;
+using System.Reflection;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.Rendering.VirtualTexturing;
 using UnityEngine.UI;
 
 [System.Serializable]
@@ -35,25 +40,16 @@ public class Event
     // If below the requirements
     public Outcome onFailure;
 }
-[System.Serializable]
-public struct EventContainer
-{
-    public List<Event> events;
-    public EventContainer(int i = 0)
-    {
-        events = new List<Event>();
-    }
-}
 
 public class EventManager : MonoBehaviour
 {
     // Unity side references, etc
     public GameObject textObjectReference;
     public GameObject choiceButtonReference;
-	public Scrollbar sliderReference;
+    public Scrollbar sliderReference;
     public ContentSizeFitter contentSizeFitter;
 
-	public Transform textWindow;
+    public Transform textWindow;
     public Transform choicesWindow;
 
     public Dictionary<string, Event> eventsDictionary;
@@ -70,15 +66,32 @@ public class EventManager : MonoBehaviour
 
     // THe FileStream for outputting the story.
     private FileStream storyFileStream;
+    private StreamWriter writer;
 
     private int wordCount;
+    private bool debugging;
 
     public TextDisplayer textDisplayer;
-    private bool wasStoryUpdated;
+    public GameObject characterCustomizationPanel;
+    public TMPro.TextMeshProUGUI wordCountDisplay;
 
-    private void Start()
-	{
+    // Spellchecking
+    enum SPELLCHECK_ERROR
+    {
+        NONE=0,
+        DOUBLESPACE,
+        HIS_HIS,
+        PLAYER,
+    }
+    private void Awake()
+    {
+        // Reload the blackboard
+        BlackboardLoader.LoadBlackboard();
+
         LoadEvents();
+    }
+    private void Start()
+    {
         StartNewStory();
     }
 
@@ -88,6 +101,11 @@ public class EventManager : MonoBehaviour
         {
             contentSizeFitter.enabled = false;
         }
+        wordCountDisplay.text = wordCount.ToString();
+        if (Input.GetKey(KeyCode.LeftShift) && Input.GetKey(KeyCode.RightShift) && Input.GetKeyDown(KeyCode.D))
+        {
+            PerformDFSTest();
+        }
     }
 
     private void LateUpdate()
@@ -95,80 +113,59 @@ public class EventManager : MonoBehaviour
         if (textDisplayer.textDisplaying)
         {
             contentSizeFitter.enabled = true;
-            sliderReference.value = 0;
+            sliderReference.value = 1 - textDisplayer.textComponent.renderedHeight / textDisplayer.textComponent.preferredHeight;
         }
-        //if (wasStoryUpdated && !textDisplayer.textDisplaying)
-        //{
-        //    wasStoryUpdated = false;
-        //}
-    }
-
-    // Stop speech when destroyed
-    private void OnDestroy()
-    {
-        TextToSpeech.StopSpeech();
-    }
-
-    // Stop speech when application quits
-    private void OnApplicationQuit()
-    {
-        TextToSpeech.StopSpeech();
-    }
-
-    public void SaveEvents()
-    {
-        // Make a new container
-        EventContainer container = new EventContainer(0);
-
-        // Add all the events from the dictionaries
-        foreach(var kvp in eventsDictionary)
-        {
-            container.events.Add(kvp.Value);
-        }
-
-        // Create the json string
-        string json = JsonUtility.ToJson(container, true);
-
-        // Open file
-        FileStream fileStream = new FileStream(Application.streamingAssetsPath+ "/Events.json",FileMode.OpenOrCreate);
-
-        // Write the data!
-        using (StreamWriter writer = new StreamWriter(fileStream))
-        {
-			writer.Write(json);
-        }
-
-        // Close the file when we're done
-        fileStream.Close();
     }
 
     public void LoadEvents()
     {
         eventsDictionary = new Dictionary<string, Event>();
 
-		// Open file
-		FileStream fileStream = new FileStream(Application.streamingAssetsPath + "/Events.json", FileMode.OpenOrCreate);
+        //List<string> eventIDs = new List<string>();
+        List<string> eventIDs = new List<string>(Directory.GetFiles(Application.streamingAssetsPath + "/Events").Where(f => !f.EndsWith(".meta")));
+        //eventIDs.AddRange());
 
-		// Read the data!
-		using (StreamReader reader = new StreamReader(fileStream))
-		{
-			string json = reader.ReadToEnd();
+        // Open file
+        foreach (var eventPath in eventIDs)
+        {
+            FileStream fileStream = new FileStream(eventPath, FileMode.OpenOrCreate);
 
-            // Get the EventContainer object
-            EventContainer container = JsonUtility.FromJson<EventContainer>(json);
-
-            // Add the events to the dictionary
-            foreach(Event e in container.events)
+            // Read the data!
+            using (StreamReader reader = new StreamReader(fileStream))
             {
-                eventsDictionary.Add(e.id, e);
+                string json = reader.ReadToEnd();
+
+                // Get the EventContainer object
+                try
+                {
+                    Event newEvent = JsonUtility.FromJson<Event>(json);
+                    // Add the events to the dictionary
+                    if (newEvent != null)
+                    {
+                        if (eventsDictionary.ContainsKey(newEvent.id))
+                            eventsDictionary[newEvent.id] = newEvent;
+                        else
+                            eventsDictionary.Add(newEvent.id, newEvent);
+                    }
+                }
+                catch
+                {
+                    UnityEngine.Debug.LogError($"JSON File Parse Error in {eventPath}");
+                }
             }
-		}
 
-		// Close the file when we're done
-		fileStream.Close();
+            // Close the file when we're done
+            fileStream.Close();
 
-	}
+        }
+    }
+    public void InitFileSystem()
+    {
+        // Open a new FileStream
+        storyFileStream = new FileStream($"{Application.persistentDataPath}/Stories/STORY_{DateTime.Now.ToString("HH-mm-ss")}.txt", FileMode.OpenOrCreate);
+        writer = new StreamWriter(storyFileStream);
 
+    }
     public void StartNewStory()
     {
         // Close the fileStream if it's open
@@ -178,9 +175,6 @@ public class EventManager : MonoBehaviour
         if (!Directory.Exists(Application.persistentDataPath + "/Stories"))
             Directory.CreateDirectory(Application.persistentDataPath + "/Stories");
 
-        // Open a new FileStream
-        storyFileStream = new FileStream($"{Application.persistentDataPath}/Stories/STORY.txt", FileMode.OpenOrCreate);
-
         // Reset the text and choice windows
         textDisplayer.ResetText();
         foreach (Transform child in choicesWindow)
@@ -188,60 +182,75 @@ public class EventManager : MonoBehaviour
             Destroy(child.gameObject);
         }
 
-        // Change to the "Root" event
-        // We can do random logic here as well if we want different start states, all up to the writers ofc
-        MoveToEvent("Root");
 
-        // Reset Character Stats
+        // Enable character customization
+        characterCustomizationPanel.SetActive(true);
+
+        wordCount = 0;
+
         characterStats = new CharacterStats();
         statsEditor.stats = characterStats;
-        statsEditor.editable = true;
     }
 
-	// Writes lines to the file.
-	public void WriteToFile(string line, bool updateWordCount = true)
+    // Writes lines to the file.
+    public void WriteToFile(string line, bool updateWordCount = true)
     {
+        if (debugging)
+            return;
         // Allow blank lines to be ignored. Prevents a ton of newline spam
         if (line.Length == 0)
             return;
 
-        // Write da ting
-        using (StreamWriter writer = new StreamWriter(storyFileStream))
+        // Remove all tags
+        try
         {
-            writer.Write(line);
+            while (line.Contains("<"))
+            {
+                string tmpLine = line.Substring(0, line.IndexOf("<"));
+                if (line[line.Length - 1] != '>')
+                    tmpLine += line.Substring(line.IndexOf(">") + 1);
+                line = tmpLine;
+            }
         }
+        catch { }
 
-        // Update internal wordcount
+        // Write da ting
+        writer.Write(line);
+
         if (updateWordCount)
         {
-            char[] delimiters = new char[] { ' ', '\r', '\n' };
-            wordCount += line.Split(delimiters, StringSplitOptions.RemoveEmptyEntries).Length;
+            wordCount = 0;
+            UpdateWordCount(textDisplayer.text);
         }
+    }
+
+    private void UpdateWordCount(string text)
+    {
+        // Update internal wordcount
+        char[] delimiters = new char[] { ' ', '\r', '\n' };
+        wordCount += text.Split(delimiters, StringSplitOptions.RemoveEmptyEntries).Length;
     }
 
     public void SelectChoice(string choiceID)
     {
-        MoveToEvent(choiceID);
+        MoveToEvent(choiceID,true);
     }
 
-    public void MoveToEvent(string eventID)
+    public void MoveToEvent(string eventID, bool displayEventID)
     {
-        if(!eventsDictionary.ContainsKey(eventID))
+        CharacterStats prevStats = new CharacterStats();
+
+        prevStats.Set(characterStats);
+        if (!eventsDictionary.ContainsKey(eventID))
         {
-            Debug.LogError($"ERROR: Event with ID {eventID} does not exist!!!");
+            UnityEngine.Debug.LogError($"ERROR: Event with ID {eventID} does not exist!!!");
             return;
         }
-        
-        // Remove all choices
-		foreach (Transform child in choicesWindow)
-		{
-			Destroy(child.gameObject);
-		}
 
-		// Specifically for GameOver ID, we treat it as if we end the game ig, idk what else we want to do here
-		if (eventID == "GameOver")
+        // Remove all choices
+        foreach (Transform child in choicesWindow)
         {
-            //Do things
+            Destroy(child.gameObject);
         }
 
         // Change to the new event
@@ -253,22 +262,192 @@ public class EventManager : MonoBehaviour
         }
         else
         {
-            currentOutcome = currentEvent.onFailure;
+            // Play safe, if the "fail" state is blank we ignore it
+            if (currentEvent.onFailure.displayText != "" && currentEvent.onFailure.displayText != "none")
+                currentOutcome = currentEvent.onFailure;
+            else
+                currentOutcome = currentEvent.onSuccess;
+        }
+
+        if (displayEventID)
+        {
+            string tmpText = $"<color={ColorCodes.goldHighlight}>{FilteredText(eventID)}</color>\n\n";
+            textDisplayer.text += tmpText;
+
+            //textDisplayer.progress += 1;// tmpText.Substring(tmpText.IndexOf(">"), tmpText.LastIndexOf("<") - tmpText.IndexOf(">")).Length; ;
+            textDisplayer.progress = textDisplayer.text.Length;
+            //textDisplayer.SkipLine();
         }
 
         if (statsEditor.editable)
             characterStats = statsEditor.stats;
+
         // Update character stats
         characterStats += currentOutcome.modifyAttributes;
 
         statsEditor.stats = characterStats;
         statsEditor.editable = false;
-        statsEditor.UpdateValues();
+        //statsEditor.UpdateValues();
 
         // Update the story display
         UpdateStoryDisplay();
+
+        if (!CharacterStats.IsEqual(characterStats, prevStats))
+        {
+            CharacterStats newStats = new CharacterStats();
+            newStats.Set(characterStats);
+
+            CharacterStats statsDiff = newStats - prevStats;
+            FieldInfo[] fields = statsDiff.GetType().GetFields(BindingFlags.Public | BindingFlags.NonPublic | BindingFlags.Instance);
+
+            var tmpText = ColorCodes.Apply("Stats gained: ", ColorCodes.goldHighlight);
+            // Update the values in the stats object
+            int count = 0;
+            for (int i = 0; i < fields.Length; i++)
+            {
+                int diff = (int)fields[i].GetValue(statsDiff);
+                if (diff != 0)
+                {
+                    if (count++ > 0)
+                        tmpText += ColorCodes.Apply(" | ", ColorCodes.goldHighlight);
+                    tmpText += ColorCodes.Apply($"{fields[i].Name.Substring(0, 1).ToUpper() + fields[i].Name.Substring(1)} {(diff > 0 ? "+" : "")}{diff}",diff>0?ColorCodes.statGained:ColorCodes.statLost);
+                }
+            }
+            tmpText += "\n\n";
+
+            textDisplayer.text += tmpText;
+
+        }
     }
 
+    // Applies filters to the text, such as pulling blackboard values etc.
+    // If debug, all blackboard text is replaced with the first option (BBValue if not found) and all _Random uses the first option
+    public string FilteredText(string text, bool debug = false)
+    {
+        // Base case
+        if (!text.Contains("{"))
+            return text;
+
+        string output = "";
+        while (text.Contains("{"))
+        {
+            // Add to the output
+            output += text.Substring(0, text.IndexOf("{"));
+
+            // Shift the text forward to the start of the command
+            text = text.Substring(text.IndexOf("{") + 1);
+
+            // Get the command string
+            int depth = 0;
+            int commandEndIndex = 0;
+            for (; commandEndIndex < text.Length; commandEndIndex++)
+            {
+                if (text[commandEndIndex] == '{')
+                    ++depth;
+                if (text[commandEndIndex] == '}')
+                {
+                    if (depth == 0)
+                        break;
+                    --depth;
+                }
+            }
+            string inTextCommand = text.Substring(0, commandEndIndex);
+
+            bool commandProcessed = true;
+            // If the first character is _ that means this is a command.
+            if (inTextCommand[0] == '_')
+            {
+                string command = inTextCommand.Substring(0, inTextCommand.IndexOf(':'));
+                string commandBody = inTextCommand.Substring(inTextCommand.IndexOf(':') + 1);
+
+                switch (command)
+                {
+                    case "_Random":
+                        {
+                            List<string> options = new List<string>();
+                            depth = 0;
+                            for (int commandBodyIndex = 0; commandBodyIndex <= commandBody.Length; commandBodyIndex++)
+                            {
+                                if (commandBodyIndex == commandBody.Length)
+                                {
+                                    options.Add(commandBody);
+                                    break;
+                                }
+                                if (commandBody[commandBodyIndex] == '{')
+                                    ++depth;
+                                if (commandBody[commandBodyIndex] == '}')
+                                {
+                                    if (depth == 0)
+                                        break;
+                                    --depth;
+                                }
+
+                                if (commandBody[commandBodyIndex] == '|' && depth == 0)
+                                {
+                                    options.Add(commandBody.Substring(0, commandBodyIndex));
+                                    commandBody = commandBody.Substring(commandBodyIndex + 1);
+                                    commandBodyIndex = 0;
+                                }
+                            }
+                            if (debug)
+                                output += options[0];
+                            else
+                                output += options[UnityEngine.Random.Range(0, options.Count)];
+                        }
+                        break;
+                    // Adds value to the specified attribute
+                    case "_AddAttr":
+                        {
+                            if (debug)
+                                break;
+                            string[] attributes = commandBody.Split("|");
+                            foreach (string attribute in attributes)
+                            {
+                                string attributeName = attribute.Split("+")[0];
+                                FieldInfo field = characterStats.GetType().GetField(attributeName);
+                                if (field == null)
+                                {
+                                    UnityEngine.Debug.LogWarning($"Attempting to perform AddAttr on nonexistent stat {attributeName}!");
+                                    break;
+                                }
+                                field.SetValue(characterStats, int.Parse(attribute.Split("+")[1]) + (int)field.GetValue(characterStats));
+                            }
+                        }
+                        break;
+                }
+                commandProcessed = true;
+            }
+            // If not a command, we attempt to pull from the blackboard.
+            else
+            {
+                if (Blackboard.HasObject(inTextCommand))
+                {
+                    commandProcessed = true;
+                    output += $"<color={ColorCodes.goldHighlight}>{Blackboard.GetObject(inTextCommand)}</color>";
+                }
+                else if (debug)
+                {
+                    output += "BBValue";
+                }
+                else
+                {
+                    // Error here because THERES NOTHING IN THE BLACKBOARD FOR THIS.
+                    UnityEngine.Debug.LogError($"YOU ARE TRYING TO ACCESS A NONEXISTENT BLACKBOARD VARIABLE {inTextCommand} FOR GOD'S SAKE");
+                }
+            }
+            if (!commandProcessed && !debug)
+            {
+                output += $"<FAILED TEXT COMMAND: {{{inTextCommand}}}>";
+            }
+
+            // Shift the text forward to the start of the command
+            if (commandEndIndex < text.Length)
+                text = text.Substring(commandEndIndex + 1);
+        }
+
+        output += text;
+        return FilteredText(output, debug);
+    }
     public void UpdateStoryDisplay()
     {
         // Create a new text object and set the text, then set parent
@@ -278,26 +457,230 @@ public class EventManager : MonoBehaviour
         //newText.transform.SetParent(textWindow);
         //
         //textDisplayer = newText.GetComponent<TextDisplayer>();
-        textDisplayer.text += currentOutcome.displayText+"\n\n";
-        TextToSpeech.SpeechText(currentOutcome.displayText);
-        wasStoryUpdated = true;
+        string newText = FilteredText(currentOutcome.displayText) + "\n\n";
+        textDisplayer.text += newText;
+        WriteToFile(newText);
+        writer.Flush();
+
+        statsEditor.stats = characterStats;
     }
-    
-    public void ShowChoices()
+    public void PerformDFSTest()
     {
+        debugging = true;
+        // Reference the root
+        Event rootEvent = eventsDictionary["Root"];
+        List<string> routes = new List<string>();
+
+        // Directory sanity
+        if (!Directory.Exists(Application.persistentDataPath + "/Debug"))
+            Directory.CreateDirectory(Application.persistentDataPath + "/Debug");
+        if (File.Exists($"{Application.persistentDataPath}/Debug/FullDFSTest.json"))
+            File.Delete($"{Application.persistentDataPath}/Debug/FullDFSTest.json");
+
+        // Open a new FileStream
+        var debugFileStream = new FileStream($"{Application.persistentDataPath}/Debug/FullDFSTest.json", FileMode.OpenOrCreate);
+        var debugWriter = new StreamWriter(debugFileStream);
+
+        // Force reload the blackboard
+        BlackboardLoader.LoadBlackboard(true);
+
+        DFS(ref routes, "Root", rootEvent);
+        List<DFSWordCountResult> results = new List<DFSWordCountResult>();
+        foreach (string route in routes)
+        {
+            string[] fullPath = route.Split('\n');
+            wordCount = 0;
+            string currentStoryText = FilteredText(rootEvent.onSuccess.displayText, true);
+            foreach (string eventID in fullPath)
+            {
+                string[] details = eventID.Split('`');
+                Event _event = eventsDictionary[details[0]];
+                if (details[1] == "S")
+                    currentStoryText += FilteredText(_event.onSuccess.displayText, true);
+                else
+                    currentStoryText += FilteredText(_event.onFailure.displayText, true);
+            }
+
+            UpdateWordCount(currentStoryText);
+
+            DFSWordCountResult result = new DFSWordCountResult();
+            result.wordCount = wordCount;
+            result.route = new List<string>(fullPath);
+            result.story = currentStoryText;
+            results.Add(result);
+
+            debugWriter.Write(JsonUtility.ToJson(result, true) + ",\n");
+            debugWriter.Flush();
+        }
+
+        // Check for potential typos
+        foreach (var kvp in eventsDictionary)
+        {
+            var _event = kvp.Value;
+            PerformSpellCheck(_event.id,FilteredText(_event.onSuccess.displayText,true));
+            PerformSpellCheck(_event.id,FilteredText(_event.onFailure.displayText,true));
+        }
+        
+
+        // Restart the story
+        StartNewStory();
+
+        // Open the debug folder
+        Process.Start(Application.persistentDataPath + "/Debug");
+        debugWriter.Flush();
+        debugFileStream?.Close();
+
+        debugFileStream = new FileStream($"{Application.persistentDataPath}/Debug/DFSSummary.json", FileMode.OpenOrCreate);
+        debugWriter = new StreamWriter(debugFileStream);
+
+        DFSWordCountResultSummary dFSWordCountResultSummary = new DFSWordCountResultSummary();
+        float wordCountTotal = 0;
+        float branchDepthTotal = 0;
+        int longestStoryLength = 0;
+        int shortestStoryLength = 0;
+
+        int numStoryPathsUnder1000=0;
+        int numStoryPathsOver1000=0;
+
+        foreach (var result in results)
+        {
+            wordCountTotal += result.wordCount;
+            branchDepthTotal += result.route.Count;
+
+            if (shortestStoryLength == 0)
+                shortestStoryLength = result.wordCount;
+            shortestStoryLength = result.wordCount < shortestStoryLength ? result.wordCount : shortestStoryLength;
+
+			longestStoryLength = result.wordCount > longestStoryLength ? result.wordCount : longestStoryLength;
+
+            if (result.wordCount < 1000)
+                ++numStoryPathsUnder1000;
+            else
+                ++numStoryPathsOver1000;
+        }
+
+        dFSWordCountResultSummary.averageWordCount = wordCountTotal / results.Count + 1;
+        dFSWordCountResultSummary.averageBranchDepth = branchDepthTotal / results.Count + 1;
+
+        dFSWordCountResultSummary.longestStoryLength = longestStoryLength;
+        dFSWordCountResultSummary.shortestStoryLength = shortestStoryLength;
+        dFSWordCountResultSummary.numStoryPathsUnder1000 = numStoryPathsUnder1000;
+        dFSWordCountResultSummary.numStoryPathsOver1000 = numStoryPathsOver1000;
+
+		debugWriter.Write(JsonUtility.ToJson(dFSWordCountResultSummary, true));
+
+		debugWriter.Flush();
+        debugFileStream?.Close();
+
+        debugging = false;
+    }
+
+    private void PerformSpellCheck(string ID,string text)
+    {
+        if (text.Contains("  "))
+            LogSpellCheckError(ID, SPELLCHECK_ERROR.DOUBLESPACE);
+        if (text.Contains("his his"))
+            LogSpellCheckError(ID, SPELLCHECK_ERROR.HIS_HIS);
+        if (text.ToLower().Contains("player"))
+            LogSpellCheckError(ID, SPELLCHECK_ERROR.PLAYER);
+    }
+    private void LogSpellCheckError(string ID,SPELLCHECK_ERROR error)
+    {
+        switch (error)
+        {
+            case SPELLCHECK_ERROR.DOUBLESPACE:
+                UnityEngine.Debug.LogError($"Double space found in {ID}");
+                break;
+            case SPELLCHECK_ERROR.HIS_HIS:
+                UnityEngine.Debug.LogError($"his his found in {ID}");
+                break;
+            case SPELLCHECK_ERROR.PLAYER:
+                UnityEngine.Debug.LogError($"Player found in {ID}");
+                break;
+            default:
+                break;
+        }
+    }
+    public void DFS(ref List<string> routes, string currentRoute, Event currentEvent)
+    {
+
+        if (currentEvent == null)
+        {
+            routes.Add(currentRoute);
+            return;
+        }
+        // Get a list of all available choices within this event
+        List<string> availableChoiceIDs = new List<string>();
+        availableChoiceIDs.AddRange(currentEvent.onSuccess.choices);
+        availableChoiceIDs.AddRange(currentEvent.onFailure.choices);
+
+        if (currentEvent.onSuccess.choices.Count == 0)
+        {
+            routes.Add(currentRoute + "`S");
+            if (currentEvent.onFailure.displayText != "")
+                routes.Add(currentRoute + "`F");
+
+            return;
+        }
+        if (currentEvent.onFailure.displayText != "")
+        {
+            if (currentEvent.onFailure.choices.Count == 0)
+            {
+                routes.Add(currentRoute + "`F");
+                return;
+            }
+
+        }
+
+        foreach (string choiceID in currentEvent.onSuccess.choices)
+        {
+            if (eventsDictionary.ContainsKey(choiceID))
+            {
+                DFS(ref routes, currentRoute + "`S\n" + choiceID, eventsDictionary[choiceID]);
+            }
+        }
+        foreach (string choiceID in currentEvent.onFailure.choices)
+        {
+            if (eventsDictionary.ContainsKey(choiceID))
+            {
+                DFS(ref routes, currentRoute + "`F\n" + choiceID, eventsDictionary[choiceID]);
+            }
+        }
+    }
+	public void ShowChoices()
+    {
+        // Don't show the choices if we're customizing
+        if (characterCustomizationPanel.activeSelf)
+            return;
+
         // If no choices, show a "Restart game?" button instead
         if(currentOutcome.choices.Count==0)
         {
 			// Instantiate the choice button
 			GameObject newChoiceObject = Instantiate(choiceButtonReference);
 
+            // Start new story
 			ChoiceContainer choiceContainer = newChoiceObject.GetComponent<ChoiceContainer>();
 			choiceContainer.eventManagerReference = this;
 			choiceContainer.storedChoice = "_RESTART";
 
 			newChoiceObject.transform.SetParent(choicesWindow);
+            
+            // Story directory
+            newChoiceObject = Instantiate(choiceButtonReference);
 
-			return;
+			choiceContainer = newChoiceObject.GetComponent<ChoiceContainer>();
+			choiceContainer.eventManagerReference = this;
+			choiceContainer.storedChoice = "_OPENDIRECTORY";
+
+			newChoiceObject.transform.SetParent(choicesWindow);
+
+            // Close the story file stream
+            string wordcountText = $"\nTHE END\n\nWord Count: {wordCount.ToString()}";
+            writer.Write(wordcountText);
+            writer.Flush();
+            storyFileStream?.Close();
+            return;
         }
 
         // Create the choice buttons
@@ -314,4 +697,9 @@ public class EventManager : MonoBehaviour
         }
 
     }
+
+    public void SkipLine()
+    {
+		sliderReference.value = 0;
+	}
 }

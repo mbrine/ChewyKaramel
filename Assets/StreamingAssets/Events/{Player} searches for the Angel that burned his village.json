@@ -1,0 +1,53 @@
+{
+    "id": "{Player} searches for the Angel that burned his village",
+    "requirements":
+    {
+        "strength": 0,
+        "dexterity": 0,
+        "constitution": 0,
+        "charisma": 0,
+        "magic": 0,
+        "karma": 0
+    },
+    "successAttributes":
+    {
+        "strength": 0,
+        "dexterity": 0,
+        "constitution": 0,
+        "charisma": 0,
+        "magic": 0,
+        "karma": 0
+    },
+    "onSuccess":
+    {
+        "displayText": "Through his journey, {Player} relentlessly searched for the Angel that had burned down his village. The only clue he remembered was the crimson greatsword it wielded. Few Angels carried weapons, and he knew he would recognize it in an instant. Weeks turned into months, but finally, he stood before it. Like the last time, it was in the midst of burning yet another village.\n\nSilence fell as they circled each other, tense and watchful. Then, in an instant, steel clashed against steel, magic sparking in the air. Both were evenly matched, trading blows and countering attacks. But after countless battles hunting other Angels, {Player}’s skill and experience began to tip the scales in his favor.\n\nMustering all his strength, he struck with everything he had. The crimson greatsword shattered under his blow, and finally, {Player} dealt a decisive strike.\n\nAt last, he stood over the fallen Angel, its wings scorched and its weapon broken, victorious at long last. Yet the battle had lasted too long, and the village fire raged out of control. Through the roar of flames, {Player} could hear the desperate cries of the villagers, calling for help.",
+        "modifyAttributes":
+        {
+            "strength": 2,
+            "dexterity": 0,
+            "constitution": 2,
+            "charisma": 0,
+            "magic": 1,
+            "karma": 0
+        },
+        "choices": [
+            "{Player} defeats the Angel",
+            "{Player} rushes to help the villagers"
+            ]
+    },
+    "onFailure":
+    {
+        "displayText": "",
+        "modifyAttributes":
+        {
+            "strength": 0,
+            "dexterity": 0,
+            "constitution": 0,
+            "charisma": 0,
+            "magic": 0,
+            "karma": 0
+        },
+        "choices": [
+            ]
+    }
+}

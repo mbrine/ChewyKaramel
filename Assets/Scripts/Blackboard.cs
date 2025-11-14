@@ -5,9 +5,9 @@ using UnityEngine.UIElements;
 
 public static class Blackboard
 {
-    private static Dictionary<string, object> _blackboard = new Dictionary<string, object>();
+    private static Dictionary<string, string> _blackboard = new Dictionary<string, string>();
 
-    public static void AddObject<T>(string key, T obj)
+    public static void AddObject(string key, string obj)
     {
         // Sanity Check.
         if (_blackboard.ContainsKey(key))
@@ -20,16 +20,26 @@ public static class Blackboard
         _blackboard[key] = obj;
     }
 
-    public static T GetObject<T>(string key)
+    public static string GetObject(string key)
     {
         // Sanity Check. Return something if there's nothing there.
         if (!_blackboard.ContainsKey(key))
         {
             Debug.LogError("Attempting to retrieve nonexistent key " + key + " from blackboard!!!");
-            return (T)(new object());
+            return "null";
         }
 
         // Return the object
-        return (T)_blackboard[key];
+        return _blackboard[key];
+    }
+    public static bool HasObject(string key)
+    {
+        return _blackboard.ContainsKey(key);
+    }
+
+    public static void Wipe()
+    {
+        _blackboard.Clear();
+        _blackboard = new Dictionary<string, string>();
     }
 }

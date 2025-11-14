@@ -1,0 +1,43 @@
+{
+    "id": "Returns to {Kingdom#Name}",
+    "requirements": {
+        "strength": 0,
+        "dexterity": 0,
+        "constitution": 0,
+        "charisma": 0,
+        "magic": 0,
+        "karma": 0
+    },
+    "successAttributes": {
+        "strength": 0,
+        "dexterity": 0,
+        "constitution": 0,
+        "charisma": 0,
+        "magic": 0,
+        "karma": 0
+    },
+    "onSuccess": {
+        "displayText": "Walking through the familiar corridors of {Kingdom#Name}, {Player} felt the tension of uncertainty loosen. The Queen met him with a calm, knowing smile, one that held neither judgment nor pity. She explained that she had never intended to abandon him, and that his origins neither fully human nor of royal blood, did not diminish the life he could forge here. Surrounded by the walls that had once felt like a cage, he now saw them as a canvas. With careful steps, {Player} began weaving a life that honored both his otherworldly nature and the love that had shaped him, discovering that belonging was not inherited but chosen, and that acceptance could come from courage, not certainty.",
+        "modifyAttributes": {
+            "strength": 0,
+            "dexterity": 0,
+            "constitution": 0,
+            "charisma": 0,
+            "magic": 0,
+            "karma": 0
+        },
+        "choices": []
+    },
+    "onFailure": {
+        "displayText": "",
+        "modifyAttributes": {
+            "strength": 0,
+            "dexterity": 0,
+            "constitution": 0,
+            "charisma": 0,
+            "magic": 0,
+            "karma": 0
+        },
+        "choices": []
+    }
+}

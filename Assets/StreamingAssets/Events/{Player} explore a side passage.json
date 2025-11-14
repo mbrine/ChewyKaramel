@@ -1,0 +1,47 @@
+{
+  "id": "{Player} explore a side passage",
+  "requirements": {
+    "strength": 0,
+    "dexterity": 0,
+    "constitution": 0,
+    "charisma": 0,
+    "magic": 0,
+    "karma": 0
+  },
+  "successAttributes": {
+    "strength": 0,
+    "dexterity": 0,
+    "constitution": 0,
+    "charisma": 0,
+    "magic": 0,
+    "karma": 0
+  },
+  "onSuccess": {
+    "displayText": "As {Player} crept through the side passage, a robed figure stepped from the shadows, staff in hand. “Intruder,” the figure said, voice sharp. “Why are you here? What are you doing?”\n\n{Player} hesitated only a moment before sprinting past. The figure shouted, but made no attempt to strike, allowing {Player} to dart through the corridor. He weaved between pillars and leapt over debris, heart pounding as he burst through the cathedral doors. The cool night air hit his face, and he disappeared into the streets beyond, leaving the grand hall and its questions behind.",
+    "modifyAttributes": {
+      "strength": 0,
+      "dexterity": 0,
+      "constitution": 0,
+      "charisma": 0,
+      "magic": 0,
+      "karma": 0
+    },
+    "choices": [
+      "{Player} run to the slums",
+      "{Player} heads to the market"
+    ]
+  },
+  "onFailure": {
+    "displayText": "",
+    "modifyAttributes": {
+      "strength": 0,
+      "dexterity": 0,
+      "constitution": 0,
+      "charisma": 0,
+      "magic": 0,
+      "karma": 0
+    },
+    "choices": [
+    ]
+  }
+}

@@ -1,0 +1,53 @@
+{
+    "id": "{Player} often kept to himself, mastering the mysterious powers within him",
+    "requirements":
+    {
+        "strength": 0,
+        "dexterity": 0,
+        "constitution": 0,
+        "charisma": 0,
+        "magic": 0,
+        "karma": 0
+    },
+    "successAttributes":
+    {
+        "strength": 0,
+        "dexterity": 0,
+        "constitution": 0,
+        "charisma": 0,
+        "magic": 0,
+        "karma": 0
+    },
+    "onSuccess":
+    {
+        "displayText": "While the villagers spent their days working the fields or sharing laughter by the fire, {Player} sought solitude in the quiet corners of the forest. There, he He discovered his innate ability for magic. There, he practiced in secret.",
+        "modifyAttributes":
+        {
+            "strength": 0,
+            "dexterity": 0,
+            "constitution": 0,
+            "charisma": 0,
+            "magic": 1,
+            "karma": 0
+        },
+        "choices": [
+            "{Player} trained to master Fire magic",
+            "{Player} trained to master Water magic"
+            ]
+    },
+    "onFailure":
+    {
+        "displayText": "",
+        "modifyAttributes":
+        {
+            "strength": 0,
+            "dexterity": 0,
+            "constitution": 0,
+            "charisma": 0,
+            "magic": 0,
+            "karma": 0
+        },
+        "choices": [
+            ]
+    }
+}

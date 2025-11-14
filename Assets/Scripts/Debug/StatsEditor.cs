@@ -16,11 +16,11 @@ public class StatsEditor : MonoBehaviour
 		}
 		set
 		{
-			_stats=value;
+			_stats.Set(value);
 			UpdateValues();
 		}
 	}
-	private CharacterStats _stats;
+	private CharacterStats _stats = new CharacterStats();
 
 	private static GameObject sliderReference
 	{
@@ -74,7 +74,7 @@ public class StatsEditor : MonoBehaviour
 			// Add to statsinputs
 			statsInputs.Add(inputField);
 
-			newInput.transform.parent = transform;
+			newInput.transform.SetParent(transform);
 		}
 		stats = new CharacterStats();
 
@@ -83,15 +83,6 @@ public class StatsEditor : MonoBehaviour
 
 	public void UpdateStats()
 	{
-		FieldInfo[] fields = _stats.GetType().GetFields(BindingFlags.Public | BindingFlags.NonPublic | BindingFlags.Instance);
-
-		object boxed = _stats;
-		// Update the values in the stats object
-		for (int i = 0; i < fields.Length; i++)
-		{
-			fields[i].SetValue(boxed, int.Parse(statsInputs[i].text));
-		}
-		_stats = (CharacterStats)boxed;
 	}
 
 	public void UpdateValues()

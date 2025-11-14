@@ -1,0 +1,46 @@
+{
+    "id": "{Player} continues climbing toward the peak",
+    "requirements": {
+        "strength": 0,
+        "dexterity": 0,
+        "constitution": 0,
+        "charisma": 0,
+        "magic": 0,
+        "karma": 0
+    },
+    "successAttributes": {
+        "strength": 1,
+        "dexterity": 1,
+        "constitution": 1,
+        "charisma": 0,
+        "magic": 2,
+        "karma": 0
+    },
+    "onSuccess": {
+        "displayText": "{Player} pushed higher, the wind biting at his face and the cliffs growing steeper. At the summit, a small plateau appeared, where the hermit was said to dwell. But before reaching him, a shimmering figure appeared at the edge of the clouds, its form radiant and ethereal. The figure seemed to wait, patient and silent.",
+        "modifyAttributes": {
+            "strength": 2,
+            "dexterity": 1,
+            "constitution": 2,
+            "charisma": 0,
+            "magic": 0,
+            "karma": 0
+        },
+        "choices": [
+            "Encounter with the Hermit",
+            "Encounter with an Angel"
+        ]
+    },
+    "onFailure": {
+        "displayText": "",
+        "modifyAttributes": {
+            "strength": 0,
+            "dexterity": 0,
+            "constitution": 0,
+            "charisma": 0,
+            "magic": 0,
+            "karma": 0
+        },
+        "choices": []
+    }
+}

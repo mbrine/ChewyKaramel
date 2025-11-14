@@ -1,0 +1,54 @@
+{
+    "id": "Trust that his mother will reveal the truth to him",
+    "requirements":
+    {
+        "strength": 0,
+        "dexterity": 0,
+        "constitution": 0,
+        "charisma": 0,
+        "magic": 0,
+        "karma": 0
+    },
+    "successAttributes":
+    {
+        "strength": 0,
+        "dexterity": 0,
+        "constitution": 0,
+        "charisma": 0,
+        "magic": 0,
+        "karma": 0
+    },
+    "onSuccess":
+    {
+        "displayText": "With the doors shut behind him, a heavy air settled between {Player} and the Queen of {Kingdom#Name} as their conversation began. Her eyes softened as she beckoned him closer. \n\n“My son,” she began, “you’ve always known you were different.” Her voice trembled not from fear, but memory. \n\n“I found you cradled in the heart of the forest, wrapped in light and silence. No mark, no note, only a warmth that felt… divine.” She looked away, sorrow pooling in her gaze. “I raised you as my own, but I never knew who or what sent you to me”.\n\nHearing his mother’s words, {Player} felt the truth resonate through every part of him. There was no deceit in her eyes, only the warmth of a love that had never faltered. The room fell silent, the weight of his unanswered past pressing against the peace he’d always known. In that quiet, three paths began to form, to remain in the palace and take up the crown meant for him, to seek the truth beyond the palace walls, or to press for the answers she might still be hiding.",
+        "modifyAttributes":
+        {
+            "strength": 0,
+            "dexterity": 0,
+            "constitution": 0,
+            "charisma": 0,
+            "magic": 0,
+            "karma": 0
+        },
+        "choices": [
+             "Let the past remain in the past.",
+             "Decide to explore the world in search of the past.",
+             "Press her for more answers."
+            ]
+    },
+    "onFailure":
+    {
+        "displayText": "",
+        "modifyAttributes":
+        {
+            "strength": 0,
+            "dexterity": 0,
+            "constitution": 0,
+            "charisma": 0,
+            "magic": 0,
+            "karma": 0
+        },
+        "choices": [
+            ]
+    }
+}

@@ -1,0 +1,51 @@
+{
+    "id": "{Player} masters magic from humans",
+    "requirements":
+    {
+        "strength": 0,
+        "dexterity": 0,
+        "constitution": 0,
+        "charisma": 0,
+        "magic": 0,
+        "karma": 0
+    },
+    "successAttributes":
+    {
+        "strength": 0,
+        "dexterity": 0,
+        "constitution": 0,
+        "charisma": 0,
+        "magic": 0,
+        "karma": 0
+    },
+    "onSuccess":
+    {
+        "displayText": "Tapping into his natural gift for magic, {Player} honed his craft under the guidance of fellow mages. In time, word spread through the guild about his growing talent, and many came seeking his help.\n\nThe triumph was short lived. One day, {Player} and his party faced a being spoken of only in legends, an Angel. It towered above them, radiating power beyond mortal reach. None of {Player}’s spells could touch it.\n\nThe Angel watched with a faint, amused smile. “Foolish human magic,” it said, raising its hand as a surge of dark energy burst forth.\n\nBefore {Player} could react, the impact threw him to the ground. The cold stone pressed against his skin as his strength faded. Around him lay his fallen comrades, and above them, the Angel stood unshaken, its presence both terrible and divine.”",
+        "modifyAttributes":
+        {
+            "strength": 0,
+            "dexterity": 0,
+            "constitution": 0,
+            "charisma": 0,
+            "magic": 0,
+            "karma": 0
+        },
+        "choices": [
+            ]
+    },
+    "onFailure":
+    {
+        "displayText": "",
+        "modifyAttributes":
+        {
+            "strength": 0,
+            "dexterity": 0,
+            "constitution": 0,
+            "charisma": 0,
+            "magic": 0,
+            "karma": 0
+        },
+        "choices": [
+            ]
+    }
+}

@@ -1,0 +1,45 @@
+{
+  "id": "{Player} stares",
+  "requirements": {
+    "strength": 0,
+    "dexterity": 0,
+    "constitution": 0,
+    "charisma": 0,
+    "magic": 0,
+    "karma": 0
+  },
+  "successAttributes": {
+    "strength": 0,
+    "dexterity": 0,
+    "constitution": 0,
+    "charisma": 0,
+    "magic": 0,
+    "karma": 0
+  },
+  "onSuccess": {
+    "displayText": "{Player} froze. His body refused to move; only his eyes followed the flames as they danced wildly across the courtyard below. But the townsfolk were quick to act buckets passed from hand to hand, shouts rising over the chaos. Through sheer human resolve, the fire was contained before it could spread. No divine intervention, no miracle from above only unity and courage.\n\nAs the last embers died and calm returned to the festival, {Player} exhaled softly. All is well. The festivals continues and {Player} continues his role as a spectator throughout the night.",
+    "modifyAttributes": {
+      "strength": 0,
+      "dexterity": 0,
+      "constitution": 0,
+      "charisma": 0,
+      "magic": 0,
+      "karma": 0
+    },
+    "choices": [
+    ]
+  },
+  "onFailure": {
+    "displayText": "",
+    "modifyAttributes": {
+      "strength": 0,
+      "dexterity": 0,
+      "constitution": 0,
+      "charisma": 0,
+      "magic": 0,
+      "karma": 0
+    },
+    "choices": [
+    ]
+  }
+}

@@ -1,5 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Diagnostics;
+using System.IO;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -19,14 +21,19 @@ public class ChoiceContainer : MonoBehaviour
                 GetComponent<Button>().interactable = true;
                 GetComponentInChildren<TMPro.TextMeshProUGUI>().text = "Start again?";
             }
+            else if (_storedChoice == "_OPENDIRECTORY")
+            {
+                //Get the button
+                GetComponent<Button>().interactable = true;
+                GetComponentInChildren<TMPro.TextMeshProUGUI>().text = "Open story directory";
+            }
             else
             {
                 Event _event = null;
                 if (!eventManagerReference.eventsDictionary.TryGetValue(_storedChoice, out _event))
-                    Debug.LogError($"Referencing nonexistent event {_storedChoice}!");
-
+                    UnityEngine.Debug.LogError($"Referencing nonexistent event {_storedChoice}!");
+                
                 //Get the button
-                string eventName = "<MISSING STRING TABLE ENTRY>";
                 Button button = GetComponent<Button>();
                 button.interactable = false;
                 if (_event != null)
@@ -34,7 +41,7 @@ public class ChoiceContainer : MonoBehaviour
                     // Check the stats, enable the button if better
                     if (eventManagerReference.characterStats > _event.requirements)
                         button.interactable = true;
-                    GetComponentInChildren<TMPro.TextMeshProUGUI>().text = _storedChoice;
+                    GetComponentInChildren<TMPro.TextMeshProUGUI>().text =$"<color={ColorCodes.goldHighlight}>{eventManagerReference.FilteredText(_storedChoice)}</color>";
                 }
                 else
                 {
@@ -50,7 +57,9 @@ public class ChoiceContainer : MonoBehaviour
     {
         if (storedChoice == "_RESTART")
             eventManagerReference.StartNewStory();
-        else
+        else if (storedChoice == "_OPENDIRECTORY")
+			Process.Start(Application.persistentDataPath + "/Stories");
+		else
             eventManagerReference.SelectChoice(storedChoice);
     }
 }

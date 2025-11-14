@@ -1,0 +1,46 @@
+{
+    "id": "Encounter with the Hermit",
+    "requirements": {
+        "strength": 0,
+        "dexterity": 0,
+        "constitution": 0,
+        "charisma": 0,
+        "magic": 0,
+        "karma": 0
+    },
+    "successAttributes": {
+        "strength": 0,
+        "dexterity": 0,
+        "constitution": 0,
+        "charisma": 0,
+        "magic": 0,
+        "karma": 0
+    },
+    "onSuccess": {
+        "displayText": "{Player} stepped onto the plateau, the wind gusting cold yet oddly comforting. The hermit's hut was modest, almost invisible against the stone, yet a quiet warmth emanated from it. The hermit himself was small, wiry, and seemingly frail, but his eyes gleamed with a timeless knowledge that immediately commanded respect.\n\nInside the hut, the hermit welcomed {Player} with no surprise, only a gentle nod. His voice, calm but resonant, spoke of truths {Player} had never fully considered: the nature of existence, the illusion of failure and success, and the freedom found in embracing one's own path. He spoke of choice, responsibility, and the delicate balance between power and understanding. There were no judgments, no scolding, only the quiet weight of wisdom, the kind that seeps slowly into the soul.\n\nHours passed as {Player} listened, the outside world fading into the rhythm of the wind and the flickering firelight. Slowly, he began to feel a profound sense of clarity and peace, a grounding of his chaotic thoughts. The hermit finally gestured to the horizon where the plateau ended and paths diverged. One path would take {Player} back to the familiar world, to the kingdom and the life he had known, but now seen with new eyes. The other path stretched into the unknown, a never-ending journey across lands and skies, a chance to define himself freely and seek the place where he truly belonged.\n\nFor the first time, {Player} realized that he was not merely a collection of failures or shortcomings. He was a being with choices, with agency, with the chance to craft meaning from the chaos of existence. The hermit's presence lingered in his thoughts as he stepped outside, and the plateau seemed to stretch infinitely, filled with both the promise and uncertainty of what lay ahead.",
+        "modifyAttributes": {
+            "strength": 0,
+            "dexterity": 0,
+            "constitution": 2,
+            "charisma": 2,
+            "magic": 0,
+            "karma": 3
+        },
+        "choices": [
+            "Continue to his never-ending journey",
+            "Returns to {Kingdom#Name}"
+        ]
+},
+    "onFailure": {
+        "displayText": "",
+        "modifyAttributes": {
+            "strength": 0,
+            "dexterity": 0,
+            "constitution": 0,
+            "charisma": 0,
+            "magic": 0,
+            "karma": 0
+        },
+        "choices": []
+    }
+}
