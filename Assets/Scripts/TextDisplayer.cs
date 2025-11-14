@@ -6,7 +6,7 @@ public class TextDisplayer : MonoBehaviour
 {
 	// Text display speed in characters per second
 	public float _textDisplaySpeed = 850.0f;
-	public float progress { get; private set; } = 0.0f;
+	public float progress { get; set; } = 0.0f;
 	public bool textDisplaying { get; private set; } = true;
 	public string text;
 
@@ -26,13 +26,22 @@ public class TextDisplayer : MonoBehaviour
 	{
 		_textDisplaySpeed = speedSlider.value;
 		string tmpTxt = "";
+
+		if ((int)progress < text.Length)
+		{
+			if (text[(int)progress] == '<')
+				progress = text.IndexOf('>', (int)progress) + 2;
+		}
 		if ((int)progress > 0)
 			tmpTxt = text.Substring(0, (int)progress - 1);
-		tmpTxt += '|';//█';
-		if ((int)progress > 0)
-			tmpTxt += text.Substring((int)progress);
+		
+		tmpTxt += $"{(caretVisible?"|":"_")}";//█';
+		//tmpTxt += $"{(caretVisible?"|":"_")}<color=#00000000>";//█';
+		//if ((int)progress > 0)
+		//	tmpTxt += text.Substring((int)progress);
+
 		textComponent.text = tmpTxt;//.Substring(0, (int)progress);
-		textComponent.maxVisibleCharacters = (int)progress;
+		//textComponent.maxVisibleCharacters = (int)progress;
 		if (textDisplaying)
 		{
 			progress += Time.deltaTime * _textDisplaySpeed;
@@ -47,8 +56,6 @@ public class TextDisplayer : MonoBehaviour
 				caretVisible = !caretVisible;
 			}
 
-			if (caretVisible == false)
-				textComponent.maxVisibleCharacters = (int)progress - 1 > 0 ? (int)progress - 1 - 1 : 0;
         }
         if (progress >= text.Length && textDisplaying)
 		{
@@ -60,7 +67,6 @@ public class TextDisplayer : MonoBehaviour
 		}
 
 	}
-
 	public void SkipLine()
 	{
 		if ((textDisplaying))

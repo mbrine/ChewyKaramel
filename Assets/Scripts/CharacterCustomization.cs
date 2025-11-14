@@ -50,7 +50,7 @@ public class CharacterCustomization : MonoBehaviour
 
         // Change to the "Root" event
         // We can do random logic here as well if we want different start states, all up to the writers ofc
-        eventManagerReference.MoveToEvent("Root");
+        eventManagerReference.MoveToEvent("Root",false);
 
         // Reset Character Stats
         eventManagerReference.characterStats = new CharacterStats();

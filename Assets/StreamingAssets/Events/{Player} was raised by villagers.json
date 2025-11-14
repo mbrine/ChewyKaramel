@@ -20,7 +20,7 @@
     },
     "onSuccess":
     {
-        "displayText": "After being abandoned by the angels, the young {Player} was found in the wilderness by humans from {_Random:the remote village of {VillageName}|a small, remote village {_Random:called {VillageName}|named {VillageName}}}. The villagers raised him as one of their own, and a quiet and kind child who grew into a strong young man.",
+        "displayText": "After being abandoned by the angels, the young {Player} was found in the wilderness by humans from {_Random:the remote village of {VillageName}|a small, remote village {_Random:called {VillageName}|named {VillageName}}}. The villagers raised him as one of their own, and a quiet and kind child grew into a strong young man.",
         "modifyAttributes":
         {
             "strength": 0,

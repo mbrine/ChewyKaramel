@@ -18,4 +18,6 @@ public class DFSWordCountResultSummary
 	public int shortestStoryLength;
 	public int numStoryPathsUnder1000;
 	public int numStoryPathsOver1000;
+
+	public int numRandomCommands;
 }

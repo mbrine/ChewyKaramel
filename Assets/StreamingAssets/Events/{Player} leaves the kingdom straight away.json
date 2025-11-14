@@ -17,7 +17,7 @@
     "karma": 0
   },
   "onSuccess": {
-    "displayText": "Player feels like they cannot afford to stay in this kingdom any longer so they decide to leave immediately. Outside they notices a merchant caravan.",
+    "displayText": "{Player} feels like they cannot afford to stay in this kingdom any longer so they decide to leave immediately. Outside they notices a merchant caravan.",
     "modifyAttributes": {
       "strength": 0,
       "dexterity": 0,

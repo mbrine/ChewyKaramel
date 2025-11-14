@@ -46,10 +46,10 @@ public class EventManager : MonoBehaviour
     // Unity side references, etc
     public GameObject textObjectReference;
     public GameObject choiceButtonReference;
-	public Scrollbar sliderReference;
+    public Scrollbar sliderReference;
     public ContentSizeFitter contentSizeFitter;
 
-	public Transform textWindow;
+    public Transform textWindow;
     public Transform choicesWindow;
 
     public Dictionary<string, Event> eventsDictionary;
@@ -75,15 +75,23 @@ public class EventManager : MonoBehaviour
     public GameObject characterCustomizationPanel;
     public TMPro.TextMeshProUGUI wordCountDisplay;
 
-	private void Awake()
-	{
-		// Reload the blackboard
-		BlackboardLoader.LoadBlackboard();
+    // Spellchecking
+    enum SPELLCHECK_ERROR
+    {
+        NONE=0,
+        DOUBLESPACE,
+        HIS_HIS,
+        PLAYER,
+    }
+    private void Awake()
+    {
+        // Reload the blackboard
+        BlackboardLoader.LoadBlackboard();
 
-		LoadEvents();	
-	}
-	private void Start()
-	{
+        LoadEvents();
+    }
+    private void Start()
+    {
         StartNewStory();
     }
 
@@ -94,7 +102,7 @@ public class EventManager : MonoBehaviour
             contentSizeFitter.enabled = false;
         }
         wordCountDisplay.text = wordCount.ToString();
-        if (Input.GetKey(KeyCode.LeftShift)&&Input.GetKey(KeyCode.RightShift)&&Input.GetKeyDown(KeyCode.D))
+        if (Input.GetKey(KeyCode.LeftShift) && Input.GetKey(KeyCode.RightShift) && Input.GetKeyDown(KeyCode.D))
         {
             PerformDFSTest();
         }
@@ -105,10 +113,7 @@ public class EventManager : MonoBehaviour
         if (textDisplayer.textDisplaying)
         {
             contentSizeFitter.enabled = true;
-            sliderReference.value = 1-textDisplayer.textComponent.renderedHeight/textDisplayer.textComponent.preferredHeight;
-        }
-        else
-        {
+            sliderReference.value = 1 - textDisplayer.textComponent.renderedHeight / textDisplayer.textComponent.preferredHeight;
         }
     }
 
@@ -117,9 +122,9 @@ public class EventManager : MonoBehaviour
         eventsDictionary = new Dictionary<string, Event>();
 
         //List<string> eventIDs = new List<string>();
-        List<string> eventIDs = new List<string>(Directory.GetFiles(Application.streamingAssetsPath + "/Events").Where(f=>!f.EndsWith(".meta") ));
+        List<string> eventIDs = new List<string>(Directory.GetFiles(Application.streamingAssetsPath + "/Events").Where(f => !f.EndsWith(".meta")));
         //eventIDs.AddRange());
-        
+
         // Open file
         foreach (var eventPath in eventIDs)
         {
@@ -147,10 +152,10 @@ public class EventManager : MonoBehaviour
                 {
                     UnityEngine.Debug.LogError($"JSON File Parse Error in {eventPath}");
                 }
-			}
+            }
 
-			// Close the file when we're done
-			fileStream.Close();
+            // Close the file when we're done
+            fileStream.Close();
 
         }
     }
@@ -196,6 +201,17 @@ public class EventManager : MonoBehaviour
         if (line.Length == 0)
             return;
 
+        try
+        {
+            while (line.Contains("<"))
+            {
+                string tmpLine = line.Substring(0, line.IndexOf("<"));
+                if (line[line.Length - 1] != '>')
+                    tmpLine += line.Substring(line.IndexOf(">") + 1);
+                line = tmpLine;
+            }
+        }
+        catch { }
         // Write da ting
         writer.Write(line);
 
@@ -213,24 +229,27 @@ public class EventManager : MonoBehaviour
         wordCount += text.Split(delimiters, StringSplitOptions.RemoveEmptyEntries).Length;
     }
 
-	public void SelectChoice(string choiceID)
+    public void SelectChoice(string choiceID)
     {
-        MoveToEvent(choiceID);
+        MoveToEvent(choiceID,true);
     }
 
-    public void MoveToEvent(string eventID)
+    public void MoveToEvent(string eventID, bool displayEventID)
     {
-        if(!eventsDictionary.ContainsKey(eventID))
+        CharacterStats prevStats = new CharacterStats();
+
+        prevStats.Set(characterStats);
+        if (!eventsDictionary.ContainsKey(eventID))
         {
-			UnityEngine.Debug.LogError($"ERROR: Event with ID {eventID} does not exist!!!");
+            UnityEngine.Debug.LogError($"ERROR: Event with ID {eventID} does not exist!!!");
             return;
         }
-        
+
         // Remove all choices
-		foreach (Transform child in choicesWindow)
-		{
-			Destroy(child.gameObject);
-		}
+        foreach (Transform child in choicesWindow)
+        {
+            Destroy(child.gameObject);
+        }
 
         // Change to the new event
         currentEventID = eventID;
@@ -242,10 +261,20 @@ public class EventManager : MonoBehaviour
         else
         {
             // Play safe, if the "fail" state is blank we ignore it
-            if (currentEvent.onFailure.displayText != ""&&currentEvent.onFailure.displayText != "none")
+            if (currentEvent.onFailure.displayText != "" && currentEvent.onFailure.displayText != "none")
                 currentOutcome = currentEvent.onFailure;
             else
                 currentOutcome = currentEvent.onSuccess;
+        }
+
+        if (displayEventID)
+        {
+            string tmpText = $"<color={ColorCodes.goldHighlight}>{FilteredText(eventID)}</color>\n\n";
+            textDisplayer.text += tmpText;
+
+            //textDisplayer.progress += 1;// tmpText.Substring(tmpText.IndexOf(">"), tmpText.LastIndexOf("<") - tmpText.IndexOf(">")).Length; ;
+            textDisplayer.progress = textDisplayer.text.Length;
+            //textDisplayer.SkipLine();
         }
 
         if (statsEditor.editable)
@@ -260,6 +289,28 @@ public class EventManager : MonoBehaviour
 
         // Update the story display
         UpdateStoryDisplay();
+
+        if (!CharacterStats.IsEqual(characterStats, prevStats))
+        {
+            CharacterStats newStats = new CharacterStats();
+            newStats.Set(characterStats);
+
+            CharacterStats statsDiff = newStats - prevStats;
+            FieldInfo[] fields = statsDiff.GetType().GetFields(BindingFlags.Public | BindingFlags.NonPublic | BindingFlags.Instance);
+
+            var tmpText = "Stats gained: ";
+            // Update the values in the stats object
+            for (int i = 0; i < fields.Length; i++)
+            {
+                int diff = (int)fields[i].GetValue(statsDiff);
+                if (diff != 0)
+                {
+                    tmpText += $"{fields[i].Name.Substring(0, 1).ToUpper() + fields[i].Name.Substring(1)} {(diff > 0 ? "+" : "-")}{diff}";
+                }
+            }
+            tmpText = "\n\n";
+
+        }
     }
 
     // Applies filters to the text, such as pulling blackboard values etc.
@@ -271,13 +322,13 @@ public class EventManager : MonoBehaviour
             return text;
 
         string output = "";
-        while(text.Contains("{"))
+        while (text.Contains("{"))
         {
             // Add to the output
             output += text.Substring(0, text.IndexOf("{"));
 
             // Shift the text forward to the start of the command
-            text = text.Substring(text.IndexOf("{")+1);
+            text = text.Substring(text.IndexOf("{") + 1);
 
             // Get the command string
             int depth = 0;
@@ -293,7 +344,7 @@ public class EventManager : MonoBehaviour
                     --depth;
                 }
             }
-            string inTextCommand = text.Substring(0,commandEndIndex);
+            string inTextCommand = text.Substring(0, commandEndIndex);
 
             bool commandProcessed = true;
             // If the first character is _ that means this is a command.
@@ -362,11 +413,10 @@ public class EventManager : MonoBehaviour
             // If not a command, we attempt to pull from the blackboard.
             else
             {
-
                 if (Blackboard.HasObject(inTextCommand))
                 {
                     commandProcessed = true;
-                    output += Blackboard.GetObject(inTextCommand);
+                    output += $"<color={ColorCodes.goldHighlight}>{Blackboard.GetObject(inTextCommand)}</color>";
                 }
                 else if (debug)
                 {
@@ -378,14 +428,14 @@ public class EventManager : MonoBehaviour
                     UnityEngine.Debug.LogError($"YOU ARE TRYING TO ACCESS A NONEXISTENT BLACKBOARD VARIABLE {inTextCommand} FOR GOD'S SAKE");
                 }
             }
-            if (!commandProcessed&&!debug)
+            if (!commandProcessed && !debug)
             {
                 output += $"<FAILED TEXT COMMAND: {{{inTextCommand}}}>";
             }
 
             // Shift the text forward to the start of the command
-            if(commandEndIndex<text.Length)
-            text = text.Substring(commandEndIndex + 1);
+            if (commandEndIndex < text.Length)
+                text = text.Substring(commandEndIndex + 1);
         }
 
         output += text;
@@ -407,7 +457,6 @@ public class EventManager : MonoBehaviour
 
         statsEditor.stats = characterStats;
     }
-
     public void PerformDFSTest()
     {
         debugging = true;
@@ -456,6 +505,15 @@ public class EventManager : MonoBehaviour
             debugWriter.Write(JsonUtility.ToJson(result, true) + ",\n");
             debugWriter.Flush();
         }
+
+        // Check for potential typos
+        foreach (var kvp in eventsDictionary)
+        {
+            var _event = kvp.Value;
+            PerformSpellCheck(_event.id,FilteredText(_event.onSuccess.displayText,true));
+            PerformSpellCheck(_event.id,FilteredText(_event.onFailure.displayText,true));
+        }
+        
 
         // Restart the story
         StartNewStory();
@@ -510,6 +568,32 @@ public class EventManager : MonoBehaviour
         debugging = false;
     }
 
+    private void PerformSpellCheck(string ID,string text)
+    {
+        if (text.Contains("  "))
+            LogSpellCheckError(ID, SPELLCHECK_ERROR.DOUBLESPACE);
+        if (text.Contains("his his"))
+            LogSpellCheckError(ID, SPELLCHECK_ERROR.HIS_HIS);
+        if (text.ToLower().Contains("player"))
+            LogSpellCheckError(ID, SPELLCHECK_ERROR.PLAYER);
+    }
+    private void LogSpellCheckError(string ID,SPELLCHECK_ERROR error)
+    {
+        switch (error)
+        {
+            case SPELLCHECK_ERROR.DOUBLESPACE:
+                UnityEngine.Debug.LogError($"Double space found in {ID}");
+                break;
+            case SPELLCHECK_ERROR.HIS_HIS:
+                UnityEngine.Debug.LogError($"his his found in {ID}");
+                break;
+            case SPELLCHECK_ERROR.PLAYER:
+                UnityEngine.Debug.LogError($"Player found in {ID}");
+                break;
+            default:
+                break;
+        }
+    }
     public void DFS(ref List<string> routes, string currentRoute, Event currentEvent)
     {
 

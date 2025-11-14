@@ -17,7 +17,7 @@
     "karma": 0
   },
   "onSuccess": {
-    "displayText": "Instinct overtook reason. {Player} pointed toward the blaze and in that instant, the fire bent, recoiled, and vanished without a trace. Gasps rose from the crowd below. There was no wind, no spell, nothing that could explain what had just transpired. From his balcony, hidden from prying eyes, {Player} stared in disbelief at his own hand before hastily pulling it back.\nFor a long moment, his heart pounded in silence. Then, forcing a shaky breath, he told himself it must have been coincidence a fluke of chance, nothing more. Yet somewhere deep within, he already knew the truth would not be so simple.\n\n The next morning, with the events of last night fresh in {Player}’s head, he head a knock on his his bed chamber’s door.",
+    "displayText": "Instinct overtook reason. {Player} pointed toward the blaze and in that instant, the fire bent, recoiled, and vanished without a trace. Gasps rose from the crowd below. There was no wind, no spell, nothing that could explain what had just transpired. From his balcony, hidden from prying eyes, {Player} stared in disbelief at his own hand before hastily pulling it back.\nFor a long moment, his heart pounded in silence. Then, forcing a shaky breath, he told himself it must have been coincidence a fluke of chance, nothing more. Yet somewhere deep within, he already knew the truth would not be so simple.\n\n The next morning, with the events of last night fresh in {Player}’s head, he head a knock on his bed chamber’s door.",
     "modifyAttributes": {
       "strength": 0,
       "dexterity": 0,

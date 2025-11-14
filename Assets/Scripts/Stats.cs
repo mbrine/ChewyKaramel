@@ -44,6 +44,16 @@ public class CharacterStats
         }
         return RandomChanceByDifference(_this, other);
     }
+    public static bool IsEqual(CharacterStats a, CharacterStats b)
+    {
+        FieldInfo[] fields = a.GetType().GetFields(BindingFlags.Public | BindingFlags.NonPublic | BindingFlags.Instance);
+        foreach (FieldInfo field in fields)
+        {
+            if ((int)field.GetValue(a) != (int)field.GetValue(b))
+                return false;
+        }
+        return true;
+    }
     public static bool operator <(CharacterStats _this, CharacterStats other)
     {
         FieldInfo[] fields = _this.GetType().GetFields(BindingFlags.Public | BindingFlags.NonPublic | BindingFlags.Instance);
