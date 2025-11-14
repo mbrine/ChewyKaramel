@@ -12,7 +12,6 @@ public static class Blackboard
         // Sanity Check.
         if (_blackboard.ContainsKey(key))
         {
-            Debug.LogWarning("Adding to blackboard with existing key " + key + "! Discarding old object.");
             _blackboard.Remove(key);
         }
 
