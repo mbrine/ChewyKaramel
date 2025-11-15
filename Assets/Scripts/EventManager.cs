@@ -256,7 +256,8 @@ public class EventManager : MonoBehaviour
         // Change to the new event
         currentEventID = eventID;
         currentEvent = eventsDictionary[eventID];
-        if (characterStats > currentEvent.requirements)
+
+        if (characterStats > currentEvent.successAttributes&&characterStats>currentEvent.requirements)
         {
             currentOutcome = currentEvent.onSuccess;
         }
