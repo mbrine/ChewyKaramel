@@ -17,7 +17,7 @@
     "karma": 3
   },
   "onSuccess": {
-    "displayText": "{Player} makes an appeal to the school principal to have the accusations waived. On account of {Player}’ good conduct and strength of character, the principal believes in {Player} and decides to give him another chance. {Player} would go on to graduate from {Capital1} Academy with full honours and, after some years, become a fearsome commander of the {Kingdom#Adjective} army.\n\n{Player} would meet the knight {Knight1} again during the height of the {Kingdom#Adjective} Crusades, a series of long and bloody wars fought by the kingdom of {Kingdom#Name} against its opponents. At the aftermath of one such battle, {Knight1} looked upon the destruction that the {Kingdom#Adjective} army had wrought. She approached {Player} and asked him if this was what he wanted when he joined the academy.",
+    "displayText": "{Player} makes an appeal to the school principal to have the accusations waived. On account of {Player}’s good conduct and strength of character, the principal believes in {Player} and decides to give him another chance. {Player} would go on to graduate from {Capital1} Academy with full honours and, after some years, become a fearsome commander of the {Kingdom#Adjective} army.\n\n{Player} would meet the knight {Knight1} again during the height of the {Kingdom#Adjective} Crusades, a series of long and bloody wars fought by the kingdom of {Kingdom#Name} against its opponents. At the aftermath of one such battle, {Knight1} looked upon the destruction that the {Kingdom#Adjective} army had wrought. She approached {Player} and asked him if this was what he wanted when he joined the academy.",
     "modifyAttributes": {
       "strength": 0,
       "dexterity": 0,
