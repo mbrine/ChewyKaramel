@@ -20,26 +20,23 @@ public class AudioManager : MonoBehaviour
     //private float audioPlayCooldown
     private float previousProgress;
 
-	private void Awake()
-	{
-		audioSource = GetComponent<AudioSource>();
-	}
+    private void Awake()
+    {
+        audioSource = GetComponent<AudioSource>();
+    }
 
-	// Update is called once per frame
-	void Update()
+    // Update is called once per frame
+    void Update()
     {
         if (textDisplayer.textDisplaying)
         {
             float diff = textDisplayer.progress - previousProgress;
-            if (!audioSource.isPlaying)
+            if (!audioSource.isPlaying && diff >= 1.0f)
             {
-                for (; diff > 0.0f; diff -= 1.0f)
+                if (Random.Range(0.0f, 1.0f) < randomFactor)
                 {
-                    if (Random.Range(0.0f, 1.0f) < randomFactor)
-                    {
-                        audioSource.pitch = Random.Range(1.0f- pitchRange, 1.0f+ pitchRange);
-                        audioSource.PlayOneShot(scribbleSounds[Random.Range(0, scribbleSounds.Count)], Random.Range(1.0f - volumeRange, 1.0f + volumeRange)*volumeSlider.value);
-                    }
+                    audioSource.pitch = Random.Range(1.0f - pitchRange, 1.0f + pitchRange);
+                    audioSource.PlayOneShot(scribbleSounds[Random.Range(0, scribbleSounds.Count)], Random.Range(1.0f - volumeRange, 1.0f + volumeRange) * volumeSlider.value);
                 }
             }
             previousProgress = Mathf.Floor(textDisplayer.progress);
