@@ -1,0 +1,43 @@
+{
+    "id": "{Player} does not capture {Knight1}",
+    "requirements": {
+        "strength": 0,
+        "dexterity": 0,
+        "constitution": 0,
+        "charisma": 0,
+        "magic": 0,
+        "karma": 0
+    },
+    "successAttributes": {
+        "strength": 0,
+        "dexterity": 0,
+        "constitution": 0,
+        "charisma": 0,
+        "magic": 0,
+        "karma": 0
+    },
+    "onSuccess": {
+        "displayText": "{Player} could never bring himself to follow such orders. He finds {Knight1} alone in her quarters, attempting to smuggle her out of the encampment that they were stationed in. {Knight1} insists that they bring the refugees along, as they would surely perish if they stayed. {Player} agrees, and together, the group makes a run for it. However, not all would go according to plan, as a couple of guards discover them just as they were about to leave. {Player} and {Knight1} end up having to fight their way out, staining their hands with {Kingdom#Adjective} blood.\n\nA few months later, the two were seen again, leading a resistance army that opposed the kingdom of {Kingdom#Name}. Together, they stopped the crusade in its tracks, word of their defiance emboldening the defeated peoples who were enslaved by {Kingdom#Adjective} soldiers. The resistance would gain such traction that, even in {Capital1}, riots erupted advocating to end the crusades.\n\nYears later, {Player} and {Knight1} would be hailed as liberators, saviours of the people who were oppressed under the {Kingdom#Adjective} regime.",
+        "modifyAttributes": {
+            "strength": 0,
+            "dexterity": 0,
+            "constitution": 0,
+            "charisma": 0,
+            "magic": 0,
+            "karma": 0
+        },
+        "choices": []
+    },
+    "onFailure": {
+        "displayText": "",
+        "modifyAttributes": {
+            "strength": 0,
+            "dexterity": 0,
+            "constitution": 0,
+            "charisma": 0,
+            "magic": 0,
+            "karma": 0
+        },
+        "choices": []
+    }
+}

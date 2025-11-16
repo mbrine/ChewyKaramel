@@ -1,0 +1,46 @@
+{
+    "id": "{Player} decides to hunt down the Angels",
+    "requirements": {
+        "strength": 0,
+        "dexterity": 0,
+        "constitution": 0,
+        "charisma": 0,
+        "magic": 0,
+        "karma": 0
+    },
+    "successAttributes": {
+        "strength": 0,
+        "dexterity": 0,
+        "constitution": 0,
+        "charisma": 0,
+        "magic": 0,
+        "karma": 0
+    },
+    "onSuccess": {
+        "displayText": "{Player} decided to hunt down the Angels, starting from tracking down rogue Angels. Each confrontation tested his skill, sharpened his instincts, and strengthened both body and mind. With every victory, he learned more about their powers, their weaknesses, and the dangers that awaited him.\n\nSoon, whispers of his deeds spread far and wide. Among humans, his name inspired awe and hope, though some feared the consequences of angering such powerful beings. Among the Angels, his reputation sparked fear and caution.",
+        "modifyAttributes": {
+            "strength": 2,
+            "dexterity": 0,
+            "constitution": 2,
+            "charisma": 0,
+            "magic": 1,
+            "karma": 0
+        },
+        "choices": [
+            "{Player} searches for the Angel that burned his village",
+            "{Player} decides to head to the nearest town"
+        ]
+    },
+    "onFailure": {
+        "displayText": "",
+        "modifyAttributes": {
+            "strength": 0,
+            "dexterity": 0,
+            "constitution": 0,
+            "charisma": 0,
+            "magic": 0,
+            "karma": 0
+        },
+        "choices": []
+    }
+}

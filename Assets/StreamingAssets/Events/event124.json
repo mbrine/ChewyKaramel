@@ -1,0 +1,45 @@
+{
+    "id": "”The needs of the kingdom outweigh the needs of the one”",
+    "requirements": {
+        "strength": 0,
+        "dexterity": 0,
+        "constitution": 0,
+        "charisma": 0,
+        "magic": 0,
+        "karma": 0
+    },
+    "successAttributes": {
+        "strength": 0,
+        "dexterity": 0,
+        "constitution": 0,
+        "charisma": 0,
+        "magic": 0,
+        "karma": 0
+    },
+    "onSuccess": {
+        "displayText": "”The needs of the kingdom outweigh the needs of the one,“ {Player} said, still resting in his mother’s embrace.\n\nHaving been raised as the crown heir had given him the wisdom and knowledge he would need to guide {Kingdom#Name} toward a brighter future. That meant putting the kingdom, and its people, before his own desires. ",
+        "modifyAttributes": {
+            "strength": 0,
+            "dexterity": 0,
+            "constitution": 0,
+            "charisma": 0,
+            "magic": 0,
+            "karma": 0
+        },
+        "choices": [
+            "Continue on the path of an heir"
+        ]
+    },
+    "onFailure": {
+        "displayText": "",
+        "modifyAttributes": {
+            "strength": 0,
+            "dexterity": 0,
+            "constitution": 0,
+            "charisma": 0,
+            "magic": 0,
+            "karma": 0
+        },
+        "choices": []
+    }
+}

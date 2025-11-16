@@ -1,0 +1,46 @@
+{
+    "id": "{Player} open his window and jumps though it",
+    "requirements": {
+        "strength": 0,
+        "dexterity": 0,
+        "constitution": 0,
+        "charisma": 0,
+        "magic": 0,
+        "karma": 0
+    },
+    "successAttributes": {
+        "strength": 0,
+        "dexterity": 0,
+        "constitution": 0,
+        "charisma": 0,
+        "magic": 0,
+        "karma": 0
+    },
+    "onSuccess": {
+        "displayText": "Sensing something was wrong, {Player} grabs onto his bed chamber's curtains and leaps out of the window, using the curtains as a sort of rope to propel himself closer to the ground before jumping off and landing onto some bushes. {Player} isn't sure why they did it. But there was a gnawing feeling in him that he had to leave the kingdom right away.",
+        "modifyAttributes": {
+            "strength": 0,
+            "dexterity": 0,
+            "constitution": 0,
+            "charisma": 0,
+            "magic": 1,
+            "karma": 0
+        },
+        "choices": [
+            "{Player} gathers supplies before leaving the kingdom",
+            "{Player} leaves the kingdom straight away"
+        ]
+    },
+    "onFailure": {
+        "displayText": "",
+        "modifyAttributes": {
+            "strength": 0,
+            "dexterity": 0,
+            "constitution": 0,
+            "charisma": 0,
+            "magic": 0,
+            "karma": 0
+        },
+        "choices": []
+    }
+}

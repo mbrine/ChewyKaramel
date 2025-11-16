@@ -1,0 +1,43 @@
+{
+    "id": "{Player} masters the sword from humans",
+    "requirements": {
+        "strength": 0,
+        "dexterity": 0,
+        "constitution": 0,
+        "charisma": 0,
+        "magic": 0,
+        "karma": 0
+    },
+    "successAttributes": {
+        "strength": 0,
+        "dexterity": 0,
+        "constitution": 0,
+        "charisma": 0,
+        "magic": 0,
+        "karma": 0
+    },
+    "onSuccess": {
+        "displayText": "Tapping into his natural talent for combat, {Player} devoted himself to mastering the sword under the guidance of veteran warriors. In time, word spread through the guild about his skill and determination, and many sought him out for training and protection.\n\nThe triumph was short lived. One day, {Player} and his party faced a being spoken of only in legends, an Angel. It descended upon them in a blinding light, its wings spanning wide as its power shook the ground beneath their feet. {Player} charged forward, his blade gleaming, but each strike glanced harmlessly off its radiant form.\n\nThe Angel regarded him with a faint, amused smile. “Foolish human strength,” it said, lifting its hand as a wave of dark energy erupted outward.\n\nBefore {Player} could react, the force sent him crashing to the ground. The cold stone met his grasp as his vision blurred. Around him lay his fallen comrades, and above them, the Angel stood unshaken, its presence both terrible and divine.",
+        "modifyAttributes": {
+            "strength": 0,
+            "dexterity": 0,
+            "constitution": 0,
+            "charisma": 0,
+            "magic": 0,
+            "karma": 0
+        },
+        "choices": []
+    },
+    "onFailure": {
+        "displayText": "",
+        "modifyAttributes": {
+            "strength": 0,
+            "dexterity": 0,
+            "constitution": 0,
+            "charisma": 0,
+            "magic": 0,
+            "karma": 0
+        },
+        "choices": []
+    }
+}

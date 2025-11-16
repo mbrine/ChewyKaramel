@@ -1,0 +1,46 @@
+{
+    "id": "{Player} approach the sigil and touch it",
+    "requirements": {
+        "strength": 0,
+        "dexterity": 0,
+        "constitution": 0,
+        "charisma": 0,
+        "magic": 0,
+        "karma": 0
+    },
+    "successAttributes": {
+        "strength": 0,
+        "dexterity": 0,
+        "constitution": 0,
+        "charisma": 0,
+        "magic": 0,
+        "karma": 0
+    },
+    "onSuccess": {
+        "displayText": "{Player} stepped closer and pressed his fingers against the glowing lines of the sigil. The light flared violently, sending a surge of energy through his arm and chest. The cathedral seemed to shudder, candles flickering and shadows twisting unnaturally along the walls.\n\nSuddenly, robed figures rushed into the cathedral. “Someone is trying to steal the relic!” one shouted, drawing a staff that crackled with pure white energy. The others moved in unison, forming a tight circle around {Player}, their eyes glowing faintly. The moment he made contact with the sigil, the quiet cathedral erupted into tension and threat and there was no turning back.",
+        "modifyAttributes": {
+            "strength": 0,
+            "dexterity": 0,
+            "constitution": 0,
+            "charisma": 0,
+            "magic": 0,
+            "karma": 0
+        },
+        "choices": [
+            "{Player} fight the robed figures",
+            "{Player} attempt to escape"
+        ]
+    },
+    "onFailure": {
+        "displayText": "",
+        "modifyAttributes": {
+            "strength": 0,
+            "dexterity": 0,
+            "constitution": 0,
+            "charisma": 0,
+            "magic": 0,
+            "karma": 0
+        },
+        "choices": []
+    }
+}

@@ -1,0 +1,46 @@
+{
+    "id": "{Player} uses his magic to help the villagers",
+    "requirements": {
+        "strength": 0,
+        "dexterity": 0,
+        "constitution": 0,
+        "charisma": 0,
+        "magic": 0,
+        "karma": 0
+    },
+    "successAttributes": {
+        "strength": 0,
+        "dexterity": 0,
+        "constitution": 0,
+        "charisma": 0,
+        "magic": 0,
+        "karma": 0
+    },
+    "onSuccess": {
+        "displayText": "{Player} used his magic to aid the villagers. He brought relief to their daily struggles. Fields flourished, small accidents were quickly remedied, and the villagers marveled at the ways he could make their work easier.\n\nHowever, that peace did not last. One night, the sky blazed gold as figures with dark horns and white wings descended. Fire licked rooftops and screams filled the streets.",
+        "modifyAttributes": {
+            "strength": 0,
+            "dexterity": 0,
+            "constitution": 1,
+            "charisma": 1,
+            "magic": 0,
+            "karma": 1
+        },
+        "choices": [
+            "{Player} runs away from the burning village",
+            "{Player} tries to save the villagers"
+        ]
+    },
+    "onFailure": {
+        "displayText": "",
+        "modifyAttributes": {
+            "strength": 0,
+            "dexterity": 0,
+            "constitution": 0,
+            "charisma": 0,
+            "magic": 0,
+            "karma": 0
+        },
+        "choices": []
+    }
+}

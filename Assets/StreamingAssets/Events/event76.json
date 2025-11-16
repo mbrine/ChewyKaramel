@@ -1,0 +1,46 @@
+{
+    "id": "{Player} joins the Town’s Security Force",
+    "requirements": {
+        "strength": 0,
+        "dexterity": 0,
+        "constitution": 0,
+        "charisma": 0,
+        "magic": 0,
+        "karma": 0
+    },
+    "successAttributes": {
+        "strength": 0,
+        "dexterity": 0,
+        "constitution": 0,
+        "charisma": 0,
+        "magic": 0,
+        "karma": 0
+    },
+    "onSuccess": {
+        "displayText": "Seeking a way to protect the people and make a tangible difference, {Player} enlisted in the {TownName}s Security Force. He trained alongside the city guards, learning tactics, strategy, and the discipline needed to maintain order. With each patrol and assignment, he gained the respect of the townsfolk and a sense of purpose, defending the town from threats both mundane and mythical.",
+        "modifyAttributes": {
+            "strength": 0,
+            "dexterity": 0,
+            "constitution": 0,
+            "charisma": 0,
+            "magic": 0,
+            "karma": 0
+        },
+        "choices": [
+            "{Player} masters magic from humans",
+            "{Player} masters the sword from humans"
+        ]
+    },
+    "onFailure": {
+        "displayText": "",
+        "modifyAttributes": {
+            "strength": 0,
+            "dexterity": 0,
+            "constitution": 0,
+            "charisma": 0,
+            "magic": 0,
+            "karma": 0
+        },
+        "choices": []
+    }
+}

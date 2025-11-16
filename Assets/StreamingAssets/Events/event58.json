@@ -1,0 +1,46 @@
+{
+    "id": "{Player} fights the {Monster2}",
+    "requirements": {
+        "strength": 0,
+        "dexterity": 0,
+        "constitution": 0,
+        "charisma": 0,
+        "magic": 0,
+        "karma": 0
+    },
+    "successAttributes": {
+        "strength": 0,
+        "dexterity": 0,
+        "constitution": 0,
+        "charisma": 0,
+        "magic": 0,
+        "karma": 0
+    },
+    "onSuccess": {
+        "displayText": "{Player} engages in a battle with the {Monster2}, using magic to strengthen his body. At first, he physically overpowers the beast, landing multiple attacks in quick succession. However, the {Monster2} uses its wings and takes to the air, shooting magical projectiles from a distance. {Player} is hopelessly outranged and can only dance to the {Monster2}’s tune, that is, until he notices a spear on the ground next to him, belonging to one of the fallen soldiers under {Knight1}’s command. {Player} picks up the spear, imbues it with magic and hurls it at the {Monster2}, striking its heart and killing it instantly.",
+        "modifyAttributes": {
+            "strength": 0,
+            "dexterity": 0,
+            "constitution": 0,
+            "charisma": 0,
+            "magic": 1,
+            "karma": 1
+        },
+        "choices": [
+            "{Player} heals the wounded {Knight1}",
+            "{Player} heads to {Capital1} by himself"
+        ]
+    },
+    "onFailure": {
+        "displayText": "",
+        "modifyAttributes": {
+            "strength": 0,
+            "dexterity": 0,
+            "constitution": 0,
+            "charisma": 0,
+            "magic": 0,
+            "karma": 0
+        },
+        "choices": []
+    }
+}

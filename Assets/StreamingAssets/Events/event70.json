@@ -1,0 +1,46 @@
+{
+    "id": "{Player} helps the hunters",
+    "requirements": {
+        "strength": 0,
+        "dexterity": 0,
+        "constitution": 0,
+        "charisma": 0,
+        "magic": 0,
+        "karma": 0
+    },
+    "successAttributes": {
+        "strength": 0,
+        "dexterity": 0,
+        "constitution": 0,
+        "charisma": 0,
+        "magic": 0,
+        "karma": 0
+    },
+    "onSuccess": {
+        "displayText": "{Player} springs forth from behind cover, surprising the {Monster1}. Using his magical powers to enhance his strength, he rips off the {Monster1}’s tail, causing it to back away and retreat. The hunters, having seen such a terrifying display of force, agreed {_Random:that they would|to} not pursue {Player} any further. Shortly afterwards, an {Kingdom#Adjective} knight who was patrolling the forest nearby caught wind of the battle and approached the group, introducing herself by the name of {Knight1}. Although communication was difficult, {Knight1} expressed that she wanted to bring {Player} to {Capital1}, the royal capital of the kingdom of {Kingdom#Name}.",
+        "modifyAttributes": {
+            "strength": 0,
+            "dexterity": 0,
+            "constitution": 0,
+            "charisma": 0,
+            "magic": 0,
+            "karma": 1
+        },
+        "choices": [
+            "{Player} follows {Knight1}",
+            "{Player} refuses to follow {Knight1}"
+        ]
+    },
+    "onFailure": {
+        "displayText": "",
+        "modifyAttributes": {
+            "strength": 0,
+            "dexterity": 0,
+            "constitution": 0,
+            "charisma": 0,
+            "magic": 0,
+            "karma": 0
+        },
+        "choices": []
+    }
+}

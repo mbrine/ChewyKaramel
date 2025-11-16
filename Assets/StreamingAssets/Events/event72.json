@@ -1,0 +1,46 @@
+{
+    "id": "{Player} hide and observe the cathedral's interior",
+    "requirements": {
+        "strength": 0,
+        "dexterity": 0,
+        "constitution": 0,
+        "charisma": 0,
+        "magic": 0,
+        "karma": 0
+    },
+    "successAttributes": {
+        "strength": 0,
+        "dexterity": 0,
+        "constitution": 0,
+        "charisma": 0,
+        "magic": 0,
+        "karma": 0
+    },
+    "onSuccess": {
+        "displayText": "{Player} pressed himself against a shadowed column, his eyes scanning the vast cathedral. The hall stretched far and wide, its high vaulted ceilings disappearing into darkness above. Stained-glass windows painted the marble floors in shifting colors as candlelight flickered, and the soft hum of magic seemed to resonate from every surface the walls, the pillars, even the air itself.\n\nThe central dais drew his attention, dominated by the glowing sigil. Its pulsing light cast long, undulating shadows across the hall, illuminating carved statues of angels in frozen flight. Ornate tapestries hung along the walls, depicting celestial battles and otherworldly ceremonies, their threads glinting faintly in the glow.\n\nEvery step echoed through the empty spaces, making {Player} acutely aware of how silent the cathedral truly was. The energy from the sigil seemed to reach outward, brushing against him even from afar, making his hair stand on end.",
+        "modifyAttributes": {
+            "strength": 0,
+            "dexterity": 0,
+            "constitution": 0,
+            "charisma": 0,
+            "magic": 0,
+            "karma": 0
+        },
+        "choices": [
+            "{Player} approach the sigil and touch it",
+            "{Player} explore a side passage"
+        ]
+    },
+    "onFailure": {
+        "displayText": "",
+        "modifyAttributes": {
+            "strength": 0,
+            "dexterity": 0,
+            "constitution": 0,
+            "charisma": 0,
+            "magic": 0,
+            "karma": 0
+        },
+        "choices": []
+    }
+}

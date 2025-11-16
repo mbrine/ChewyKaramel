@@ -1,0 +1,45 @@
+{
+    "id": "Head into the forest",
+    "requirements": {
+        "strength": 0,
+        "dexterity": 0,
+        "constitution": 0,
+        "charisma": 0,
+        "magic": 0,
+        "karma": 0
+    },
+    "successAttributes": {
+        "strength": 0,
+        "dexterity": 0,
+        "constitution": 0,
+        "charisma": 0,
+        "magic": 0,
+        "karma": 0
+    },
+    "onSuccess": {
+        "displayText": "Within the first hour of travel through {Forest1}, {Player} felt a quiet joy settle over him. The once-daunting labyrinth of greenery now seemed almost welcoming, every turn familiar, every path deliberate. His earlier patience and caution had paid off; seeking wisdom before acting had made all the difference.\n\nAs the hours passed and unseen dangers slipped harmlessly by, his steady pace carried him deeper into the forest’s heart. Then, through the dense veil of trees, he saw it, a vast clearing bathed in sunlight, and at its center stood a great oak, just as it had been described to him before departing from the castle. Majestic and ancient, it loomed like a silent guardian of forgotten truths..",
+        "modifyAttributes": {
+            "strength": 0,
+            "dexterity": 0,
+            "constitution": 0,
+            "charisma": 0,
+            "magic": 0,
+            "karma": 0
+        },
+        "choices": [
+            "Approach the tree"
+        ]
+    },
+    "onFailure": {
+        "displayText": "",
+        "modifyAttributes": {
+            "strength": 0,
+            "dexterity": 0,
+            "constitution": 0,
+            "charisma": 0,
+            "magic": 0,
+            "karma": 0
+        },
+        "choices": []
+    }
+}

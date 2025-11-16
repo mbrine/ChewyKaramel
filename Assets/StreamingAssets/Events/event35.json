@@ -1,0 +1,46 @@
+{
+    "id": "{Player} ask the traveling caravan about any happenings nearby",
+    "requirements": {
+        "strength": 0,
+        "dexterity": 0,
+        "constitution": 0,
+        "charisma": 0,
+        "magic": 0,
+        "karma": 0
+    },
+    "successAttributes": {
+        "strength": 0,
+        "dexterity": 0,
+        "constitution": 0,
+        "charisma": 0,
+        "magic": 0,
+        "karma": 0
+    },
+    "onSuccess": {
+        "displayText": "{Player} decided it would be wise to gather some information before setting out.\n“There's a madman roaming the forest,” one of the merchants said. “Attacking travelers, soldiers, anyone who crosses his path. Claims he's some kind of ‘anti-Angel' rather bold, if you ask me. He even attacked our caravan after finding out where we were heading. That's why we stopped here; one of our wagon wheels was broken during the attack”.",
+        "modifyAttributes": {
+            "strength": 0,
+            "dexterity": 0,
+            "constitution": 0,
+            "charisma": 1,
+            "magic": 0,
+            "karma": 0
+        },
+        "choices": [
+            "{Player} offers to help",
+            "{Player} heads into the forest alone"
+        ]
+    },
+    "onFailure": {
+        "displayText": "",
+        "modifyAttributes": {
+            "strength": 0,
+            "dexterity": 0,
+            "constitution": 0,
+            "charisma": 0,
+            "magic": 0,
+            "karma": 0
+        },
+        "choices": []
+    }
+}

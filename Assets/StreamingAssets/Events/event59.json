@@ -1,0 +1,46 @@
+{
+    "id": "{Player} follows the lake's shoreline, searching for the source of the voice",
+    "requirements": {
+        "strength": 0,
+        "dexterity": 0,
+        "constitution": 0,
+        "charisma": 0,
+        "magic": 0,
+        "karma": 0
+    },
+    "successAttributes": {
+        "strength": 0,
+        "dexterity": 0,
+        "constitution": 0,
+        "charisma": 0,
+        "magic": 0,
+        "karma": 0
+    },
+    "onSuccess": {
+        "displayText": "Moonlight traced a silver path along the water’s edge as {Player} followed the shoreline. The air grew colder with every step, yet the sound of the waves was calm and rhythmic, almost guiding him forward. The black book pulsed faintly in his hand, as if sensing what awaited ahead.\n\nMist rose from the lake, curling into shapes that flickered between beauty and menace. The whisper he had heard before became clearer, no longer a single voice but many, layered and distant. He paused, unsure if he was being drawn toward knowledge or danger.\n\nThen he saw it. At the far end of the shore, where the lake met a grove of ancient trees, a faint glow shimmered above the water. A figure stood there, half-hidden in mist. Its form shifted between human and ethereal light. The presence was neither hostile nor gentle, simply watching him.\n\nA sudden ripple broke across the surface, and something else emerged — dark and heavy, its movement slow but deliberate. The glow around the figure flared brighter, and {Player} realized he stood between two unseen forces, both drawn to him for reasons he could not yet understand.\n\nThe voice within his mind spoke again, stronger now. *Choose with your heart, not your fear.*\n\nThe mist thickened, and the air trembled with quiet power. {Player} could sense that whichever choice he made would shape the path of his destiny.",
+        "modifyAttributes": {
+            "strength": 1,
+            "dexterity": 1,
+            "constitution": 1,
+            "charisma": 1,
+            "magic": 2,
+            "karma": 0
+        },
+        "choices": [
+            "{Player} approaches the glowing figure of {Spirit1}",
+            "{Player} stands his ground as {Monster3} emerges from the mist"
+        ]
+    },
+    "onFailure": {
+        "displayText": "",
+        "modifyAttributes": {
+            "strength": 0,
+            "dexterity": 0,
+            "constitution": 0,
+            "charisma": 0,
+            "magic": 0,
+            "karma": 0
+        },
+        "choices": []
+    }
+}

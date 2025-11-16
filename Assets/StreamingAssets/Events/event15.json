@@ -1,0 +1,46 @@
+{
+    "id": "Press her for more answers.",
+    "requirements": {
+        "strength": 0,
+        "dexterity": 0,
+        "constitution": 0,
+        "charisma": 0,
+        "magic": 0,
+        "karma": 0
+    },
+    "successAttributes": {
+        "strength": 0,
+        "dexterity": 0,
+        "constitution": 0,
+        "charisma": 0,
+        "magic": 0,
+        "karma": 0
+    },
+    "onSuccess": {
+        "displayText": "{Player} hesitated, then spoke, the words breaking through the quiet.\n\n“Mother… please. There has to be more. Something you’re not telling me.” His voice carried no accusation, only desperate hope. The Queen of {Kingdom#Name}’s expression softened, yet pain clouded her eyes. “If there were, my son, I would tell you,” she whispered. “All I know is that you were there, alone and untouched by the wild. The forest seemed to guard you.”\n\nHer hands trembled as she reached for his. “I have wondered every day since who left you there, and why. But the truth, I fear, lies beyond my grasp.”\n\nSilence hung between them, filled with the weight of all she could not say. {Player} looked toward the window, where the kingdom stretched beneath the fading sun his home, his people, his duty. Yet beyond those walls, the unknown called to him, whispering of answers buried in the past. In that moment, two paths took shape: to serve the realm that had given him everything, or to seek the truth that might take it all away.",
+        "modifyAttributes": {
+            "strength": 0,
+            "dexterity": 0,
+            "constitution": 0,
+            "charisma": 0,
+            "magic": 0,
+            "karma": 0
+        },
+        "choices": [
+            "”The needs of the kingdom outweigh the needs of the one”",
+            "Decide to explore the world in search of the past."
+        ]
+    },
+    "onFailure": {
+        "displayText": "",
+        "modifyAttributes": {
+            "strength": 0,
+            "dexterity": 0,
+            "constitution": 0,
+            "charisma": 0,
+            "magic": 0,
+            "karma": 0
+        },
+        "choices": []
+    }
+}

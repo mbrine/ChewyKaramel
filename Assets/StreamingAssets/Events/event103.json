@@ -1,0 +1,46 @@
+{
+    "id": "{Player} stands his ground as {Monster3} emerges from the mist",
+    "requirements": {
+        "strength": 0,
+        "dexterity": 0,
+        "constitution": 0,
+        "charisma": 0,
+        "magic": 0,
+        "karma": 0
+    },
+    "successAttributes": {
+        "strength": 0,
+        "dexterity": 0,
+        "constitution": 0,
+        "charisma": 0,
+        "magic": 0,
+        "karma": 0
+    },
+    "onSuccess": {
+        "displayText": "The mist thickened as {Monster3} rose from the dark water. Its form was vast, scales glistening like wet obsidian, eyes burning with a cold intelligence. {Player} felt fear grip his heart, but something within him refused to yield. He pulled out his weapon and chant magic.\n\nThe creature paused, watching him with a strange recognition. Then a voice, deep and resonant, filled the air. *So the lost child still lives.* The sound made the water tremble.\n\nMemories not his own flashed before his eyes. He saw a battle beneath a falling sky, angels and beasts clashing in a storm of fire. Among them was a woman of radiant light, holding a newborn child — the same amulet that now hung around his neck glimmered in her hands.\n\nThe creature lowered its massive head until it was level with {Player}. *You are not my enemy,* it rumbled. *You are the last echo of a world that ended with the stars. You were hidden among mortals so you might one day decide what remains of that light.*\n\nSilence returned to the lakeshore, broken only by the gentle lapping of the waves. {Monster3} sank slowly back into the water, leaving {Player} alone once more beneath the starlit sky.\n\nHe knew the truth now. His life, his past, even the kindness of {Queen#Name}, were pieces of a greater mystery that had finally revealed itself. But whether to carry that truth or leave it behind was a choice only he could make.",
+        "modifyAttributes": {
+            "strength": 3,
+            "dexterity": 1,
+            "constitution": 2,
+            "charisma": 0,
+            "magic": 3,
+            "karma": 1
+        },
+        "choices": [
+            "{Player} accepts the truth of his celestial origin and sets forth to embrace his destiny",
+            "{Player} buries the truth and returns to {Kingdom#Name} to live as a prince once more"
+        ]
+    },
+    "onFailure": {
+        "displayText": "",
+        "modifyAttributes": {
+            "strength": 0,
+            "dexterity": 0,
+            "constitution": 0,
+            "charisma": 0,
+            "magic": 0,
+            "karma": 0
+        },
+        "choices": []
+    }
+}

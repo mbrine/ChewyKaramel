@@ -1,0 +1,46 @@
+{
+    "id": "{Player} heals the wounded {Knight1}",
+    "requirements": {
+        "strength": 0,
+        "dexterity": 0,
+        "constitution": 0,
+        "charisma": 0,
+        "magic": 0,
+        "karma": 0
+    },
+    "successAttributes": {
+        "strength": 0,
+        "dexterity": 0,
+        "constitution": 0,
+        "charisma": 0,
+        "magic": 0,
+        "karma": 0
+    },
+    "onSuccess": {
+        "displayText": "{Player} uses his magical powers to heal {Knight1}’s wounds. Unfortunately, the other members of the escort party were too far gone to be resuscitated. This act of kindness makes {Knight1} feel indebted to {Player}. When the two arrive at {Capital1}, they are welcomed by the guards and stationed in holding site by the name of {Site1}, to await further orders. {Knight1} later learns that {Player} was going to be taken away to a remote research facility within inner {Capital1}, known for cruel methods of experimentation. She pleads with her superiors to reconsider their decision, stating that she would not be alive without him, making an appeal to morality.\n\nThe {Kingdom#Adjective} high command, upon hearing about this, decides to give {Player} a chance to integrate into society. A few months later, {Player} was given the chance to be enrolled at the {Capital1} Military Academy, where young {Kingdom#Adjective} citizens learn to become fledgeling soldiers for their kingdom.",
+        "modifyAttributes": {
+            "strength": 0,
+            "dexterity": 0,
+            "constitution": 0,
+            "charisma": 0,
+            "magic": 0,
+            "karma": 1
+        },
+        "choices": [
+            "{Player} accepts the offer to join the {Capital1} Academy",
+            "{Player} rejects the offer to join the {Capital1} Academy"
+        ]
+    },
+    "onFailure": {
+        "displayText": "",
+        "modifyAttributes": {
+            "strength": 0,
+            "dexterity": 0,
+            "constitution": 0,
+            "charisma": 0,
+            "magic": 0,
+            "karma": 0
+        },
+        "choices": []
+    }
+}

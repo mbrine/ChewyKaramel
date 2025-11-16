@@ -1,0 +1,46 @@
+{
+    "id": "{Player} heads to the palace’s garden for an evening stroll",
+    "requirements": {
+        "strength": 0,
+        "dexterity": 0,
+        "constitution": 0,
+        "charisma": 0,
+        "magic": 0,
+        "karma": 0
+    },
+    "successAttributes": {
+        "strength": 0,
+        "dexterity": 0,
+        "constitution": 0,
+        "charisma": 0,
+        "magic": 0,
+        "karma": 0
+    },
+    "onSuccess": {
+        "displayText": "Deciding to go for an evening stroll, {Player} heads to the {_Random:evergreen|idyllic|lustrous} garden located at the heart of the palace.\n\nAs {Player} walks through the garden, taking in the {_Random:sounds of birds resting for the night|smells of the tulip beds|dance of fireflies weaving through the hedges}, a faint memory flashes across his mind, a great tree and the shadow of his mother looming over him.\n\nBefore he could ruminate further, his attention is caught by a singular rose in the flower bed wilting, out of place among perfect blossoms. Crouching over the dying flower, something starts bubbling in {Player}’s gut, calling for him to reach out to the flower with his hand. His fingers hover just above the rose, {Player} not understanding why he’s doing this, it just feels right.\n\n The moment his fingertips brushed against the rose, a feeling of warmth and power surged from his fingertips and implanted itself into the flower, revitalizing its petals to a full scarlet hue.\n\n Shocked at the scene that had unfolded before him, {Player}’s mind is barraged with questions that he wants answered now and there were two sources that he could gleam from with one of them coming from the whispers coming from the old library.",
+        "modifyAttributes": {
+            "strength": 0,
+            "dexterity": 0,
+            "constitution": 0,
+            "charisma": 0,
+            "magic": 0,
+            "karma": 0
+        },
+        "choices": [
+            "Get an audience with his mother, the Queen",
+            "{Player} drawn by whispers echoing from the old library"
+        ]
+    },
+    "onFailure": {
+        "displayText": "",
+        "modifyAttributes": {
+            "strength": 0,
+            "dexterity": 0,
+            "constitution": 0,
+            "charisma": 0,
+            "magic": 0,
+            "karma": 0
+        },
+        "choices": []
+    }
+}

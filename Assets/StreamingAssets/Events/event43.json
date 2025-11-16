@@ -1,0 +1,46 @@
+{
+    "id": "{Player} decides to head to the nearest town",
+    "requirements": {
+        "strength": 0,
+        "dexterity": 0,
+        "constitution": 0,
+        "charisma": 0,
+        "magic": 0,
+        "karma": 0
+    },
+    "successAttributes": {
+        "strength": 0,
+        "dexterity": 0,
+        "constitution": 0,
+        "charisma": 0,
+        "magic": 0,
+        "karma": 0
+    },
+    "onSuccess": {
+        "displayText": "{Player} followed the forest path toward {TownName}, sunlight flickering through the trees. Signs of travelers appeared along the way, from bootprints to cart tracks to a torn cloak.\n\nAs the woods thinned, a busy road came into view, filled with merchants and wanderers. Voices mixed with the sound of carts and hooves on the ground.\n\nAt the gates, {Player} found the town alive with movement, vendors calling out, children laughing, and the scent of bread and spice filling the air. He paused for a moment, then stepped forward into {TownName}.",
+        "modifyAttributes": {
+            "strength": 0,
+            "dexterity": 0,
+            "constitution": 0,
+            "charisma": 0,
+            "magic": 0,
+            "karma": 0
+        },
+        "choices": [
+            "{Player} joins the Adventurer’s Guild",
+            "{Player} joins the Town’s Security Force"
+        ]
+    },
+    "onFailure": {
+        "displayText": "",
+        "modifyAttributes": {
+            "strength": 0,
+            "dexterity": 0,
+            "constitution": 0,
+            "charisma": 0,
+            "magic": 0,
+            "karma": 0
+        },
+        "choices": []
+    }
+}

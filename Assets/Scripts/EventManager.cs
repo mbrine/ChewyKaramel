@@ -106,6 +106,10 @@ public class EventManager : MonoBehaviour
         {
             PerformDFSTest();
         }
+        if (Input.GetKey(KeyCode.LeftShift) && Input.GetKey(KeyCode.RightShift) && Input.GetKeyDown(KeyCode.U))
+        {
+            SaveEvents();
+        }
     }
 
     private void LateUpdate()
@@ -157,6 +161,29 @@ public class EventManager : MonoBehaviour
             // Close the file when we're done
             fileStream.Close();
 
+        }
+    }
+    public void SaveEvents()
+    {
+        Directory.Delete(Application.streamingAssetsPath + "/Events", true);
+        Directory.CreateDirectory(Application.streamingAssetsPath + "/Events");
+
+        int index = 0;
+
+        // Save all files
+        foreach (var kvp in eventsDictionary)
+        {
+            var _event = kvp.Value;
+
+            string json = JsonUtility.ToJson(_event,true);
+
+            FileStream outFile = new FileStream($"{Application.streamingAssetsPath}/Events/event{index.ToString()}.json", FileMode.OpenOrCreate);
+            using (StreamWriter sw = new StreamWriter(outFile))
+            {
+                sw.Write(json);
+            }
+            outFile.Close();
+            ++index;
         }
     }
     public void InitFileSystem()

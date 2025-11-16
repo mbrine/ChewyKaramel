@@ -1,0 +1,43 @@
+{
+    "id": "{Player} refuse and flee",
+    "requirements": {
+        "strength": 0,
+        "dexterity": 0,
+        "constitution": 0,
+        "charisma": 0,
+        "magic": 0,
+        "karma": 0
+    },
+    "successAttributes": {
+        "strength": 0,
+        "dexterity": 0,
+        "constitution": 0,
+        "charisma": 0,
+        "magic": 0,
+        "karma": 0
+    },
+    "onSuccess": {
+        "displayText": "{Player} shook his head, fear and instinct winning over curiosity. Without another word, he turned and sprinted into the dense forest, the hooded figure’s eyes and the faint pulse of the relic lingering in his mind.\n\nBranches clawed at his arms and face as he pushed deeper, the moonlight barely piercing the thick canopy above. The sounds of the forest rustling leaves, distant cries, snapping twigs mingled with the pounding of his own heart. Every step carried him further from the city, but also deeper into the unknown.\n\nEventually, he found a quiet glade beside a winding stream. Exhausted, he sank to the ground and let the night envelop him. Days became weeks as {Player} learned to move with the forest, hunting, hiding, and mastering the instincts that had always been part of him. With each passing season, the pulse of his half-Angel power grew stronger, feeding on the raw magic of the wild and the solitude of the forest.\n\nYears later, the tales of a mysterious figure who appeared like a shadow in the trees began to spread. Some whispered of impossible feats and glimpses of radiant wings in the moonlight. Alone yet unbound, {Player} had survived, and the forest had made him powerful, a force shaped by both the wild and the spark of the Angels within him, waiting for the day his destiny would call him out of the shadows.",
+        "modifyAttributes": {
+            "strength": 0,
+            "dexterity": 0,
+            "constitution": 0,
+            "charisma": 0,
+            "magic": 0,
+            "karma": 0
+        },
+        "choices": []
+    },
+    "onFailure": {
+        "displayText": "",
+        "modifyAttributes": {
+            "strength": 0,
+            "dexterity": 0,
+            "constitution": 0,
+            "charisma": 0,
+            "magic": 0,
+            "karma": 0
+        },
+        "choices": []
+    }
+}

@@ -1,0 +1,46 @@
+{
+    "id": "{Player} runs away from the burning village",
+    "requirements": {
+        "strength": 0,
+        "dexterity": 0,
+        "constitution": 0,
+        "charisma": 0,
+        "magic": 0,
+        "karma": 0
+    },
+    "successAttributes": {
+        "strength": 0,
+        "dexterity": 0,
+        "constitution": 0,
+        "charisma": 0,
+        "magic": 0,
+        "karma": 0
+    },
+    "onSuccess": {
+        "displayText": "{Player} ran from the chaos, watching in horror as familiar faces fell. Through the flames, he saw a massive Angel standing in the village square, wings spread wide and eyes cold.\n\n“This village defies our rule,” it said. “Purge them and remind all that defiance will not be tolerated.”\n\n{Player} froze at the overwhelming presence of the creature. Suddenly, a hand grabbed him from behind, pulling him away from the inferno. The hand belonged to {VillageGirl}, and together they ran toward the nearby stream.\n\nAs they neared the river, a massive figure flashed behind {VillageGirl} and struck her down. It was the same Angel he had seen in the village square. The creature wielded a greatsword with a crimson-red blade, its aura radiating deadly power.",
+        "modifyAttributes": {
+            "strength": 0,
+            "dexterity": 0,
+            "constitution": 0,
+            "charisma": 0,
+            "magic": 0,
+            "karma": 0
+        },
+        "choices": [
+            "{Player} tries to fight the Angel",
+            "{Player} jumps into the river"
+        ]
+    },
+    "onFailure": {
+        "displayText": "",
+        "modifyAttributes": {
+            "strength": 0,
+            "dexterity": 0,
+            "constitution": 0,
+            "charisma": 0,
+            "magic": 0,
+            "karma": 0
+        },
+        "choices": []
+    }
+}

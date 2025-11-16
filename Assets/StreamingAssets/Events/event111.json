@@ -1,0 +1,46 @@
+{
+    "id": "{Player} trained to master Water magic",
+    "requirements": {
+        "strength": 0,
+        "dexterity": 0,
+        "constitution": 0,
+        "charisma": 0,
+        "magic": 0,
+        "karma": 0
+    },
+    "successAttributes": {
+        "strength": 0,
+        "dexterity": 0,
+        "constitution": 0,
+        "charisma": 0,
+        "magic": 0,
+        "karma": 0
+    },
+    "onSuccess": {
+        "displayText": "From a single droplet to the pull of the tide, {Player}’s command of water deepened with each passing day. At first, the streams slipped through his grasp, scattering before his focus could take hold. Slowly, the water began to respond, curling and flowing around his hands like living silk.\n\nOne afternoon, while {Player} trained in the forest, he noticed {VillageGirl}, a young villager girl, watching him. Before they could speak, a massive, enraged wild boar burst from the underbrush, charging straight at her.\n\nWater surged at {Player}’s command, forming a twisting barrier that knocked the boar off its charge. The creature stumbled and fell back, stunned by the force. With a final wave, he sent a torrent rushing forward, driving it into the woods. The forest fell silent as {VillageGirl}’s wide eyes met his.",
+        "modifyAttributes": {
+            "strength": 0,
+            "dexterity": 1,
+            "constitution": 0,
+            "charisma": 1,
+            "magic": 1,
+            "karma": 1
+        },
+        "choices": [
+            "{Player} uses his magic to help the villagers",
+            "{Player} keeps his magic a secret"
+        ]
+    },
+    "onFailure": {
+        "displayText": "",
+        "modifyAttributes": {
+            "strength": 0,
+            "dexterity": 0,
+            "constitution": 0,
+            "charisma": 0,
+            "magic": 0,
+            "karma": 0
+        },
+        "choices": []
+    }
+}

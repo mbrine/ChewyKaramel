@@ -1,0 +1,46 @@
+{
+    "id": "Venture forth to {VillageName}",
+    "requirements": {
+        "strength": 0,
+        "dexterity": 0,
+        "constitution": 0,
+        "charisma": 0,
+        "magic": 0,
+        "karma": 0
+    },
+    "successAttributes": {
+        "strength": 0,
+        "dexterity": 0,
+        "constitution": 0,
+        "charisma": 0,
+        "magic": 0,
+        "karma": 0
+    },
+    "onSuccess": {
+        "displayText": "With enough supplies packed and his resolve steeled, {Player} set out toward {VillageName}. The road was long and unforgiving. Days blended into nights as he traversed forests, crossed streams, and navigated winding trails. Along the way, he practiced the magic that had first appeared within him, testing small sparks, shaping them, and learning how far he could push his abilities without losing control. Each success and failure taught patience, precision, and resilience.\n\nHe also learned to fend for himself in more practical ways such as finding food, starting fires, and reading the subtle signs of nature. Every step sharpened his mind and strengthened his body, preparing him for challenges he had never faced within the safety of the palace.\n\nAt last, the village came into view, its thatched roofs rising from the morning mist. Memories of the stories he had been told mingled with curiosity and resolve. Here, he could either search for the tree that had once sheltered him or seek the wisdom of the village elder.",
+        "modifyAttributes": {
+            "strength": 0,
+            "dexterity": 0,
+            "constitution": 0,
+            "charisma": 0,
+            "magic": 0,
+            "karma": 0
+        },
+        "choices": [
+            "Seek the village elder for the lay of the forest",
+            "Head straight into the forest"
+        ]
+    },
+    "onFailure": {
+        "displayText": "",
+        "modifyAttributes": {
+            "strength": 0,
+            "dexterity": 0,
+            "constitution": 0,
+            "charisma": 0,
+            "magic": 0,
+            "karma": 0
+        },
+        "choices": []
+    }
+}

@@ -1,0 +1,46 @@
+{
+    "id": "Get an audience with his mother, the Queen",
+    "requirements": {
+        "strength": 0,
+        "dexterity": 0,
+        "constitution": 0,
+        "charisma": 0,
+        "magic": 0,
+        "karma": 0
+    },
+    "successAttributes": {
+        "strength": 0,
+        "dexterity": 0,
+        "constitution": 0,
+        "charisma": 0,
+        "magic": 0,
+        "karma": 0
+    },
+    "onSuccess": {
+        "displayText": "Getting an audience with the Queen is no easy feat, even as her son and the crown prince one must jump through many hoops to see Her Royal Majesty. Walking through the many hallways of the castle on his way to jump through said hoops, {Player} passes the corridor leading to the old library and a thought occurs to him.\n\n”Have they known all this time and not told me anything? Am I really their child?”\n\nHesitation and mistrust start to seep into {Player}’s mind. Should he really ask his mother given the chance of deceit or should he pivot and make haste for the library.",
+        "modifyAttributes": {
+            "strength": 0,
+            "dexterity": 0,
+            "constitution": 0,
+            "charisma": 0,
+            "magic": 0,
+            "karma": 0
+        },
+        "choices": [
+            "Trust that his mother will reveal the truth to him",
+            "{Player} drawn by whispers echoing from the old library"
+        ]
+    },
+    "onFailure": {
+        "displayText": "",
+        "modifyAttributes": {
+            "strength": 0,
+            "dexterity": 0,
+            "constitution": 0,
+            "charisma": 0,
+            "magic": 0,
+            "karma": 0
+        },
+        "choices": []
+    }
+}

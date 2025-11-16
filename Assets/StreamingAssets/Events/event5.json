@@ -1,0 +1,46 @@
+{
+    "id": "Decide to explore the world in search of the past.",
+    "requirements": {
+        "strength": 0,
+        "dexterity": 0,
+        "constitution": 0,
+        "charisma": 0,
+        "magic": 0,
+        "karma": 0
+    },
+    "successAttributes": {
+        "strength": 0,
+        "dexterity": 0,
+        "constitution": 0,
+        "charisma": 0,
+        "magic": 0,
+        "karma": 0
+    },
+    "onSuccess": {
+        "displayText": "Hearing the truth laid bare before him, {Player} knew in his heart that he wanted, no, needed to know the full truth of his discovery as a baby. With a heavy heart, he told his mother his plans to leave the kingdom in search of answers.\n\n”My dearest son,”She responded,”As your mother, I love and cherish you with all my heart and want nothing more than your happiness, even if it means letting you leave the nest. However, as the Queen of {Kingdom#Name}, you are the only heir in line to the throne, should you leave and are unable to return, {Kingdom#Name} would have no heir to look toward the future, and I would be left in grief for both you and the kingdom. Are you truly certain this is the path you wish to take?”",
+        "modifyAttributes": {
+            "strength": 0,
+            "dexterity": 0,
+            "constitution": 0,
+            "charisma": 0,
+            "magic": 0,
+            "karma": 0
+        },
+        "choices": [
+            "”I am certain.”",
+            "”The needs of the kingdom outweigh the needs of the one”"
+        ]
+    },
+    "onFailure": {
+        "displayText": "",
+        "modifyAttributes": {
+            "strength": 0,
+            "dexterity": 0,
+            "constitution": 0,
+            "charisma": 0,
+            "magic": 0,
+            "karma": 0
+        },
+        "choices": []
+    }
+}

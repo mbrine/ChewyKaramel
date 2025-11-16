@@ -1,0 +1,47 @@
+{
+    "id": "{Player} was raised by royalty",
+    "requirements": {
+        "strength": 0,
+        "dexterity": 0,
+        "constitution": 0,
+        "charisma": 0,
+        "magic": 0,
+        "karma": 0
+    },
+    "successAttributes": {
+        "strength": 0,
+        "dexterity": 0,
+        "constitution": 0,
+        "charisma": 0,
+        "magic": 0,
+        "karma": 0
+    },
+    "onSuccess": {
+        "displayText": "The queen of {Kingdom#Name}, {Queen#Name} was taking her usual stroll through the forest of {Forest1}, accompanied by four of her personal knights and her handmaiden. As she admired the beauty of nature, a faint cry reached her ears. Curious, she followed the sound and discovered a small child lying beneath a great tree whose branches curved protectively above, as if sheltering them from the harshness of the wild.\n\nOne would wonder how an infant could have survived in such a place, surrounded by beasts and the whims of nature. Yet the sight before the queen seemed almost divine, as though the forest itself had cared for the infant. Fallen leaves had gathered to form a blanket, the branches above shaped into a gentle canopy, and small forest creatures surrounded the crying infant, some gazing in curiosity, others seeming to offer comfort.\n\nSensing something special about the infant, the queen decided to take the child back with her to the kingdom. As she gently lifted the infant into her arms, she noticed a small wooden amulet tucked within the wrappings. Etched upon its surface was a single word, {Player}.\n\nYears passed and one evening, a grownup {Player} was presented with three options at this very moment, to head to his room’s balcony and witness the Festival of Wings, head to the palace garden for an evening stroll or investigate the whispers he’s been hearing emanating from the castle library.",
+        "modifyAttributes": {
+            "strength": 0,
+            "dexterity": 0,
+            "constitution": 0,
+            "charisma": 0,
+            "magic": 0,
+            "karma": 0
+        },
+        "choices": [
+            "{Player} heads to his room to witness the festival",
+            "{Player} heads to the palace’s garden for an evening stroll",
+            "{Player} drawn by whispers echoing from the old library"
+        ]
+    },
+    "onFailure": {
+        "displayText": "",
+        "modifyAttributes": {
+            "strength": 0,
+            "dexterity": 0,
+            "constitution": 0,
+            "charisma": 0,
+            "magic": 0,
+            "karma": 0
+        },
+        "choices": []
+    }
+}

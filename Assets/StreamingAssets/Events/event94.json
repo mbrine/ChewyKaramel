@@ -1,0 +1,43 @@
+{
+    "id": "{Player} retains his faith in {Kingdom#Name}",
+    "requirements": {
+        "strength": 0,
+        "dexterity": 0,
+        "constitution": 0,
+        "charisma": 0,
+        "magic": 0,
+        "karma": 0
+    },
+    "successAttributes": {
+        "strength": 0,
+        "dexterity": 0,
+        "constitution": 0,
+        "charisma": 0,
+        "magic": 0,
+        "karma": 0
+    },
+    "onSuccess": {
+        "displayText": "{Player} told {Knight1} that he was sure of his path, burning away any traces of doubt in her mind about {Kingdom#Name}’s right to conquer. Together, {Player} and {Knight1} were unstoppable. They achieved thirteen confirmed consecutive victories, forging an unbreakable bond which persists to this very day. Statues were carved in their image and erected all over the newly conquered territories, now under the faithful watch of {Kingdom#Name}. {Player} and {Knight1} would go down in the annals of history as the champions of the {Kingdom#Adjective} regime and hailed as heroes to their people. However, this would come at a heavy cost, for all their gold and riches would eternally be stained by blood. This debt of souls and blood would tip the balance of power in the world, and the vengeful may one day return to seek repayment in full...",
+        "modifyAttributes": {
+            "strength": 0,
+            "dexterity": 0,
+            "constitution": 0,
+            "charisma": 0,
+            "magic": 0,
+            "karma": 0
+        },
+        "choices": []
+    },
+    "onFailure": {
+        "displayText": "",
+        "modifyAttributes": {
+            "strength": 0,
+            "dexterity": 0,
+            "constitution": 0,
+            "charisma": 0,
+            "magic": 0,
+            "karma": 0
+        },
+        "choices": []
+    }
+}

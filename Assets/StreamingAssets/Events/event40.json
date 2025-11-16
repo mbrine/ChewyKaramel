@@ -1,0 +1,43 @@
+{
+    "id": "{Player} captures {Knight1}",
+    "requirements": {
+        "strength": 0,
+        "dexterity": 0,
+        "constitution": 0,
+        "charisma": 0,
+        "magic": 0,
+        "karma": 0
+    },
+    "successAttributes": {
+        "strength": 0,
+        "dexterity": 0,
+        "constitution": 0,
+        "charisma": 0,
+        "magic": 0,
+        "karma": 0
+    },
+    "onSuccess": {
+        "displayText": "Although he had his own reservations, {Player} obeys the order, finding {Knight1} alone in her quarters. She tries to talk {Player} out of it, but to no avail. The guards had already surrounded her tent. {Player} brings her to the inquisitors, and this would be the last time that the two meet.\n\n{Player} goes on to fight in the {Kingdom#Adjective} Crusades, turning over insurmountable odds and winning battles where the army was clearly outgunned and outnumbered. At the end of the war, the kingdom of {Kingdom#Name} achieved a pyrrhic victory. The sheer death and destruction left the region in a state of devastation, which took several years to repair. {Player} was hailed as the hero of {Kingdom#Name}, which laid the bloody foundations of their vast empire, which today stretches across the horizon, as far as the eye can see.",
+        "modifyAttributes": {
+            "strength": 0,
+            "dexterity": 0,
+            "constitution": 0,
+            "charisma": 0,
+            "magic": 0,
+            "karma": 0
+        },
+        "choices": []
+    },
+    "onFailure": {
+        "displayText": "",
+        "modifyAttributes": {
+            "strength": 0,
+            "dexterity": 0,
+            "constitution": 0,
+            "charisma": 0,
+            "magic": 0,
+            "karma": 0
+        },
+        "choices": []
+    }
+}

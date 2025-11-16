@@ -1,0 +1,46 @@
+{
+    "id": "{Player} steps back, rejecting the whispers",
+    "requirements": {
+        "strength": 0,
+        "dexterity": 0,
+        "constitution": 0,
+        "charisma": 0,
+        "magic": 0,
+        "karma": 0
+    },
+    "successAttributes": {
+        "strength": 0,
+        "dexterity": 0,
+        "constitution": 0,
+        "charisma": 0,
+        "magic": 0,
+        "karma": 0
+    },
+    "onSuccess": {
+        "displayText": "{Player} shook his head and stepped away from the book, trying to push the whispers from his mind. Yet they lingered, like a shadow brushing against his thoughts. A faint murmur seemed to follow him through the aisles of the library, soft but insistent:\n\n*You are more than what you believe. Look closer… do not forget…*\n\nHe shivered, feeling a strange pull in his chest, as if the book had touched something buried deep inside him. He looked around, the moonlight painting the shelves in pale silver, the silence pressing in. Everything familiar felt smaller, less certain.\n\nA sketch on the cover of a nearby tome caught his eye. It depicted a figure, seemingly ordinary, yet there was a hint of something different something he could not name. A flicker of curiosity stirred, followed by doubt. He was just a boy, he told himself, nothing more. But the feeling refused to leave.\n\nEven as he tried to calm his racing mind, a tiny spark of unease grew. Could he really be as ordinary as he thought? The whispers did not offer answers, only questions, teasing at a truth he could not yet grasp. {Player} realized that leaving the book behind did not end the pull. It had changed him, subtly but irrevocably.\n\nHe took a deep breath and straightened, caught between wanting to flee and wanting to know more. One thing was certain: something in him had awakened, something that could not be ignored.",
+        "modifyAttributes": {
+            "strength": 0,
+            "dexterity": 0,
+            "constitution": 0,
+            "charisma": 1,
+            "magic": 0,
+            "karma": 2
+        },
+        "choices": [
+            "{Player} sets out on a journey to find out more about himself",
+            "{Player} quietly returns to his room, lost in thought"
+        ]
+    },
+    "onFailure": {
+        "displayText": "",
+        "modifyAttributes": {
+            "strength": 0,
+            "dexterity": 0,
+            "constitution": 0,
+            "charisma": 0,
+            "magic": 0,
+            "karma": 0
+        },
+        "choices": []
+    }
+}

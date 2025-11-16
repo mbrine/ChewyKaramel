@@ -1,0 +1,46 @@
+{
+    "id": "{Player} follows {Knight1}",
+    "requirements": {
+        "strength": 0,
+        "dexterity": 0,
+        "constitution": 0,
+        "charisma": 0,
+        "magic": 0,
+        "karma": 0
+    },
+    "successAttributes": {
+        "strength": 0,
+        "dexterity": 0,
+        "constitution": 0,
+        "charisma": 0,
+        "magic": 0,
+        "karma": 0
+    },
+    "onSuccess": {
+        "displayText": "{Player} willingly follows {Knight1} to {Capital1}. This long journey would take at least two whole months, during which, {Player} learns some rudimentary language skills from his fellow travelers.\n\nHowever, just before the escort could reach their destination, they were attacked by a {Monster2}, an aggressive magical beast with the body of a lion, and the head and wings of an eagle. During this attack, the {Monster2} killed all of the escorting men, gravely wounded {Knight1}, and tore a large hole in the cage where {Player} was held.",
+        "modifyAttributes": {
+            "strength": 0,
+            "dexterity": 0,
+            "constitution": 0,
+            "charisma": 0,
+            "magic": 0,
+            "karma": 0
+        },
+        "choices": [
+            "{Player} fights the {Monster2}",
+            "{Player} uses the opportunity to escape"
+        ]
+    },
+    "onFailure": {
+        "displayText": "",
+        "modifyAttributes": {
+            "strength": 0,
+            "dexterity": 0,
+            "constitution": 0,
+            "charisma": 0,
+            "magic": 0,
+            "karma": 0
+        },
+        "choices": []
+    }
+}

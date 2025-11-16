@@ -1,0 +1,43 @@
+{
+    "id": "{Player} tries to fight the Angel",
+    "requirements": {
+        "strength": 0,
+        "dexterity": 0,
+        "constitution": 0,
+        "charisma": 0,
+        "magic": 0,
+        "karma": 0
+    },
+    "successAttributes": {
+        "strength": 0,
+        "dexterity": 0,
+        "constitution": 0,
+        "charisma": 0,
+        "magic": 0,
+        "karma": 0
+    },
+    "onSuccess": {
+        "displayText": "Blinded by rage, he charged at the Angel, unleashing a barrage of attacks. Through the flurry, he could see the Angel smirk, effortlessly defending against every strike. Finally, it swung the crimson blade it held. {Player} summoned all his strength to block it, but the weight and power of the blow were overwhelming. As the blade came down, so did he. He crashed to the ground, vision blurring, the realization of the difference between them sinking in. His limbs grew heavy, his thoughts scattered, and the hope of victory slipped away like smoke through his fingers. This was the end.",
+        "modifyAttributes": {
+            "strength": 0,
+            "dexterity": 0,
+            "constitution": 0,
+            "charisma": 1,
+            "magic": 0,
+            "karma": 1
+        },
+        "choices": []
+    },
+    "onFailure": {
+        "displayText": "",
+        "modifyAttributes": {
+            "strength": 0,
+            "dexterity": 0,
+            "constitution": 0,
+            "charisma": 0,
+            "magic": 0,
+            "karma": 0
+        },
+        "choices": []
+    }
+}

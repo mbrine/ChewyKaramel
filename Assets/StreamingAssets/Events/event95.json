@@ -1,0 +1,46 @@
+{
+    "id": "{Player} run after the figure",
+    "requirements": {
+        "strength": 0,
+        "dexterity": 0,
+        "constitution": 0,
+        "charisma": 0,
+        "magic": 0,
+        "karma": 0
+    },
+    "successAttributes": {
+        "strength": 0,
+        "dexterity": 0,
+        "constitution": 0,
+        "charisma": 0,
+        "magic": 0,
+        "karma": 0
+    },
+    "onSuccess": {
+        "displayText": "{Player} pushed through the crowded market, eyes locked on the darting silhouette that vanished between stalls and alleyways. The chase led him away from the warm glow of lanterns into darker, narrower streets. Each turn drew him deeper into the city's quiet veins, until the noise of the market was nothing but a faint echo behind him.\n\nAt last, the figure stopped in a secluded courtyard. Moonlight spilled weakly across cracked stone, and a chill wind swept through the silence. The stranger turned, lowering their hood a sharp gaze meeting {Player}'s. From beneath their cloak, they drew out a small relic, its surface etched with faint runes that shimmered with an eerie white light.\n\n“It reacts to the presence of Angels,” the figure said, holding the relic up as its glow intensified. Their voice dropped, steady but cautious. “And right now, it's reacting to you. So tell me, traveler…” The relic pulsed brighter, reflecting in their eyes. “What are you?”",
+        "modifyAttributes": {
+            "strength": 0,
+            "dexterity": 0,
+            "constitution": 0,
+            "charisma": 0,
+            "magic": 0,
+            "karma": 0
+        },
+        "choices": [
+            "{Player} explains his circumstances",
+            "{Player} hides his circumstances"
+        ]
+    },
+    "onFailure": {
+        "displayText": "",
+        "modifyAttributes": {
+            "strength": 0,
+            "dexterity": 0,
+            "constitution": 0,
+            "charisma": 0,
+            "magic": 0,
+            "karma": 0
+        },
+        "choices": []
+    }
+}

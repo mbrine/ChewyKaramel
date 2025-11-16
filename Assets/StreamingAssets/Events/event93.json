@@ -1,0 +1,46 @@
+{
+    "id": "{Player} rejects the offer to join the {Capital1} Academy",
+    "requirements": {
+        "strength": 0,
+        "dexterity": 0,
+        "constitution": 0,
+        "charisma": 0,
+        "magic": 0,
+        "karma": 0
+    },
+    "successAttributes": {
+        "strength": 0,
+        "dexterity": 0,
+        "constitution": 0,
+        "charisma": 0,
+        "magic": 0,
+        "karma": 0
+    },
+    "onSuccess": {
+        "displayText": "{Player} refuses the offer to join the academy, which comes at a surprise to {Knight1}. In order to prevent him from being turned into a lab experiment, she smuggles him out of {Site1} and tells him to run away, and to never look back. {Player}, confused but not knowing who else to trust, follows her instructions and ends up in the hands of the Thieves’ Guild, an association of criminals operating within outer {Capital1}. Seeing his potential, the guild’s leaders recruited him quickly and put him to use. {Player} would spend the next few years stealing from both commonfolk and nobility, sheltered and hidden away from the public eye by the guild.\n\n{Player} and {Knight1} would meet once again during the early years of the {Kingdom#Adjective} Crusades, a series of long and bloody wars fought by the kingdom of {Kingdom#Name} against its opponents. He was tasked with retrieving artifacts left behind by the people who were fleeing the {Kingdom#Adjective} army. {Knight1} catches him in the middle of the act, resulting in a chase. During this chase, she was ambushed by remnants of the enemy nation’s army, suffering a wound to her leg and falling to the ground.",
+        "modifyAttributes": {
+            "strength": 0,
+            "dexterity": 0,
+            "constitution": 0,
+            "charisma": 0,
+            "magic": 0,
+            "karma": 0
+        },
+        "choices": [
+            "{Player} runs away",
+            "{Player} drops his loot and helps {Knight1}"
+        ]
+    },
+    "onFailure": {
+        "displayText": "",
+        "modifyAttributes": {
+            "strength": 0,
+            "dexterity": 0,
+            "constitution": 0,
+            "charisma": 0,
+            "magic": 0,
+            "karma": 0
+        },
+        "choices": []
+    }
+}

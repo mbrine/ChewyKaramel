@@ -1,0 +1,46 @@
+{
+    "id": "{Player} heads towards the direction of the bell",
+    "requirements": {
+        "strength": 0,
+        "dexterity": 0,
+        "constitution": 0,
+        "charisma": 0,
+        "magic": 0,
+        "karma": 0
+    },
+    "successAttributes": {
+        "strength": 0,
+        "dexterity": 0,
+        "constitution": 0,
+        "charisma": 0,
+        "magic": 0,
+        "karma": 0
+    },
+    "onSuccess": {
+        "displayText": "Drawn by the distant tolling, {Player} moved through the city streets, careful to keep to the shadows. The bells rang with a solemn rhythm, echoing across marble towers and gilded spires, their sound both haunting and magnetic. Each strike seemed to tug at something deep within him, a reminder of the power he carried and the world he had left behind.\n\nAs he approached the source, the streets grew quieter, almost empty, save for a few late-night patrols and servants hurrying along their duties. The bells led him to a massive cathedral at the heart of the capital, its doors carved with intricate depictions of Angels in flight. A faint glow spilled from the entrance, casting long, ethereal shadows across the plaza.\n\n{Player} paused at the threshold, feeling the hum of magic in the air. The bells rang once more, their sound vibrating through the ground.",
+        "modifyAttributes": {
+            "strength": 0,
+            "dexterity": 0,
+            "constitution": 0,
+            "charisma": 0,
+            "magic": 0,
+            "karma": 0
+        },
+        "choices": [
+            "{Player} enter the cathedral",
+            "{Player} heads to the market"
+        ]
+    },
+    "onFailure": {
+        "displayText": "",
+        "modifyAttributes": {
+            "strength": 0,
+            "dexterity": 0,
+            "constitution": 0,
+            "charisma": 0,
+            "magic": 0,
+            "karma": 0
+        },
+        "choices": []
+    }
+}
